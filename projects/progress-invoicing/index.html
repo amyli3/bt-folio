@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Progress Invoicing — Amy Li</title>
-    <meta name="description" content="Case study: building progress invoicing at Buildertrend — removing switching costs and trust barriers so builders adopt it mid-job." />
+    <meta name="description" content="Case study: building progress invoicing at Buildertrend — how the Ship of Theseus team designed for AIA adoption, change orders, open-book costs, and builder trust." />
     <link rel="stylesheet" href="../../styles.css" />
   </head>
   <body class="case-study-page">
@@ -12,8 +12,8 @@
       <a href="../../" class="back-link">← Back to work</a>
       <div class="section-links">
         <a href="#problem">Problem</a>
-        <a href="#shipped">Shipped</a>
-        <a href="#design">Design</a>
+        <a href="#discovery">Discovery</a>
+        <a href="#decisions">Decisions</a>
         <a href="#prototype">Prototype</a>
       </div>
     </nav>
@@ -23,10 +23,10 @@
         <div class="study-eyebrow">2025 – 2026 · Buildertrend · Ship of Theseus</div>
         <h1>Progress Invoicing</h1>
         <p class="study-lede">
-          Building the progress invoice workflow that builders actually
-          adopt mid-job — removing switching costs, bringing in the
-          financial data they need, and making Buildertrend the place
-          where pay applications happen instead of the input to Excel.
+          Designing progress invoicing that builders actually adopt —
+          AIA-style continuation sheets, change orders, open-book
+          costs, and the messy realities of mid-job financials. Built
+          release by release with a CAB of real builders.
         </p>
         <dl class="study-meta">
           <div>
@@ -46,138 +46,195 @@
 
       <section id="problem" class="study-section">
         <h2>The problem</h2>
+        <p>
+          Builders use progress invoicing as the contractual billing
+          format on commercial and high-end residential jobs — banks,
+          architects, and clients expect it in a specific shape (AIA
+          G702/G703). When Buildertrend's progress invoicing can't
+          produce that shape cleanly, builders abandon the workflow
+          and run their billing in Excel or Procore instead.
+        </p>
+        <p>
+          The Ship of Theseus team's job is making that workflow
+          complete enough — and trustworthy enough — that builders
+          don't export out. Every release closes another reason a
+          builder would choose Excel over Buildertrend.
+        </p>
+        <div class="study-image">
+          <img src="./images/thumbnail.png" alt="Progress invoice continuation sheet with cost codes, budget, and overage warning" />
+          <p class="study-caption">The progress invoice workspace — continuation sheet with cost codes, budget columns, and an inline warning when billing exceeds budget.</p>
+        </div>
+      </section>
+
+      <section id="discovery" class="study-section">
+        <h2>Discovery</h2>
+        <p>
+          Research ran alongside development, not before it. We worked
+          with a CAB of ~10 builders — Maze card sorts, interviews,
+          and in-session reviews of working releases. The goal was to
+          separate <em>must-haves</em> (release blockers) from
+          <em>nice-to-haves</em> (second-pass polish).
+        </p>
+
+        <div class="study-callout">
+          <h4>What the CAB told us (Jan–Feb 2026)</h4>
+          <div class="study-grid-2">
+            <div>
+              <p class="study-kicker">Must solve</p>
+              <ul>
+                <li>Client preview of invoices</li>
+                <li>Progress invoices on in-flight jobs</li>
+                <li>$ amount entry (not just %)</li>
+                <li>Client send notifications</li>
+                <li>Buildertrend Payments</li>
+                <li>Retainage (<strong>8 / 14 builders</strong>)</li>
+              </ul>
+            </div>
+            <div>
+              <p class="study-kicker">Nice to have</p>
+              <ul>
+                <li>Draw package — PDF + attachments ordered by cost code (<strong>7 / 14</strong>)</li>
+                <li>Cover sheet (G702)</li>
+                <li>Auto-generated change orders for overages</li>
+                <li>Lien waivers (<strong>5 / 14</strong>)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <p>
+          A few signals mattered more than the rest:
+        </p>
+        <ul class="study-list">
+          <li>
+            <strong>Retainage is a release blocker — for the minority
+            who need it.</strong> Fewer builders use retainage than
+            lien waivers, but the ones who do are hard-blocked without it.
+          </li>
+          <li>
+            <strong>Change orders are the ambient complexity.</strong>
+            Every builder's job has them. Between layout preferences,
+            billing them with their own markup, and timing against
+            actual costs, COs sat inside almost every bit of feedback.
+          </li>
+          <li>
+            <strong>Clients can't see what's coming.</strong> Builders
+            were sending invoices before work was complete just so
+            clients had visibility — which broke release dates and
+            muddied the audit trail.
+          </li>
+        </ul>
+
+        <h3 class="study-subhead">What builders actually said</h3>
         <blockquote class="study-quote">
-          "The core challenge is not segment fit or discoverability, but
-          switching costs and trust. Builders are particularly reluctant
-          to change invoicing and accounting practices mid-job."
-          <cite>— Progress Invoice Adoption thesis, Ship of Theseus</cite>
+          "Retainage is hard to deal with in Buildertrend right now…
+          you have to keep a separate spreadsheet just for retainage."
+          <cite>— Billy Anderson, Waters Building and Design</cite>
         </blockquote>
-        <p>
-          The feature exists. Buildertrend has progress invoicing. The
-          real problem is adoption: builders who are already using the
-          platform still pull their data out into Excel every month
-          because the existing workflow doesn't meet them where they
-          are. They don't trust it enough to move a live job onto it.
-        </p>
         <blockquote class="study-quote">
-          "Builders are currently taking information from disperse
-          locations around Buildertrend to develop custom solutions in
-          external platforms to create the progress invoice… time
-          intensive… multiple opportunities for errors."
-          <cite>— Progress Invoice Positioning</cite>
+          "Retainage needs to be auto-calculated… sometimes 10% on
+          labor but 0% on materials."
+          <cite>— Andrew Couchey, Riggs Custom Builders</cite>
         </blockquote>
-        <p>
-          And a structural blocker compounds it: progress invoicing
-          "cannot be adopted on active jobs because historical invoice
-          data does not flow into progress invoices." A builder in the
-          middle of a project has no clean path to switch — which is
-          most of the builders we most want to convert.
-        </p>
+        <blockquote class="study-quote">
+          "The owner's reps are lazy… they just want a PDF that can
+          be a G702, G703, or a budget — and then they want all the
+          backup in order of cost code."
+          <cite>— Todd Christensen, builder interview</cite>
+        </blockquote>
+        <blockquote class="study-quote">
+          "I like the idea of progress billing and really want to
+          implement it in our system, however the system hasn't
+          updated my Change Order into this."
+          <cite>— Cassie Bayes, Bayes Building Group</cite>
+        </blockquote>
+        <blockquote class="study-quote">
+          "You bring on new features, but never really show how they
+          should be used in relationship to everything else."
+          <cite>— Cindy Roth, Beyond Custom Contracting (on onboarding)</cite>
+        </blockquote>
       </section>
 
-      <section id="shipped" class="study-section">
-        <h2>What we've shipped</h2>
+      <section id="decisions" class="study-section">
+        <h2>Design decisions</h2>
         <p>
-          This has been a steady release-by-release rebuild, tightening
-          the workflow one seam at a time.
+          The through-line on every decision: preserve how the builder
+          already thinks about the job, and surface change-order /
+          cost complexity without making the default flow any harder
+          to read.
         </p>
-        <ul class="study-list">
-          <li>
-            <strong>Continuation sheet (G703-style SOV)</strong> populated
-            from the estimate's client price, with Excel export preserving
-            formulas for Completed &amp; Stored to Date, % Complete, and
-            Balance Remaining. Limited release November 2025 to a ~10-account CAB.
-          </li>
-          <li>
-            <strong>Invoicing by dollar amount</strong> — not just by
-            percentage — GA March 31, 2026.
-          </li>
-          <li>
-            <strong>Invoice Activity Log</strong> — GA April 13, 2026.
-          </li>
-          <li>
-            <strong>Change orders on progress invoices</strong> — approved
-            COs appear as grouped rows directly in the SOV so builders
-            bill against them without re-keying.
-          </li>
-          <li>
-            <strong>Grouping strategy toggle</strong> (cost code vs.
-            estimate group) — the same invoice viewed the way the
-            builder thinks about the job.
-          </li>
-          <li>
-            <strong>Costs on progress invoices (Open Book)</strong> —
-            bills, time-clock entries, accounting costs flow in with
-            markup. Cost floors prevent under-invoicing.
-          </li>
-          <li>
-            <strong>Mobile responsiveness</strong> across invoice,
-            deposits, and credit-memo flows.
-          </li>
-        </ul>
-      </section>
 
-      <section class="study-section">
-        <h2>What's next</h2>
+        <h3 class="study-subhead">Change orders as rows, not columns</h3>
         <p>
-          Q2 2026 roadmap, in order of release:
+          A Maze survey with 9 builders asked how they wanted approved
+          change orders to show up on the invoice: as extra columns
+          next to each line item, or as their own grouped row within
+          the cost code? <strong>Six of nine preferred grouped rows.</strong>
+          Columns would also have blocked our ability to persist
+          estimate-group layouts — which another 5 of 9 builders
+          prioritized over any layout preference. So: rows won.
+          Change orders always appear in their own section regardless
+          of which grouping view is active.
         </p>
-        <ul class="study-list">
-          <li><strong>Open Book progress invoicing</strong> — Release 4/24</li>
-          <li><strong>R1.6 — Adding costs to progress invoices</strong> — In development</li>
-          <li><strong>R1.7 — Selection invoicing on progress invoices</strong></li>
-          <li><strong>R1.8 — Online payments for progress invoices</strong> — In discovery</li>
-        </ul>
-        <p>
-          Running alongside: a discovery track on <strong>progress
-          invoices for in-flight jobs</strong> — the largest adoption
-          blocker by the team's own framing, and the piece most
-          directly tied to the "switching costs" thesis.
-        </p>
-      </section>
+        <div class="study-image">
+          <img src="./images/change-orders.png" alt="Change orders list showing drafts and pending orders" />
+          <p class="study-caption">Change Orders for a job — approved COs flow into the progress invoice as grouped rows without re-entry.</p>
+        </div>
 
-      <section id="design" class="study-section">
-        <h2>Design approach</h2>
+        <h3 class="study-subhead">Group by cost code <em>or</em> estimate group</h3>
         <p>
-          Because the problem is adoption rather than feature coverage,
-          design decisions ladder up to a single question: will a
-          builder three months into a job trust this enough to move
-          their pay application into Buildertrend?
+          Builders think about jobs two ways: the auditor's way (cost
+          code) and their own way (estimate group — framing, foundation,
+          finishes). Both are right for different audiences. The
+          invoice supports both layouts with a single toggle, and the
+          chosen strategy persists per invoice in
+          <code>InvoiceMetadata.LineItemGroupStrategy</code> — the
+          hierarchy assembles client-side, so the toggle is instant.
         </p>
+
+        <h3 class="study-subhead">Open Book: costs set a floor, not a cage</h3>
         <p>
-          The prototype below is where I've been working through how
-          that trust gets built — detail by detail:
+          When Open Book costs flow in (bills, time-clock, accounting),
+          they raise the floor on each cost code's % complete — a
+          builder can't under-invoice what their team has already
+          worked. Cost rows themselves are read-only; the remaining
+          balance is proportionally editable across estimate items.
+          It's guardrails, not handcuffs.
         </p>
-        <ul class="study-list">
-          <li>
-            Column visibility that responds to the job's reality —
-            <em>Revised budget</em> and <em>Approved changes</em>
-            surface only when change orders exist, so the default
-            flow stays quiet and legible.
-          </li>
-          <li>
-            Two grouping views (cost code vs. estimate group) on the
-            same invoice, because the builder's mental model and the
-            bank's expected layout aren't always the same.
-          </li>
-          <li>
-            Inline reconciliation for approved change orders and
-            selections — avoid the re-entry errors that push builders
-            back into Excel.
-          </li>
-          <li>
-            A client-facing view that shows upcoming billings, not just
-            paid ones — closing the visibility gap homeowners flagged in
-            site visits.
-          </li>
-        </ul>
+
+        <h3 class="study-subhead">Selection overages → approved changes, not billing drift</h3>
+        <p>
+          When a selection comes in over allowance on the same cost
+          code, we invoice only the overage and surface it under
+          <em>Approved changes</em> alongside COs — preserving the
+          estimate-group layout and avoiding double-count.
+          When the selection moves to a different cost code, we credit
+          the allowance and invoice the full amount under the new
+          code so the job totals still reconcile to zero.
+        </p>
+
+        <h3 class="study-subhead">Client visibility — the closing gap</h3>
+        <p>
+          The thread we kept hearing from builders: clients want to
+          see what's <em>coming</em>, not just what they've already
+          paid. Builders were releasing invoices early as a hack for
+          this. We're closing that loop with a client-facing
+          financial summary that shows pending invoices, pending
+          selections, and the change-order impact before anything
+          gets billed.
+        </p>
+        <div class="study-image">
+          <img src="./images/job-price-summary.png" alt="Client-facing Job Price Summary with allowances, selections, and pending change orders" />
+          <p class="study-caption">Client view of the job price summary — revised client price, remaining balance, pending impact, and selections with allowance overages.</p>
+        </div>
       </section>
 
       <section id="prototype" class="study-section">
         <h2>Prototype</h2>
         <p>
-          Try it live. This is the working prototype — interact with the
-          invoice, toggle columns, browse change orders.
+          The prototype below is where design decisions get stress-tested
+          against real data shapes. Toggle the grouping, click into a
+          row, open the change-order flow.
         </p>
         <div class="study-iframe-wrap">
           <iframe
@@ -192,6 +249,60 @@
       </section>
 
       <section class="study-section">
+        <h2>What we've shipped</h2>
+        <ul class="study-list">
+          <li>
+            <strong>Continuation sheet (G703-style SOV)</strong> —
+            limited release Nov 2025
+          </li>
+          <li>
+            <strong>Invoicing by dollar amount</strong> — GA March 2026
+          </li>
+          <li>
+            <strong>Invoice Activity Log</strong> — GA April 2026
+          </li>
+          <li>
+            <strong>Change orders as grouped rows</strong> — approved
+            COs appear in-line without re-entry
+          </li>
+          <li>
+            <strong>Grouping toggle</strong> — cost code vs. estimate group
+          </li>
+          <li>
+            <strong>Costs on progress invoices (Open Book)</strong> —
+            bills, time-clock, accounting, with cost floors
+          </li>
+          <li>
+            <strong>Mobile responsiveness</strong> across invoice flows
+          </li>
+        </ul>
+      </section>
+
+      <section class="study-section">
+        <h2>What's next</h2>
+        <p>
+          Q2 2026:
+        </p>
+        <ul class="study-list">
+          <li><strong>Open Book progress invoicing</strong> — release 4/24</li>
+          <li><strong>R1.6 — Adding costs to progress invoices</strong></li>
+          <li><strong>R1.7 — Selection invoicing on progress invoices</strong></li>
+          <li><strong>R1.8 — Online payments for progress invoices</strong></li>
+        </ul>
+        <p>
+          One of the research findings we debated hardest: should
+          progress invoices support in-flight jobs? Our early
+          assumption was yes — it's a big adoption wedge. But the
+          CAB told us builders have workarounds that feel tolerable
+          (standard invoices until the next job starts; manually
+          entering previous-invoice totals). So we made the call to
+          ship what we have to new jobs first and keep in-flight
+          migration as a future option for new builders onboarding
+          into Buildertrend.
+        </p>
+      </section>
+
+      <section class="study-section">
         <h2>How we're measuring it</h2>
         <blockquote class="study-quote">
           "15 CO+ builders agree that client financials are no longer
@@ -199,17 +310,21 @@
           <cite>— Ship of Theseus Q2 2026 goal</cite>
         </blockquote>
         <p>
-          This is deliberately an outcome metric, not an output one.
-          Not "features shipped" — <em>"builders told us this is
-          enough."</em> Leading indicators we're watching: percentage
-          of builders creating multiple progress invoices per job,
-          percentage released, adoption on in-flight jobs, and time
-          from first invoice creation to first release.
+          This is an outcome metric, not an output one. We're watching
+          a few leading indicators to know we're on track:
         </p>
+        <ul class="study-list">
+          <li>Percentage of builders creating multiple progress invoices per job</li>
+          <li>Percentage released (not just created)</li>
+          <li>Adoption on in-flight jobs (via workaround)</li>
+          <li>Time from first invoice creation to first release</li>
+        </ul>
         <p>
-          That framing shapes every design decision. The goal isn't
-          parity with Excel or Procore. It's trust that survives
-          contact with a real job, at a real builder, on a real Monday.
+          The live risk: recruiting. Talking to 15 CO+ builders takes
+          more work than the number suggests — that segment is busy
+          and harder to schedule. That constraint shapes how much we
+          rely on quick-turn Maze surveys vs. deep interviews, and
+          why the CAB relationship matters so much.
         </p>
       </section>
     </article>
