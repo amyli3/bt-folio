@@ -635,20 +635,37 @@ body.case-study-page {
 
 .study-iframe-wrap {
   position: relative;
-  width: 100%;
+  width: 100vw;
+  max-width: 1600px;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  margin-top: 32px;
+  margin-bottom: 32px;
   border: 1px solid var(--border);
   border-radius: 12px;
   overflow: hidden;
   background: var(--surface);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
-  margin: 24px 0;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.1);
 }
 
 .study-iframe-wrap iframe {
   width: 100%;
-  height: 700px;
+  height: 820px;
   border: 0;
   display: block;
+}
+
+@media (max-width: 900px) {
+  .study-iframe-wrap {
+    margin-left: -24px;
+    margin-right: -24px;
+    border-radius: 0;
+    border-left: 0;
+    border-right: 0;
+  }
+  .study-iframe-wrap iframe {
+    height: 600px;
+  }
 }
 
 .study-footnote {
