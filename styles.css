@@ -322,6 +322,19 @@ body.case-study-page {
   display: block;
 }
 
+.case-image-wrap {
+  position: relative;
+}
+
+.case-anchor {
+  position: absolute;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  visibility: hidden;
+  scroll-margin-top: 80px;
+}
+
 .top-nav {
   position: sticky;
   top: 0;
