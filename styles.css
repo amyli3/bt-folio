@@ -527,6 +527,12 @@ body.case-study-page {
   color: var(--text);
 }
 
+.team-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
 .study-section {
   margin-bottom: 56px;
   scroll-margin-top: 80px;
