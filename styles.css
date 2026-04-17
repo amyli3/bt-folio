@@ -614,6 +614,34 @@ body.case-study-page {
   margin-bottom: 20px;
 }
 
+details.study-callout {
+  padding: 20px 24px;
+  margin: 16px 0;
+}
+
+details.study-callout > summary {
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text);
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+details.study-callout > summary::before {
+  content: "▸";
+  font-size: 12px;
+  color: var(--text-muted);
+  transition: transform 0.15s ease;
+  display: inline-block;
+}
+
+details.study-callout[open] > summary::before {
+  transform: rotate(90deg);
+}
+
 .study-grid-2 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
