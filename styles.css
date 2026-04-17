@@ -44,8 +44,18 @@ a {
 }
 
 .site-header .brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   font-weight: 600;
   font-size: 17px;
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .site-header nav {
@@ -200,19 +210,56 @@ a {
   padding: 0 24px;
 }
 
-.about h2 {
-  font-size: 20px;
-  font-weight: 600;
-  padding-bottom: 16px;
-  border-bottom: 1px solid var(--border);
-  margin-bottom: 24px;
+.about-grid {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 48px;
+  align-items: start;
+  margin-bottom: 64px;
 }
 
-.about p {
-  font-size: 18px;
+.about-photo img {
+  width: 100%;
+  border-radius: 12px;
+  display: block;
+}
+
+.about-text p {
+  font-size: 17px;
   color: var(--text-muted);
-  max-width: 680px;
   line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.about-text p:last-child {
+  margin-bottom: 0;
+}
+
+.about-columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+}
+
+.about-col h4 {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 14px;
+}
+
+.about-col ul {
+  list-style: none;
+}
+
+.about-col li {
+  font-size: 15px;
+  color: var(--text-muted);
+  padding: 4px 0;
 }
 
 /* ---------- Home: Contact ---------- */
@@ -343,20 +390,38 @@ body.case-study-page {
   -webkit-backdrop-filter: blur(8px);
   padding: 16px 24px;
   display: flex;
-  gap: 24px;
-  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
   border-bottom: 1px solid var(--border);
   z-index: 10;
   font-size: 14px;
 }
 
-.top-nav a {
+.top-nav .back-link {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.top-nav .back-link:hover {
+  color: var(--text);
+}
+
+.top-nav .section-links {
+  display: flex;
+  gap: 24px;
+}
+
+.top-nav .section-links a {
   color: var(--accent);
   font-weight: 500;
 }
 
-.top-nav a:hover {
+.top-nav .section-links a:hover {
   text-decoration: underline;
+}
+
+.case-back {
+  display: none;
 }
 
 /* ---------- Responsive ---------- */
@@ -378,7 +443,18 @@ body.case-study-page {
   .about {
     margin-top: 80px;
   }
-  .about p {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .about-photo img {
+    max-width: 200px;
+  }
+  .about-columns {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .about-text p {
     font-size: 16px;
   }
   .site-footer {
