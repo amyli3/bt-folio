@@ -282,13 +282,66 @@ a {
   font-size: 17px;
   color: var(--text-muted);
   max-width: 520px;
-  margin: 0 auto 32px;
+  margin: 0 auto 40px;
 }
 
-.contact-links {
+.contact-form {
+  max-width: 520px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+.form-row label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.form-row input,
+.form-row textarea {
+  font-family: inherit;
+  font-size: 15px;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 14px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.form-row input:focus,
+.form-row textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(28, 95, 232, 0.15);
+}
+
+.form-row textarea {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.5;
+}
+
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.form-actions {
   display: flex;
   gap: 12px;
-  justify-content: center;
+  align-items: center;
+  margin-top: 8px;
   flex-wrap: wrap;
 }
 
@@ -300,7 +353,10 @@ a {
   border-radius: 999px;
   font-size: 15px;
   font-weight: 500;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-family: inherit;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
 }
 
 .contact-btn.primary {
@@ -308,9 +364,38 @@ a {
   color: #fff;
 }
 
-.contact-btn.primary:hover {
+.contact-btn.primary:hover:not(:disabled) {
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(28, 95, 232, 0.3);
+}
+
+.contact-btn.primary:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.contact-btn.ghost {
+  background: transparent;
+  border-color: var(--border);
+  color: var(--text);
+}
+
+.contact-btn.ghost:hover {
+  background: var(--surface);
+}
+
+.form-status {
+  margin-top: 16px;
+  font-size: 14px;
+  min-height: 20px;
+}
+
+.form-status.success {
+  color: #0a7a3e;
+}
+
+.form-status.error {
+  color: #c53030;
 }
 
 /* ---------- Footer ---------- */

@@ -59,18 +59,29 @@
           </div>
         </a>
 
-        <div class="project-card coming-soon" aria-disabled="true">
-          <div class="project-thumb placeholder">
-            <span>Coming soon</span>
+        <a class="project-card" href="./projects/frictionless-invoicing/">
+          <div class="project-thumb">
+            <img
+              src="./projects/frictionless-invoicing/images/thumbnail.png"
+              alt="Frictionless Invoicing cover"
+              loading="lazy"
+            />
           </div>
           <div class="project-meta">
-            <div class="project-year">2026 · Buildertrend</div>
-            <h3>More case studies in the works</h3>
+            <div class="project-year">2025 · Buildertrend</div>
+            <h3>Frictionless Invoicing</h3>
             <p class="project-summary">
-              Selections reimagined and progress invoicing — coming soon.
+              Discovery and design work to smooth the invoice workflow
+              across three personas — builder, bookkeeper, and client —
+              surfacing pain points and shaping a clearer path forward.
             </p>
+            <div class="project-tags">
+              <span>Discovery</span>
+              <span>Persona Research</span>
+              <span>Invoicing</span>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
     </section>
 
@@ -144,14 +155,87 @@
     <section id="contact" class="contact">
       <h2>Let's talk</h2>
       <p class="contact-lead">
-        Always happy to chat about design, construction tech, or new opportunities.
+        Send me a message below, or find me on LinkedIn.
       </p>
-      <div class="contact-links">
-        <a class="contact-btn primary" href="https://www.linkedin.com/in/amy-li-design/" target="_blank" rel="noopener">
-          Connect on LinkedIn <span aria-hidden="true">↗</span>
-        </a>
-      </div>
+
+      <form id="contact-form" class="contact-form" novalidate>
+        <div class="form-row">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required maxlength="120" autocomplete="name" />
+        </div>
+        <div class="form-row">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required maxlength="200" autocomplete="email" />
+        </div>
+        <div class="form-row">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required rows="5" maxlength="4000"></textarea>
+        </div>
+
+        <div class="honeypot" aria-hidden="true">
+          <label>Website (leave blank)</label>
+          <input type="text" name="website" tabindex="-1" autocomplete="off" />
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="contact-btn primary">
+            <span class="btn-label">Send message</span>
+          </button>
+          <a class="contact-btn ghost" href="https://www.linkedin.com/in/amy-li-design/" target="_blank" rel="noopener">
+            LinkedIn <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+
+        <p class="form-status" role="status" aria-live="polite"></p>
+      </form>
     </section>
+
+    <script>
+      const form = document.getElementById('contact-form');
+      const statusEl = form.querySelector('.form-status');
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const btnLabel = submitBtn.querySelector('.btn-label');
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        statusEl.textContent = '';
+        statusEl.className = 'form-status';
+
+        const data = Object.fromEntries(new FormData(form).entries());
+        if (!data.name || !data.email || !data.message) {
+          statusEl.textContent = 'Please fill out all fields.';
+          statusEl.classList.add('error');
+          return;
+        }
+
+        submitBtn.disabled = true;
+        btnLabel.textContent = 'Sending…';
+
+        try {
+          const res = await fetch('/api/contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data),
+          });
+          const result = await res.json().catch(() => ({}));
+
+          if (res.ok) {
+            form.reset();
+            statusEl.textContent = 'Thanks — your message is on its way.';
+            statusEl.classList.add('success');
+          } else {
+            statusEl.textContent = result.error || 'Something went wrong. Please try again.';
+            statusEl.classList.add('error');
+          }
+        } catch (err) {
+          statusEl.textContent = 'Network error. Please try again or reach out on LinkedIn.';
+          statusEl.classList.add('error');
+        } finally {
+          submitBtn.disabled = false;
+          btnLabel.textContent = 'Send message';
+        }
+      });
+    </script>
 
     <footer class="site-footer">
       <p>© 2026 Amy Li</p>
