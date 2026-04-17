@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Progress Invoicing — Amy Li</title>
-    <meta name="description" content="Case study: designing progress invoicing at Buildertrend — research, prototyping, and design decisions that reshaped the Ship of Theseus roadmap." />
+    <meta name="description" content="Case study: redesigning progress invoicing at Buildertrend — bringing commercial construction's billing workflow back into the platform." />
     <link rel="stylesheet" href="../../styles.css" />
   </head>
   <body class="case-study-page">
@@ -12,33 +12,29 @@
       <a href="../../" class="back-link">← Back to work</a>
       <div class="section-links">
         <a href="#problem">Problem</a>
-        <a href="#research">Research</a>
-        <a href="#pivots">Pivots</a>
-        <a href="#decisions">Decisions</a>
-        <a href="#prototype">Prototype</a>
+        <a href="#approach">Approach</a>
+        <a href="#learned">Findings</a>
+        <a href="#solved">Design</a>
+        <a href="#exploring">Exploring</a>
       </div>
     </nav>
 
     <article class="study">
       <header class="study-hero">
-        <div class="study-eyebrow">2025 – 2026 · Buildertrend · Ship of Theseus</div>
+        <div class="study-eyebrow">Buildertrend · Ship of Theseus</div>
         <h1>Progress Invoicing</h1>
         <p class="study-lede">
-          Designing progress invoicing that builders actually adopt.
-          Over 7 months, I ran the customer research that shaped the
-          roadmap, prototyped the workflow end-to-end, and made the
-          design calls that moved us from a fragmented legacy feature
-          to a coherent AIA-style billing experience builders will
-          stop exporting out of.
+          Progress invoicing is how commercial and high-end residential
+          construction gets paid. When Buildertrend's workflow couldn't
+          produce a clean AIA-style pay application, builders kept
+          their real billing in Excel. This is the story of bringing
+          that work back into the platform — the research, the design
+          decisions, and the questions still open.
         </p>
         <dl class="study-meta">
           <div>
             <dt>Role</dt>
             <dd>Design, prototyping, research, problem solving</dd>
-          </div>
-          <div>
-            <dt>Timeline</dt>
-            <dd>Oct 2025 — ongoing</dd>
           </div>
           <div>
             <dt>Team</dt>
@@ -48,73 +44,131 @@
               <span>Amy Li (Design)</span>
             </dd>
           </div>
+          <div>
+            <dt>Status</dt>
+            <dd>Multi-release rebuild — ongoing</dd>
+          </div>
         </dl>
       </header>
 
       <section id="problem" class="study-section">
-        <h2>The problem</h2>
+        <h2>Why this matters</h2>
         <p>
-          Builders use progress invoicing as the contractual billing
-          format on commercial and high-end residential jobs — banks,
-          architects, and clients expect AIA G702/G703. When
-          Buildertrend's existing progress invoice couldn't produce
-          that shape cleanly, builders abandoned the workflow and
-          kept their real billing in Excel.
+          In commercial and upmarket residential construction, the
+          pay application is a contract deliverable. Banks, architects,
+          and clients expect a specific shape: the AIA G702 cover
+          sheet and G703 continuation sheet, tied to a Schedule of
+          Values, with retainage calculated, change orders
+          reconciled, and stored materials accounted for. It isn't
+          decorative — it's what unlocks the next draw.
         </p>
         <p>
-          My job as the designer on Ship of Theseus: make the
-          workflow complete enough — and trustworthy enough — that
-          builders don't export out. Every release closes another
-          reason a builder would choose their spreadsheet over
-          Buildertrend.
+          Buildertrend's existing progress invoice gave builders a
+          starting point, but couldn't produce that document cleanly.
+          So builders pulled the data back out. They rebuilt the pay
+          application in Excel every month, reconciled it manually,
+          and kept the "real" billing in a spreadsheet next to the
+          platform — paying for a tool they couldn't use for the work
+          it was meant for.
         </p>
         <div class="study-image">
           <img src="./images/builder-excel.png" alt="A builder's Excel pay application spreadsheet — the workaround we're designing against" />
-          <p class="study-caption">How many builders still produce pay applications today — a hand-built Excel spreadsheet maintained outside Buildertrend.</p>
+          <p class="study-caption">How many builders still produce pay applications today — a hand-built G703 spreadsheet maintained outside Buildertrend.</p>
         </div>
+        <p>
+          Losing that job is expensive twice over: once in churn, and
+          again in the builders who evaluate Buildertrend, see the
+          gap, and walk over to Procore. The goal of this project
+          was to close that gap — make the workflow complete enough,
+          and trustworthy enough, that builders stop exporting out.
+        </p>
       </section>
 
-      <section id="research" class="study-section">
-        <h2>Research I ran</h2>
+      <section id="approach" class="study-section">
+        <h2>How we approached it</h2>
         <p>
-          Research ran alongside development, not before it. Across
-          Oct 2025 – Apr 2026 I ran a mix of client-presentation
-          interviews, two Maze surveys, a structured card sort, and
-          follow-up builder interviews — each one tied to a specific
-          decision we were about to make.
+          Progress invoicing is wide — cover sheets, SOV layouts,
+          retainage, stored materials, change orders, open-book
+          costs, selections, payments, client visibility. A
+          naïve plan would be to spec the full AIA toolkit and
+          ship it. We deliberately didn't do that.
+        </p>
+        <p>
+          Instead, we set up an ongoing partnership with a
+          Customer Advisory Board of ten builders who actually run
+          AIA billing, and built in tight loops alongside them:
+          ship a slice, watch how it lands, keep the research
+          running. The discipline was separating what a builder
+          needed the system to <em>enforce</em> from what was
+          just a preference, and not trying to solve everything
+          in any one release.
+        </p>
+        <p>
+          Within that loop I ran four complementary research
+          threads:
+        </p>
+        <ul class="study-list">
+          <li>
+            <strong>Client-presentation interviews</strong> with the
+            CAB, walking builders through early AIA wireframes and
+            watching which moments sparked recognition.
+          </li>
+          <li>
+            <strong>A structured card sort</strong> in Maze asking
+            the CAB to rank nine progress-invoice features as
+            must-have vs. nice-to-have — so our roadmap was
+            ranked by builders, not by engineering convenience.
+          </li>
+          <li>
+            <strong>Focused Maze surveys</strong> for specific
+            design decisions (change-order layout, grouping
+            strategy) before we committed.
+          </li>
+          <li>
+            <strong>Follow-up builder interviews</strong> to pressure-test
+            any assumption the surveys surfaced — especially the
+            ones we thought we already had answers to.
+          </li>
+        </ul>
+      </section>
+
+      <section id="learned" class="study-section">
+        <h2>What builders taught us</h2>
+        <p>
+          The research reshaped what we thought the problem was —
+          and, more than once, what we were about to build.
         </p>
 
-        <h3 class="study-subhead">Client-presentation interviews (Sept – Oct 2025)</h3>
+        <h3 class="study-subhead">The early signal: Excel is the benchmark</h3>
         <p>
-          The earliest signals came from sessions with Kim Handler,
-          Joan Tyer, and Lance Lee, where I walked builders through
-          early AIA wireframes. Two reactions locked in design
-          directions we'd return to for months:
+          The earliest interviews told us the design was on the
+          right track — not because builders liked it, but because
+          they compared it to the workaround it was meant to
+          replace.
         </p>
-        <blockquote class="study-quote">
-          "We'd be able to have a 'blue bar' for each change order
-          and no longer have to add the 'CO #XXX' to every line item…
-          LOVE IT!"
-          <cite>— Kim Handler, client-presentation interview</cite>
-        </blockquote>
         <blockquote class="study-quote">
           "That actually does a lot of what I was doing in my
           spreadsheet. I like it."
-          <cite>— Joan Tyer, client-presentation interview</cite>
+          <cite>— Joan Tyer</cite>
+        </blockquote>
+        <blockquote class="study-quote">
+          "We'd be able to have a 'blue bar' for each change order
+          and no longer have to add the 'CO #XXX' to every line
+          item… LOVE IT!"
+          <cite>— Kim Handler</cite>
         </blockquote>
         <p>
-          Kim's quote set the direction for how we'd show change
-          orders (grouped rows, not inline columns) before we ever
-          went to Maze. Joan's was the first concrete evidence that
-          the "Excel abandonment" thesis was real — not an assumption.
+          Kim's quote locked in the grouped-row treatment for
+          change orders before we went anywhere near Maze. Joan's
+          validated the central thesis: we were not designing a
+          new billing tool. We were designing a replacement for
+          her spreadsheet.
         </p>
 
-        <h3 class="study-subhead">Maze card sort (Feb 2026)</h3>
+        <h3 class="study-subhead">The card sort — ranked by builders, not by us</h3>
         <p>
-          I built and launched a Maze card sort with our CAB to rank
-          9 progress-invoice features as must-have vs. nice-to-have.
-          The results reshaped the release plan — a few findings were
-          the opposite of what we'd assumed going in.
+          The CAB card sort ranked nine progress-invoice features.
+          It reshuffled the roadmap.
         </p>
         <div class="study-callout">
           <h4>What the CAB ranked</h4>
@@ -133,191 +187,197 @@
             <div>
               <p class="study-kicker">Nice to have</p>
               <ul>
-                <li>Draw package — PDF + attachments ordered by cost code (<strong>7 / 14</strong>)</li>
+                <li>Draw package — PDF + cost-code-ordered attachments (<strong>7 / 14</strong>)</li>
                 <li>Cover sheet (G702)</li>
                 <li>Auto-generated change orders for overages</li>
-                <li>Lien waivers (<strong>5 / 14</strong>) — dropped from must-have</li>
+                <li>Lien waivers (<strong>5 / 14</strong>) — demoted from must-have</li>
               </ul>
             </div>
           </div>
         </div>
-
-        <h3 class="study-subhead">Maze survey on change-order layout (Dec 2025)</h3>
         <p>
-          Before committing to the grouped-row pattern, I built a
-          focused Maze survey with 9 CAB builders to validate it
-          against the alternative (extra columns per line item).
-          <strong>Six of nine preferred grouped rows;</strong> five of
-          nine prioritized persisting their estimate-group layout over
-          any other layout preference. Both findings pointed to the
-          same call.
+          The surprise: retainage ranked above lien waivers,
+          inverting our working assumption. Fewer builders need
+          retainage than lien waivers — but the ones who do are
+          hard-blocked without it. It moved up the release order.
         </p>
 
-        <h3 class="study-subhead">Builder interviews (ongoing)</h3>
-        <p>
-          Interviews with Billy Anderson, Andrew Couchey, Todd
-          Christensen, Cassie Bayes, Cindy Roth, and John Rainone
-          filled in the quieter details the surveys missed.
-        </p>
+        <h3 class="study-subhead">The quieter signals — from builder interviews</h3>
         <blockquote class="study-quote">
-          "Retainage is hard to deal with in Buildertrend right now…
-          you have to keep a separate spreadsheet just for retainage."
+          "Retainage is hard to deal with in Buildertrend right
+          now… you have to keep a separate spreadsheet just for
+          retainage."
           <cite>— Billy Anderson, Waters Building and Design</cite>
         </blockquote>
         <blockquote class="study-quote">
-          "Retainage needs to be auto-calculated… sometimes 10% on
-          labor but 0% on materials."
+          "Retainage needs to be auto-calculated… sometimes 10%
+          on labor but 0% on materials."
           <cite>— Andrew Couchey, Riggs Custom Builders</cite>
         </blockquote>
         <blockquote class="study-quote">
-          "You bring on new features, but never really show how they
-          should be used in relationship to everything else."
-          <cite>— Cindy Roth, Beyond Custom Contracting (on onboarding)</cite>
+          "You bring on new features, but never really show how
+          they should be used in relationship to everything else."
+          <cite>— Cindy Roth, Beyond Custom Contracting</cite>
         </blockquote>
-      </section>
-
-      <section id="pivots" class="study-section">
-        <h2>Where my research changed the roadmap</h2>
         <p>
-          Three moments where what I found pulled the team off a
-          scoped plan and onto a different one.
-        </p>
-
-        <h3 class="study-subhead">1. In-progress jobs — the must-have that wasn't</h3>
-        <p>
-          The card sort ranked "enable progress invoicing on
-          in-progress jobs" as a must-have. We'd already scoped work
-          for it. But I ran a follow-up round of interviews with the
-          builders who'd voted for it, and they told me something
-          different: they were fine running their existing AIA
-          outside Buildertrend until a new job started, and they'd
-          happily manually enter $ amounts from previous invoices to
-          catch up. The assumption behind "must-have" was that no
-          workaround existed. It did.
-        </p>
-        <p>
-          We killed the scope. The engineering capacity redirected to
-          <strong>Client Preview customization</strong> — the thing
-          the same builders kept mentioning in those same interviews.
-        </p>
-
-        <h3 class="study-subhead">2. Scope-reduction pivot (Nov 2025)</h3>
-        <p>
-          I'd built a Lovable prototype I was planning to share with
-          builders in interviews — a high-fidelity walkthrough of the
-          full Open Book progress-invoice flow. Karin flagged a real
-          risk: linking users to an external Lovable URL looked like
-          phishing and could trip email filters. Rather than
-          fight Outlook, I pivoted to an Andrew-taxes-style
-          roadmap-in-UI pattern (showing what's coming inline within
-          Buildertrend). That call unblocked the December 2025 MVP
-          ship.
-        </p>
-
-        <h3 class="study-subhead">3. Architecture pivot (Nov 2025)</h3>
-        <p>
-          Andy pushed back on the original design direction — building
-          new invoice infrastructure vs. reusing what we already had.
-          I reworked the workflow designs to match the reuse
-          approach, which turned into the foundation everything has
-          shipped on since. Worth naming because the design isn't
-          just what the screens look like — it's what they're
-          possible to build in the timeline we have.
+          Cindy's observation hit the quietest part of the
+          problem: adoption isn't only about feature parity. It's
+          about whether a builder can see how a new piece fits
+          the workflow they already know. The client-preview
+          work — and the onboarding still in front of us — lives
+          in that gap.
         </p>
       </section>
 
-      <section id="decisions" class="study-section">
-        <h2>Design decisions</h2>
+      <section id="solved" class="study-section">
+        <h2>How we designed for it</h2>
         <p>
           Throughline on every call: preserve how the builder
-          already thinks about the job, and surface change-order and
-          cost complexity without making the default flow any harder
-          to read.
+          already thinks about the job, and surface change-order
+          and cost complexity without making the default flow
+          any harder to read.
         </p>
 
         <h3 class="study-subhead">Change orders as rows, not columns</h3>
         <p>
-          Validated twice — first by Kim Handler in a Sept 2025
-          interview (<em>"blue bar for each change order… LOVE IT"</em>),
-          then by the Dec 2025 Maze survey (6 of 9 preferred grouped
-          rows, 5 of 9 prioritized estimate-group persistence).
-          Change orders always appear in their own section regardless
-          of which grouping view is active.
+          Validated twice — first by Kim's "blue bar" reaction in
+          interviews, then confirmed by a focused Maze survey:
+          six of nine CAB builders preferred grouped rows over
+          extra columns. Five of nine prioritized keeping their
+          estimate-group layout over any change-order layout
+          preference. Both findings pointed to the same call.
+          Change orders always live in their own section regardless
+          of the grouping view.
         </p>
         <div class="study-image">
           <img src="./images/change-orders.png" alt="Change orders list showing drafts and pending orders" />
-          <p class="study-caption">Change Orders for a job — approved COs flow into the progress invoice as grouped rows without re-entry.</p>
+          <p class="study-caption">Change orders flow into the progress invoice as grouped rows — no re-entry, no line-by-line CO tagging.</p>
         </div>
 
         <h3 class="study-subhead">Group by cost code <em>or</em> estimate group</h3>
         <p>
-          Builders think about jobs two ways: the auditor's way (cost
-          code) and their own way (estimate group — framing,
-          foundation, finishes). Both are right for different
-          audiences. The invoice supports both layouts via a toggle
-          that persists per invoice in
-          <code>InvoiceMetadata.LineItemGroupStrategy</code>, with
-          the hierarchy assembled client-side so the switch is
+          Builders think about jobs two ways: the auditor's way
+          (cost code) and their own way (estimate group —
+          framing, foundation, finishes). Both are correct for
+          different audiences. The invoice supports both with a
+          toggle that persists per-invoice in
+          <code>InvoiceMetadata.LineItemGroupStrategy</code> and
+          assembles the hierarchy client-side so the switch is
           instant.
         </p>
 
-        <h3 class="study-subhead">Open Book: costs set a floor, not a cage</h3>
+        <h3 class="study-subhead">Open Book — costs set a floor, not a cage</h3>
         <p>
-          When Open Book costs flow in (bills, time-clock, accounting),
-          they raise the floor on each cost code's % complete. A
-          builder can't under-invoice work their team has already
-          done. Cost rows are read-only; the remaining balance is
-          proportionally editable across estimate items. Guardrails,
-          not handcuffs.
+          When open-book costs flow in (bills, time-clock,
+          accounting), they raise the floor on each cost code's
+          percent complete. A builder can't under-invoice work
+          their team has already done. Cost rows are read-only;
+          the remaining balance is proportionally editable across
+          estimate items. Guardrails, not handcuffs.
         </p>
 
-        <h3 class="study-subhead">Selection overages — the math I worked out</h3>
+        <h3 class="study-subhead">Selection overages — the hardest edge case</h3>
         <p>
-          The edge case that took the most design effort: what
+          The design problem that took the most work: what
           happens when a selection comes in over its allowance?
         </p>
         <ul class="study-list">
           <li>
-            <strong>Same cost code as the allowance:</strong> invoice
+            <strong>Same cost code as the allowance</strong> — invoice
             only the overage, and surface it under
-            <em>Approved changes</em> alongside COs — preserves the
-            estimate-group layout, avoids double-count. For
-            multi-item allowances, each overage gets allocated
-            proportionally via <code>(A / T) × O</code> where A is
-            the item amount, T is the total billed in the group,
-            and O is the overage — so a single $500 kitchen overage
-            distributes cleanly across the faucets, countertops, and
-            backsplash that drove it.
+            <em>Approved changes</em> alongside change orders.
+            Preserves the estimate-group layout; avoids
+            double-counting. For multi-item allowances, each
+            overage distributes proportionally via
+            <code>(A / T) × O</code> (item amount × overage ÷
+            total billed in the group) — so a single kitchen
+            overage spreads cleanly across the faucets,
+            countertops, and backsplash that caused it.
           </li>
           <li>
-            <strong>Different cost code:</strong> credit (inverse
-            the allowance) and invoice the full amount under the
-            new cost code. Job totals still reconcile to zero.
+            <strong>Different cost code</strong> — credit the
+            allowance (inverse it) and invoice the full amount
+            under the new cost code. Job totals still reconcile
+            to zero.
           </li>
         </ul>
 
-        <h3 class="study-subhead">Client visibility — the closing gap</h3>
+        <h3 class="study-subhead">Client visibility — closing the feedback loop</h3>
         <p>
-          The thread we kept hearing from builders: clients want to
-          see what's <em>coming</em>, not just what they've already
-          paid. Builders were releasing invoices early as a hack for
-          this. We're closing that loop with a client-facing
-          financial summary that shows pending invoices, pending
-          selections, and change-order impact before anything gets
-          billed.
+          The thread we kept hearing: clients want to see what
+          is <em>coming</em>, not just what has already been
+          paid. Builders were releasing invoices early as a
+          workaround for visibility. We're closing the loop with
+          a client-facing financial summary that surfaces
+          pending invoices, pending selections, and change-order
+          impact before anything is billed.
         </p>
         <div class="study-image">
           <img src="./images/job-price-summary.png" alt="Client-facing Job Price Summary with allowances, selections, and pending change orders" />
-          <p class="study-caption">Client view of the job price summary — revised client price, remaining balance, pending impact, and selections with allowance overages.</p>
+          <p class="study-caption">Client view of the job price summary — revised client price, remaining balance, pending impact, and selection overages all visible in one place.</p>
         </div>
+      </section>
+
+      <section id="exploring" class="study-section">
+        <h2>What we're exploring — and why</h2>
+        <p>
+          The releases so far have closed the widest gaps. The
+          harder work from here is less about feature coverage
+          and more about fit — does the workflow still feel
+          honest to a builder on day 45 of a job? Three threads
+          are open:
+        </p>
+
+        <h3 class="study-subhead">Client preview customization</h3>
+        <p>
+          When the card sort flagged "in-progress jobs support"
+          as a must-have, we'd already scoped work for it. Before
+          building, I ran follow-up interviews with the builders
+          who voted it up. They told me something different:
+          they're fine running their existing AIA outside
+          Buildertrend until a new job starts, and they'll
+          manually enter previous-invoice totals to catch up.
+          The original "must-have" was an assumption that no
+          workaround existed. It did.
+        </p>
+        <p>
+          We redirected the engineering capacity to what those
+          same builders kept mentioning instead: giving them
+          control over <em>what clients see</em> before an
+          invoice is released — which columns, which totals,
+          which line-item detail. That's the closing act of the
+          visibility thread and the next real adoption lever.
+        </p>
+
+        <h3 class="study-subhead">Retainage</h3>
+        <p>
+          The card sort's biggest release flag. Not every builder
+          needs it, but the ones who do can't ship a single pay
+          application without it. We're exploring the data model
+          now — separate percentages for labor vs. materials,
+          auto-calculation against scheduled value, and a way to
+          release retainage at the end of the job without
+          re-keying the whole SOV.
+        </p>
+
+        <h3 class="study-subhead">Selection invoicing on progress invoices</h3>
+        <p>
+          The same-vs-different-cost-code logic we designed has
+          an implementation to catch up with — the R1.7 release
+          where the math in the design becomes real behavior
+          for builders on live jobs. Validation will come in two
+          waves: first a Maze run with the CAB on the flow,
+          then adoption data once it ships.
+        </p>
       </section>
 
       <section id="prototype" class="study-section">
         <h2>Prototype</h2>
         <p>
-          The prototype below is where design decisions get stress-tested
-          against real data shapes. Toggle the grouping, click into a
-          row, open the change-order flow.
+          The prototype below is where design decisions get
+          stress-tested against real data shapes. Toggle the
+          grouping, click into a row, open the change-order
+          flow.
         </p>
         <div class="study-iframe-wrap">
           <iframe
@@ -329,67 +389,38 @@
         <p class="study-footnote">
           Open prototype in new tab: <a href="https://bt-invoice.vercel.app/#progress-invoice" target="_blank" rel="noopener">bt-invoice.vercel.app/#progress-invoice ↗</a>
         </p>
-        <p>
-          Earlier artifacts that fed the design: a Lovable prototype
-          for the full Open Book flow (Jan 2026), FigJam workflow maps
-          for CO+ financials (Mar 2026), cover-sheet + contractor-certification
-          designs with legal copy and signature block (Jan 2026, later
-          handed to Dexter's Lab), and a BrowserStack mobile responsive
-          audit across invoices, deposits, credit memos, and payment
-          schedules (Feb 2026).
-        </p>
       </section>
 
       <section class="study-section">
-        <h2>What we've shipped</h2>
-        <ul class="study-list">
-          <li><strong>Continuation sheet (G703-style SOV)</strong> — limited release Nov 2025, GA Dec 2025</li>
-          <li><strong>Invoicing by dollar amount</strong> — GA Mar 2026</li>
-          <li><strong>Invoice Activity Log</strong> — GA Apr 2026</li>
-          <li><strong>Change orders as grouped rows</strong> — approved COs in-line without re-entry</li>
-          <li><strong>Grouping toggle</strong> — cost code vs. estimate group</li>
-          <li><strong>Costs on progress invoices (Open Book)</strong> — bills, time-clock, accounting, with cost floors</li>
-          <li><strong>Mobile responsiveness</strong> — audited and shipped across all invoice flows</li>
-          <li><strong>In-app feedback widget</strong> — chose grid button over banner/modal for lower intrusion (Apr 2026)</li>
-        </ul>
-      </section>
-
-      <section class="study-section">
-        <h2>What's next</h2>
-        <p>Q2 2026:</p>
-        <ul class="study-list">
-          <li><strong>Open Book progress invoicing</strong> — release 4/24</li>
-          <li><strong>R1.6 — Adding costs to progress invoices</strong></li>
-          <li><strong>R1.7 — Selection invoicing on progress invoices</strong> — the cross-cost-code credit logic shipped into a real feature</li>
-          <li><strong>R1.8 — Online payments for progress invoices</strong></li>
-        </ul>
-      </section>
-
-      <section class="study-section">
-        <h2>How we're measuring it</h2>
+        <h2>How we're validating it</h2>
         <blockquote class="study-quote">
-          "15 CO+ builders agree that client financials are no longer
-          an adoption blocker."
-          <cite>— Ship of Theseus Q2 2026 goal</cite>
+          "15 CO+ builders agree that client financials are no
+          longer an adoption blocker."
+          <cite>— Ship of Theseus quarterly goal</cite>
         </blockquote>
         <p>
-          Outcome, not output. Leading indicators I'm watching:
-          percentage of builders creating multiple progress invoices
-          per job, percentage released (not just created), adoption
-          on in-flight jobs via workaround, and time from first
-          invoice creation to first release.
+          This is an outcome metric, not an output one. Leading
+          indicators we're watching:
         </p>
+        <ul class="study-list">
+          <li>Percentage of builders creating multiple progress invoices per job</li>
+          <li>Percentage released (not just created)</li>
+          <li>Adoption on in-flight jobs via workaround</li>
+          <li>Time from first invoice creation to first release</li>
+        </ul>
         <p>
-          The live risk is recruiting — talking to 15 CO+ builders
-          takes more work than the number suggests — which is why
-          the CAB relationship matters so much and why quick-turn
-          Maze surveys need to stay as sharp as the deep interviews.
+          The live risk: recruiting. Talking to fifteen CO+
+          builders takes more work than the number suggests —
+          that segment is busy and harder to schedule. That
+          constraint shapes how much we lean on quick-turn Maze
+          surveys versus deep interviews, and why the CAB
+          relationship matters so much.
         </p>
       </section>
     </article>
 
     <footer class="site-footer">
-      <p>Designed by Amy Li · Buildertrend, 2026</p>
+      <p>Designed by Amy Li · Buildertrend</p>
       <p><a href="../../">← Back to all work</a></p>
     </footer>
   </body>
