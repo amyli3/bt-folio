@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Progress Invoicing — Amy Li</title>
+    <meta name="description" content="Case study: AIA-compliant progress invoicing for Buildertrend — bringing commercial billing workflows into the platform." />
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body class="case-study-page">
+    <nav class="top-nav">
+      <a href="../../" class="back-link">← Back to work</a>
+      <div class="section-links">
+        <a href="#problem">Problem</a>
+        <a href="#discovery">Discovery</a>
+        <a href="#design">Design</a>
+        <a href="#prototype">Prototype</a>
+      </div>
+    </nav>
+
+    <article class="study">
+      <header class="study-hero">
+        <div class="study-eyebrow">2026 · Buildertrend · In progress</div>
+        <h1>Progress Invoicing</h1>
+        <p class="study-lede">
+          Bringing AIA-compliant billing into Buildertrend so commercial
+          and high-end residential builders can send pay applications
+          without ever leaving the platform.
+        </p>
+        <dl class="study-meta">
+          <div>
+            <dt>Role</dt>
+            <dd>Design &amp; prototyping</dd>
+          </div>
+          <div>
+            <dt>Timeline</dt>
+            <dd>Discovery Mar 2026 — ongoing</dd>
+          </div>
+          <div>
+            <dt>Team</dt>
+            <dd>Logan Johnson (PM) · Macee Jo Swick · Andrew Steffenhagen · Amy Li</dd>
+          </div>
+        </dl>
+      </header>
+
+      <section id="problem" class="study-section">
+        <h2>The problem</h2>
+        <blockquote class="study-quote">
+          "Despite progress invoicing capabilities, builders cannot reliably
+          produce invoicing documentation that meets funding-oversight party's
+          (bank, architect, client) compliance requirements directly from the
+          platform, forcing them to recreate or adjust pay applications
+          outside the system."
+          <cite>— AIA Billing / Progress Invoicing Dev Kickoff, April 2026</cite>
+        </blockquote>
+        <p>
+          For upmarket builders — commercial contractors and high-end
+          custom home builders — AIA-style billing isn't a nice-to-have.
+          It's the contractual format their banks, architects, and clients
+          require. When Buildertrend can't produce a compliant pay
+          application, two things happen: existing customers drop invoicing
+          out of the platform into Excel, and prospective customers walk
+          away to Procore.
+        </p>
+        <p>
+          The current progress invoicing build gets us roughly 70% of
+          the way there — the foundation of a Schedule of Values,
+          percent-complete billing, and change-order handling is solid.
+          The missing 30% is the documentation layer: the cover sheet
+          (G702), SOV continuation (G703), retainage, stored materials,
+          signatures, and lien waivers.
+        </p>
+      </section>
+
+      <section id="discovery" class="study-section">
+        <h2>Discovery</h2>
+        <p>
+          Research started in March 2026 with a round of builder
+          interviews — Shiya Markovic at Royal Builders, Kira Wohlefeil
+          at Onesta GC, Mary Stokes at Williams Construction — alongside
+          conversations with referred leads (Ross Built, Hybar, MFP,
+          CMC) and a site visit to Better Place Design &amp; Build.
+        </p>
+        <p>
+          A few signals surfaced consistently:
+        </p>
+        <ul class="study-list">
+          <li>
+            <strong>AIA is the blocker, not the bonus.</strong> Multiple
+            upmarket prospects told us AIA billing decided the deal. MFP
+            had left Buildertrend for Procore explicitly over this gap.
+          </li>
+          <li>
+            <strong>Builders are already doing the work — just not in BT.</strong>
+            Teams recreate pay applications in Excel every month, then
+            manually reconcile numbers back. The data exists; the output
+            doesn't.
+          </li>
+          <li>
+            <strong>Clients want visibility too.</strong> The site visit at
+            Better Place surfaced an adjacent pain: the client portal
+            only shows paid invoices, hiding upcoming progress billings.
+            Clients want full visibility.
+          </li>
+        </ul>
+        <div class="study-callout">
+          <h4>What builders need from an AIA workflow</h4>
+          <div class="study-grid-2">
+            <div>
+              <p class="study-kicker">Must solve</p>
+              <ul>
+                <li>Cover sheet (G702) generation</li>
+                <li>SOV customization &amp; continuation sheet (G703)</li>
+                <li>Retainage input &amp; tracking</li>
+                <li>Stored materials</li>
+                <li>Cover-sheet signatures</li>
+                <li>Lien waivers — collect &amp; generate</li>
+                <li>Sending pay apps to external stakeholders</li>
+              </ul>
+            </div>
+            <div>
+              <p class="study-kicker">De-prioritized for v1</p>
+              <ul>
+                <li>Advanced audit trails</li>
+                <li>Suggestive % complete</li>
+                <li>Deep workflow automation</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="design" class="study-section">
+        <h2>Design approach</h2>
+        <p>
+          The prototype below is built around the AIA G702 / G703 mental
+          model — the form most of these builders already know by heart.
+          Rather than invent a new layout, we made the grid feel familiar
+          while pulling data from the live Schedule of Values, so numbers
+          update themselves when a change order is approved or a cost
+          code is billed against.
+        </p>
+        <p>
+          Interaction decisions I've been prototyping through:
+        </p>
+        <ul class="study-list">
+          <li>
+            Toggling <em>Scheduled value → Revised budget</em> columns
+            on when change orders exist, hiding them by default to keep
+            the cleaner workflow legible.
+          </li>
+          <li>
+            Grouping the SOV by cost code vs. by phase, so the same
+            invoice can be viewed the way the builder thinks about it
+            and the way the bank expects to see it.
+          </li>
+          <li>
+            Inline selections and change-order reconciliation — pulling
+            approved COs into the billing period without re-entering
+            amounts.
+          </li>
+          <li>
+            A client-facing view so homeowners see what's being billed,
+            not just what's already paid — the Better Place signal,
+            turned into UI.
+          </li>
+        </ul>
+      </section>
+
+      <section id="prototype" class="study-section">
+        <h2>Prototype</h2>
+        <p>
+          Try it live. This is the working prototype — interact with the
+          invoice, toggle columns, browse change orders.
+        </p>
+        <div class="study-iframe-wrap">
+          <iframe
+            src="https://bt-invoice.vercel.app/#progress-invoice"
+            title="Progress Invoice prototype"
+            loading="lazy"
+          ></iframe>
+        </div>
+        <p class="study-footnote">
+          Prototype source: <a href="https://github.com/amyli3/bt-invoice" target="_blank" rel="noopener">github.com/amyli3/bt-invoice</a>
+          · Live URL: <a href="https://bt-invoice.vercel.app/#progress-invoice" target="_blank" rel="noopener">bt-invoice.vercel.app/#progress-invoice</a>
+        </p>
+      </section>
+
+      <section class="study-section">
+        <h2>What's next</h2>
+        <p>
+          The first build milestone is the Cover Sheet — the single
+          document most often demanded by banks and architects and the
+          fastest unlock for existing customers already doing progress
+          invoicing in Buildertrend. From there: retainage, stored
+          materials, and the lien-waiver workflow.
+        </p>
+        <p>
+          The bigger thread this work belongs to is Better Way
+          Financials — restoring trust in the numbers builders see
+          inside Buildertrend, from contract through close-out. Progress
+          invoicing is where that trust becomes tangible: the moment a
+          builder hands a document to someone outside the platform and
+          it holds up.
+        </p>
+      </section>
+    </article>
+
+    <footer class="site-footer">
+      <p>Designed by Amy Li · Buildertrend, 2026</p>
+      <p><a href="../../">← Back to all work</a></p>
+    </footer>
+  </body>
+</html>
