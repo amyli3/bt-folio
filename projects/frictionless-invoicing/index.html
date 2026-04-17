@@ -4,24 +4,412 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Frictionless Invoicing — Amy Li</title>
-    <meta name="description" content="Case study: Frictionless Invoicing — discovery and design for a smoother invoice workflow across builder, bookkeeper, and client." />
+    <meta name="description" content="Case study: Frictionless Invoicing. End-to-end discovery and design for a smoother invoice workflow across builder, bookkeeper, field crew, and client." />
     <link rel="stylesheet" href="../../styles.css" />
   </head>
   <body class="case-study-page">
     <nav class="top-nav">
       <a href="../../" class="back-link">← Back to work</a>
-      <div class="section-links"></div>
+      <div class="section-links">
+        <a href="#overview">Overview</a>
+        <a href="#journey">Journey</a>
+        <a href="#research">Research</a>
+        <a href="#part-1">Part 1</a>
+        <a href="#part-2">Part 2</a>
+      </div>
     </nav>
 
-    <main class="case-study">
-      <div class="case-image-wrap">
-        <img
-          src="./images/case-study.png"
-          alt="Frictionless Invoicing — full case study"
-          fetchpriority="high"
-        />
-      </div>
-    </main>
+    <article class="study">
+      <header class="study-hero" id="overview">
+        <div class="study-eyebrow">2024 – 2025 · Buildertrend · Invoicing team</div>
+        <h1>Frictionless invoicing</h1>
+        <p class="study-lede">
+          Invoicing is a critical touchpoint between builders and their
+          clients. It drives cash flow, but also has the potential to
+          strengthen trust and communication, and to connect a builder's
+          data more deeply with Buildertrend's broader ecosystem.
+        </p>
+
+        <dl class="study-meta">
+          <div>
+            <dt>Role</dt>
+            <dd>UI design, UX research, prototyping, usability testing, customer interviews, design strategy, IA</dd>
+          </div>
+          <div>
+            <dt>Duration</dt>
+            <dd>8 months</dd>
+          </div>
+          <div>
+            <dt>Team</dt>
+            <dd class="team-list">
+              <span>Amy Li, Lead designer</span>
+              <span>Kendall Sutton, Project manager</span>
+              <span>Tracy Le, Trevor Dennie, Cade Robison, Feature leads</span>
+            </dd>
+          </div>
+          <div>
+            <dt>Tools</dt>
+            <dd>Figma, Figma Make, Lovable.ai, EnjoyHQ, Qualtrics, Maze, Mixpanel</dd>
+          </div>
+        </dl>
+      </header>
+
+      <section class="study-section">
+        <h2>Product overview</h2>
+        <p>
+          Buildertrend is a construction management platform for
+          residential and commercial builders to manage projects from
+          pre-sale through warranty. It combines scheduling, budgeting,
+          client communication, document storage, invoicing, and more
+          in one place so office staff, field crews, and clients stay
+          aligned.
+        </p>
+        <div class="study-image">
+          <img src="./images/product-overview.png" alt="Buildertrend product overview across desktop and mobile views." />
+        </div>
+      </section>
+
+      <section class="study-section">
+        <h2>Meet the users</h2>
+        <div class="study-callout">
+          <div class="study-grid-2" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+            <div>
+              <p class="study-kicker">Bella, Builder / GC</p>
+              <p>Oversees job-site progress and subcontractors. Accountable for the job's financials and collaborates with the bookkeeper on schedule updates and receivables.</p>
+            </div>
+            <div>
+              <p class="study-kicker">Frank, Field crew</p>
+              <p>Completes on-site work against the defined scope and schedule. Not directly involved with financials, but task completion and documentation indirectly drive invoice timing.</p>
+            </div>
+            <div>
+              <p class="study-kicker">Oscar, Office Manager / Bookkeeper</p>
+              <p>Manages receivables. Creates invoices, adds relevant job data, sends them to clients, and oversees the payment process.</p>
+            </div>
+            <div>
+              <p class="study-kicker">Chelsea, Client / Homeowner</p>
+              <p>Financing the job or paying out of pocket. Has signed a contract for scope, price, and agreed terms.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="journey" class="study-section">
+        <h2>End-to-end journey of a construction job</h2>
+        <p>
+          To ground the solution in real workflows, we mapped the
+          end-to-end user journey for both fixed-price and open-book
+          builders, from job sales through job finish. The goal: track
+          the major activities, handoffs, and decisions that influence
+          invoicing across every phase.
+        </p>
+        <div class="study-image">
+          <img src="./images/journey-map.png" alt="End-to-end journey map of a construction job in Buildertrend across five phases." />
+        </div>
+        <ol class="study-list" style="counter-reset: phase;">
+          <li><strong>Sales &amp; Pre-Construction:</strong> proposal and contract creation, where scope, payment schedules, and terms are defined.</li>
+          <li><strong>Job setup:</strong> how builders structure jobs (templates vs. building from scratch), including schedules, phases, and milestone planning.</li>
+          <li><strong>Construction:</strong> tracking progress through schedule items and To Do's, and how that progress informs when invoices should be created or released.</li>
+          <li><strong>Invoice creation &amp; review:</strong> how builders collect, verify, and input billable items (especially for open-book), and how internal collaboration affects timing.</li>
+          <li><strong>Job closeout:</strong> final invoicing, lien waivers, payment reconciliation, and documentation for client or lender needs.</li>
+        </ol>
+      </section>
+
+      <section class="study-section">
+        <h2>Invoicing journey by contract type</h2>
+
+        <h3 class="study-subhead">Fixed price (milestone invoicing)</h3>
+        <p>
+          In a fixed-price contract, the client agrees to pay a set
+          amount for the full scope of work, regardless of actual
+          costs. Builders typically break the total into
+          <strong>milestone payments</strong> tied to specific phases
+          (foundation, framing, finishes). Invoicing is
+          <strong>pre-planned</strong> and happens when a milestone is
+          reached, coordinated with schedules, change orders, and
+          approvals.
+        </p>
+        <div class="study-image">
+          <img src="./images/fixedprice-workflow.png" alt="Fixed-price invoicing workflow across Buildertrend." loading="lazy" />
+        </div>
+
+        <h3 class="study-subhead">Open book (interval / time-based invoicing)</h3>
+        <p>
+          In an open-book contract, the client pays for
+          <strong>actual job costs</strong> (labor, materials) plus a
+          builder's fee or markup. Builders invoice on a
+          <strong>recurring basis</strong> (biweekly or monthly) for
+          billable costs incurred during that period. This requires
+          builders to <strong>collect, verify, and classify every cost
+          item before billing</strong>, often reconciling bills and
+          labor entries manually.
+        </p>
+        <div class="study-image">
+          <img src="./images/openbook-workflow.png" alt="Open-book invoicing workflow across Buildertrend." loading="lazy" />
+        </div>
+
+        <div class="study-callout">
+          <h4>Takeaways</h4>
+          <p>
+            The journey map surfaced pain points, inconsistencies, and
+            gaps in how different builders initiate and manage
+            invoicing depending on contract type. It became the
+            foundation for identifying where Buildertrend could better
+            integrate, automate, and support critical invoicing touch
+            points.
+          </p>
+        </div>
+      </section>
+
+      <section id="research" class="study-section">
+        <h2>Here's what the data told us</h2>
+        <div class="study-callout">
+          <h4>Initial data findings</h4>
+          <ul class="study-list">
+            <li>Invoices took an average of <strong>10.2 hours</strong> from creation to first save.</li>
+            <li>After saving, invoices took another <strong>1.7 days on average</strong> to be released to clients.</li>
+          </ul>
+          <p>
+            These delays point to real friction between starting an
+            invoice and getting it out the door. Closing that gap
+            became the core focus for follow-up research and design.
+          </p>
+        </div>
+        <div class="study-image">
+          <img src="./images/data-findings-1.png" alt="Chart showing average time from invoice creation to first save." loading="lazy" />
+        </div>
+        <div class="study-image">
+          <img src="./images/data-findings-2.png" alt="Chart showing average time from save to client release." loading="lazy" />
+        </div>
+      </section>
+
+      <section class="study-section">
+        <h2>What builders told us</h2>
+        <p>
+          We talked with customers to understand their invoicing
+          process and where the friction lives. Five themes surfaced
+          across every conversation.
+        </p>
+
+        <ol class="study-list">
+          <li>
+            <strong>Low invoice adoption.</strong> Many jobs never have
+            an invoice sent through Buildertrend because the tool feels
+            too inflexible. Builders turn to Excel or other software
+            that better fits their workflow.
+          </li>
+          <li>
+            <strong>Invoice presentation.</strong> Builders spend a lot
+            of time manually editing and organizing line items to make
+            them clearer for clients. The same customizations get
+            repeated across jobs, which is time-consuming and error-prone.
+          </li>
+          <li>
+            <strong>Friction in client-facing invoices.</strong> Clients
+            often don't understand what they're being billed for. They
+            can't connect the invoice back to the estimate, scope, or
+            job progress, so builders have to explain every one.
+          </li>
+          <li>
+            <strong>Manual workarounds.</strong> Builders build draw
+            schedules and track billing, % complete, and change orders
+            in spreadsheets because Buildertrend doesn't support those
+            workflows.
+          </li>
+          <li>
+            <strong>Invoice date and payment terms.</strong> Without a
+            real invoice date or payment terms, users can't sync
+            cleanly to accounting platforms like QBO or control
+            revenue recognition. Builders need flexibility to align
+            Buildertrend with real-world accounting workflows.
+          </li>
+        </ol>
+
+        <div class="study-grid-2" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:16px; margin-top:24px;">
+          <div class="study-image" style="margin:0;">
+            <img src="./images/interview-screenshot-1.png" alt="Interview artifact." loading="lazy" />
+          </div>
+          <div class="study-image" style="margin:0;">
+            <img src="./images/interview-screenshot-2.png" alt="Interview artifact." loading="lazy" />
+          </div>
+          <div class="study-image" style="margin:0;">
+            <img src="./images/interview-screenshot-3.png" alt="Interview artifact." loading="lazy" />
+          </div>
+          <div class="study-image" style="margin:0;">
+            <img src="./images/interview-screenshot-4.png" alt="Interview artifact." loading="lazy" />
+          </div>
+        </div>
+      </section>
+
+      <section class="study-section">
+        <h2>Problem statement</h2>
+        <p>
+          Builders rely on invoicing to manage cash flow and keep jobs
+          moving, but the current experience creates friction. It's
+          hard to track what's due when, align billing with project
+          progress, and communicate clearly with clients. Without
+          structured tools like draw schedules, invoice date, or
+          progress-invoicing workflows, builders resort to spreadsheets
+          and workarounds. That slows billing, introduces errors, and
+          erodes trust.
+        </p>
+
+        <div class="study-callout">
+          <h4>Goal</h4>
+          <p>
+            Deliver a best-in-class invoicing solution that makes
+            invoicing easy and enjoyable for builders, ultimately
+            making Buildertrend a stickier product.
+          </p>
+          <p class="study-kicker" style="margin-top:16px;">Success metric</p>
+          <p>Increase the percentage of jobs with at least one invoice sent.</p>
+        </div>
+      </section>
+
+      <section id="part-1" class="study-section">
+        <div class="study-eyebrow">Part 1 · Plan the billing</div>
+        <h2>Payment schedules</h2>
+
+        <p>
+          <strong>Problem.</strong> Builders needed a way to plan and
+          communicate payments across a project lifecycle, not invoice
+          ad hoc.
+        </p>
+
+        <p><strong>Goals:</strong></p>
+        <ul class="study-list">
+          <li>Enable builders to define structured payment schedules tied to project phases or milestones.</li>
+          <li>Create a clear connection between scheduled payments and invoices.</li>
+          <li>Reduce the need for external tracking tools.</li>
+          <li>Establish a foundation for predictable billing and set the stage for progress-based invoicing.</li>
+        </ul>
+
+        <dl class="study-meta">
+          <div><dt>Duration</dt><dd>4 weeks</dd></div>
+          <div><dt>Lead designer</dt><dd>Amy Li</dd></div>
+          <div><dt>PM</dt><dd>Kendall Sutton</dd></div>
+          <div><dt>Feature lead</dt><dd>Tracy Le</dd></div>
+        </dl>
+      </section>
+
+      <section id="part-2" class="study-section">
+        <div class="study-eyebrow">Part 2 · Close the accounting gap</div>
+        <h2>Invoice date &amp; schedule release</h2>
+
+        <p>
+          <strong>Problem.</strong> Invoice date represents when the
+          work on that invoice was completed and, combined with payment
+          terms, calculates the due date. Buildertrend has a couple of
+          fields (Release date, Created date) that builders tried to
+          use as the invoice date, but they aren't editable and don't
+          sync to accounting. That breaks record-keeping and makes it
+          hard to set a correct Due date in BT.
+        </p>
+
+        <div class="study-grid-2" style="grid-template-columns: 1fr 1fr; gap:16px; margin: 24px 0;">
+          <div class="study-image" style="margin:0;">
+            <img src="./images/part2-image-1.png" alt="Invoice date field context." loading="lazy" />
+          </div>
+          <div class="study-image" style="margin:0;">
+            <img src="./images/part2-image-3.png" alt="Schedule release of invoice." loading="lazy" />
+          </div>
+        </div>
+
+        <p>
+          <strong>Goal.</strong> Allow users to choose a future date
+          for an invoice to be sent automatically. Useful for builders
+          who finalize invoices ahead of time and want to schedule them
+          for delivery on a specific date.
+        </p>
+
+        <dl class="study-meta">
+          <div><dt>Duration</dt><dd>6 weeks</dd></div>
+          <div><dt>Lead designer</dt><dd>Amy Li</dd></div>
+          <div><dt>PM</dt><dd>Kendall Sutton</dd></div>
+          <div><dt>Feature lead</dt><dd>Cade Robison</dd></div>
+        </dl>
+
+        <h3 class="study-subhead">Schedule release of invoice</h3>
+        <div class="study-image">
+          <img src="./images/schedule-release-invoice.png" alt="Schedule release of invoice workflow diagram." loading="lazy" />
+        </div>
+        <p>
+          Multiple teams were updating pieces of the invoicing
+          workflow. To limit change fatigue, we decided on a single
+          release to launch the new Invoice date experience. Things
+          changing together:
+        </p>
+        <ul class="study-list">
+          <li>Adding a new <strong>invoice date</strong> field.</li>
+          <li><strong>Invoice date + Payment terms = Due date.</strong></li>
+          <li>Invoice date syncing to accounting.</li>
+          <li>Linking to a schedule item directly sets the invoice date (rather than the Due date).</li>
+          <li>New option to schedule when an invoice is sent/released to the client.</li>
+        </ul>
+        <p>
+          A limited release lets us run a single GTM motion instead of
+          piecemeal rollouts, which would force retraining moments in
+          quick succession. It also lets us collect feedback on the
+          happy path and on each individual piece as we build.
+        </p>
+
+        <h3 class="study-subhead">Considerations</h3>
+        <div class="study-callout">
+          <h4>Release date / Due date dependencies</h4>
+          <ul class="study-list">
+            <li>Sending/releasing an invoice acts as both making it visible to the client and formally requesting payment (Release date).</li>
+            <li>Release date plus Payment term sets the Due date.</li>
+            <li>Linking invoices to schedule items sets the invoice due date based on the schedule item dates.</li>
+          </ul>
+        </div>
+        <div class="study-callout">
+          <h4>At-bats vs. change management</h4>
+          <p>
+            We can and will break this into the smallest releases
+            possible, but given the impact of invoice date on both
+            Payment terms and Schedule-item links, we need to avoid
+            too many invoice-workflow changes in a short window. It
+            also may not make sense to keep two ways of calculating
+            the Due date once the Invoice date is introduced.
+          </p>
+        </div>
+        <div class="study-image">
+          <img src="./images/considerations-image.png" alt="Considerations flow diagram showing release date, due date, and schedule dependencies." loading="lazy" />
+        </div>
+      </section>
+
+      <section class="study-section">
+        <h2>Appendix: full visual case study</h2>
+        <p>Expand each section to see the full design document.</p>
+
+        <details class="study-callout">
+          <summary><strong>Overview &amp; users</strong></summary>
+          <div class="study-image" style="margin-top:16px;">
+            <img src="./images/overview-visual.png" alt="Overview and users full document." loading="lazy" />
+          </div>
+        </details>
+
+        <details class="study-callout">
+          <summary><strong>Journey, research, and problem (full document)</strong></summary>
+          <div class="study-image" style="margin-top:16px;">
+            <img src="./images/part1-journey-visual.png" alt="Journey map, invoicing workflows, data findings, customer interviews, and problem statement." loading="lazy" />
+          </div>
+        </details>
+
+        <details class="study-callout">
+          <summary><strong>Part 1: Payment schedules (full document)</strong></summary>
+          <div class="study-image" style="margin-top:16px;">
+            <img src="./images/part1-payment-schedules-visual.png" alt="Part 1 full document on payment schedules." loading="lazy" />
+          </div>
+        </details>
+
+        <details class="study-callout">
+          <summary><strong>Part 2: Invoice date &amp; schedule release (full document)</strong></summary>
+          <div class="study-image" style="margin-top:16px;">
+            <img src="./images/part2-visual.png" alt="Part 2 full document on invoice date and schedule release." loading="lazy" />
+          </div>
+        </details>
+      </section>
+    </article>
 
     <footer class="site-footer">
       <p>Designed by Amy Li · Buildertrend, 2025</p>
