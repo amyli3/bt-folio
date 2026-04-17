@@ -740,6 +740,45 @@ details.study-callout[open] > summary::before {
   text-align: center;
 }
 
+.study-image-wide {
+  position: relative;
+  width: 100vw;
+  max-width: 1600px;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
+
+.study-image-wide img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+.study-image-wide .study-caption {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 24px;
+}
+
+@media (max-width: 900px) {
+  .study-image-wide {
+    margin-left: -24px;
+    margin-right: -24px;
+  }
+  .study-image-wide img {
+    border-radius: 0;
+    border-left: 0;
+    border-right: 0;
+  }
+}
+
 .study-image-pair {
   display: grid;
   grid-template-columns: 1fr 1fr;
