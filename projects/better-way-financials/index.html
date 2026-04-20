@@ -89,58 +89,19 @@
       <section id="process" class="study-section">
         <h2>The big messy problem</h2>
         <p>
-          Visually, this is what the process looked like on paper: a
-          clean four-stage arc from research to visual design.
-        </p>
-
-        <div class="study-callout">
-          <div class="study-grid-2" style="grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));">
-            <div>
-              <p class="study-kicker">Understand</p>
-              <ul>
-                <li>User research</li>
-                <li>User interviews</li>
-              </ul>
-            </div>
-            <div>
-              <p class="study-kicker">Define</p>
-              <ul>
-                <li>User persona</li>
-                <li>User journey map</li>
-                <li>Goal</li>
-              </ul>
-            </div>
-            <div>
-              <p class="study-kicker">Ideate</p>
-              <ul>
-                <li>Brainstorm solutions</li>
-                <li>Workflow mapping</li>
-                <li>Feedback from users</li>
-              </ul>
-            </div>
-            <div>
-              <p class="study-kicker">Design</p>
-              <ul>
-                <li>Wireframes</li>
-                <li>Visual design</li>
-                <li>Prototypes</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <p>
-          <strong>What it actually looked like.</strong> The process was
-          <em>messy</em>. We were deep in discovery: talking to users,
-          digging into the problem, and iterating fast. Designing,
-          testing, and then circling back to user feedback again. It was
-          a constant cycle of building, learning, and refining to make
-          the experience better.
+          On paper, the process was a clean four-stage arc from
+          research to visual design. In practice, it looped.
         </p>
         <div class="study-image">
-          <img src="./images/process-messy.png" alt="The messy reality of the design process: a tangled loop of discovery, iteration, and feedback." />
-          <p class="study-caption">The messy reality. Research, design, and iteration looped into each other rather than moving in a straight line.</p>
+          <img src="./images/big-messy-problem.png" alt="Four-stage process diagram: Understand, Define, Ideate, Design. An arrow loops back from Design to Understand, labeled 'Rinse and repeat'." />
+          <p class="study-caption">Understand → Define → Ideate → Design, with the messy reality that every stage fed back into the one before it.</p>
         </div>
+        <p>
+          We were deep in discovery the whole time: talking to users,
+          digging into the problem, iterating fast, and circling back
+          to feedback again. A constant cycle of building, learning,
+          and refining.
+        </p>
       </section>
 
       <section id="part-1" class="study-section">
@@ -170,15 +131,18 @@
         <div class="study-callout">
           <div class="study-grid-2" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
             <div>
-              <p class="study-kicker">Bella, Builder / GC</p>
+              <img src="./images/bella.png" alt="Illustration of Bella, a builder holding a tablet." style="width:110px; height:auto; display:block; margin:0 auto 12px;" />
+              <p class="study-kicker" style="text-align:center;">Bella, Builder / GC</p>
               <p>Manages jobsite progress and subcontractors/suppliers, owns the job's financials, and works with the bookkeeper on schedule updates and receivables.</p>
             </div>
             <div>
-              <p class="study-kicker">Oscar, Office Manager / Bookkeeper</p>
+              <img src="./images/oscar.png" alt="Illustration of Oscar, an office manager holding a clipboard." style="width:110px; height:auto; display:block; margin:0 auto 12px;" />
+              <p class="study-kicker" style="text-align:center;">Oscar, Office Manager / Bookkeeper</p>
               <p>Manages receivables. Typically responsible for creating invoices, adding relevant job data, sending them to clients, and overseeing the payment process.</p>
             </div>
             <div>
-              <p class="study-kicker">Chelsea, Client / Homeowner</p>
+              <img src="./images/chelsea.png" alt="Illustration of Chelsea, a homeowner client." style="width:110px; height:auto; display:block; margin:0 auto 12px;" />
+              <p class="study-kicker" style="text-align:center;">Chelsea, Client / Homeowner</p>
               <p>Financing the job or paying out of pocket. Has signed a contract for a job scope, price, and agreed contract terms.</p>
             </div>
           </div>
@@ -195,6 +159,9 @@
           requiring coordination with schedules, change orders, and
           approvals.
         </p>
+        <div class="study-image">
+          <img src="./images/fixed-price-current-workflow.png" alt="Fixed-price current workflow diagram across sales, job setup, construction, invoicing, and closeout." loading="lazy" />
+        </div>
 
         <h4 class="study-subhead" style="margin-top:24px;">Job details modal</h4>
         <p>
@@ -205,6 +172,9 @@
           times, regardless of proposal and job state</strong>. No
           guardrails, no audit trail.
         </p>
+        <div class="study-image">
+          <img src="./images/job-details-modal.png" alt="Job details modal showing an editable contract price field with no lock or audit trail." loading="lazy" />
+        </div>
 
         <h4 class="study-subhead" style="margin-top:24px;">Estimate header</h4>
         <p>
@@ -213,6 +183,9 @@
           icon click "copy to contract price" but never commit to
           "update contract price." The handoff is silently broken.
         </p>
+        <div class="study-image">
+          <img src="./images/estimate-header.png" alt="Estimate header with info icon and 'copy to contract price' action that rarely gets committed." loading="lazy" />
+        </div>
 
         <h3 class="study-subhead">Openbook jobs</h3>
         <p>
@@ -227,6 +200,9 @@
           billing</strong>, often reconciling bills and labor entries
           manually.
         </p>
+        <div class="study-image">
+          <img src="./images/openbook-job-workflow.png" alt="Openbook job workflow showing recurring billing cycles tied to actual cost verification." loading="lazy" />
+        </div>
 
         <div class="study-callout">
           <h4>Openbook learnings</h4>
@@ -238,6 +214,11 @@
           </ul>
         </div>
 
+        <div class="study-image">
+          <img src="./images/openbook-workflow-workshop-img.png" alt="Workshop sticky-note boards exploring two problems: JPS/JRT for open book jobs, and when in the construction journey is contract price set." loading="lazy" />
+          <p class="study-caption">Workshop artifacts. Two framing problems and their hypothesis/HMW/solution sticky-note clusters.</p>
+        </div>
+
         <h3 class="study-subhead">Solution: lock the contract price</h3>
         <p>
           We took an opinionated approach by locking the contract price
@@ -246,6 +227,9 @@
           order rather than editing the Estimate, so scope changes are
           tracked properly and downstream financials stay accurate.
         </p>
+        <div class="study-image">
+          <img src="./images/opionated-approach.png" alt="Diagram of the opinionated approach to locking contract price after Send to Budget." loading="lazy" />
+        </div>
 
         <h4 class="study-subhead" style="margin-top:24px;">Send to Budget</h4>
         <p>
@@ -254,6 +238,9 @@
           tracking their job costs. This is the pivot moment that tells
           us their total client price is set.
         </p>
+        <div class="study-image">
+          <img src="./images/send-to-budget.png" alt="Send to Budget action on the Estimate, marking the pivot moment when contract price is set." loading="lazy" />
+        </div>
 
         <h4 class="study-subhead" style="margin-top:24px;">Lock contract price</h4>
         <p>
@@ -262,6 +249,9 @@
           original contract price. Otherwise, they can still unlock
           their Estimate to make minor tweaks.
         </p>
+        <div class="study-image">
+          <img src="./images/lock-contract-price.png" alt="Locked contract price state after Send to Budget, with a path to create a change order or unlock the Estimate." loading="lazy" />
+        </div>
       </section>
 
       <section id="part-2" class="study-section">
