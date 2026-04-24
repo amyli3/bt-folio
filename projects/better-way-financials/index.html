@@ -16,6 +16,7 @@
         <a href="#part-1">Part 1</a>
         <a href="#part-2">Part 2</a>
         <a href="#part-3">Part 3</a>
+        <a href="#reflection">Reflection</a>
       </div>
     </nav>
 
@@ -23,20 +24,42 @@
       <header class="study-hero" id="overview">
         <div class="study-eyebrow">2025 – 2026 · Buildertrend · Cross-team initiative</div>
         <h1>Better way financials</h1>
+        <div class="byline">
+          <img src="./images/amy-profile-icon.png" alt="Amy Li" />
+          <span>Lead designer · Amy Li</span>
+        </div>
         <p class="study-lede">
-          Builders can't trust their job financials. The current workflow
-          is fragmented and untrusted: legacy features, scattered
+          <strong>Builders can't trust their job financials.</strong> The current workflow
+          is <strong>fragmented and untrusted</strong>: legacy features, scattered
           tooling, and unopinionated workflows. Builders often feel that
           they can't rely on the job costing budget or job price summary
-          for truthful financials, so they resort to manual workarounds,
-          miss early risk signals, and make reactive cash-flow and
-          pricing decisions that harm margins and operational confidence.
+          for truthful financials, so they resort to <strong>manual workarounds</strong>,
+          <strong>miss early risk signals</strong>, and make reactive cash-flow and
+          pricing decisions that <strong>harm margins and operational confidence</strong>.
         </p>
         <p>
           This was a shared effort across multiple teams to tighten up
           financial workflows in Buildertrend and ensure invoice and
           budget features reflect reality.
         </p>
+
+        <div class="study-callout tldr">
+          <h4>At a glance</h4>
+          <dl class="tldr-grid">
+            <div>
+              <dt>Problem</dt>
+              <dd>Builders couldn't trust job financials. Contract price could be edited freely, and Job Price Summary and Job Costing Budget numbers drifted between surfaces.</dd>
+            </div>
+            <div>
+              <dt>Approach</dt>
+              <dd>Three connected workstreams over four months: lock the contract price, redesign the Job Price Summary, and rebuild the Job Costing Budget's projected cost and gross profit.</dd>
+            </div>
+            <div>
+              <dt>Outcome</dt>
+              <dd>One source of truth for contract value, a change-order path for mid-job edits, and accurate JPS/JCB across fixed-price and open-book contracts.</dd>
+            </div>
+          </dl>
+        </div>
 
         <dl class="study-meta">
           <div>
@@ -60,7 +83,41 @@
             <dd>Figma, Figma Make, EnjoyHQ, Qualtrics, Maze, Mixpanel</dd>
           </div>
         </dl>
+
+        <div class="study-callout" style="margin-top:32px;">
+          <h4 style="margin-top:0;">What shipped</h4>
+          <ul class="study-list" style="margin-bottom:0;">
+            <li><strong>Part 1 · Set contract price.</strong> Lock the contract price at Send to Budget, with a change-order path for mid-job edits.</li>
+            <li><strong>Part 2 · Job Price Summary.</strong> Revised Client Price, remaining balance, allowances and COs on one page — matched in modal, print, and client portal.</li>
+            <li><strong>Part 3 · Job Costing Budget.</strong> One projected-cost formula per job with its inputs visible, legacy-budget parity for the migration window.</li>
+          </ul>
+        </div>
       </header>
+
+      <section class="study-section">
+        <h2>Meet the users</h2>
+        <p>
+          Three users share the invoicing workflow across every job.
+          They show up in every Part that follows.
+        </p>
+        <div class="study-grid-2" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
+          <div>
+            <img src="./images/bella.png" alt="Illustration of Bella, a builder holding a tablet." style="height:160px; width:auto; display:block; margin:0 auto 12px; object-fit:contain;" />
+            <p class="study-kicker" style="text-align:center;">Bella<br />Builder / GC</p>
+            <p>Manages jobsite progress and subcontractors/suppliers, owns the job's financials, and works with the bookkeeper on schedule updates and receivables.</p>
+          </div>
+          <div>
+            <img src="./images/oscar.png" alt="Illustration of Oscar, an office manager holding a clipboard." style="height:160px; width:auto; display:block; margin:0 auto 12px; object-fit:contain;" />
+            <p class="study-kicker" style="text-align:center;">Oscar<br />Office Manager / Bookkeeper</p>
+            <p>Manages receivables. Typically responsible for creating invoices, adding relevant job data, sending them to clients, and overseeing the payment process.</p>
+          </div>
+          <div>
+            <img src="./images/chelsea.png" alt="Illustration of Chelsea, a homeowner client." style="height:160px; width:auto; display:block; margin:0 auto 12px; object-fit:contain;" />
+            <p class="study-kicker" style="text-align:center;">Chelsea<br />Client / Homeowner</p>
+            <p>Financing the job or paying out of pocket. Has signed a contract for a job scope, price, and agreed contract terms.</p>
+          </div>
+        </div>
+      </section>
 
       <section class="study-section">
         <h2>Goals</h2>
@@ -93,7 +150,7 @@
           research to visual design. In practice, it looped.
         </p>
         <div class="study-image">
-          <img src="./images/big-messy-problem.png" alt="Four-stage process diagram: Understand, Define, Ideate, Design. An arrow loops back from Design to Understand, labeled 'Rinse and repeat'." />
+          <img src="./images/process-messy.png" alt="Four-stage process diagram: Understand, Define, Ideate, Design. An arrow loops back from Design to Understand, labeled 'Rinse and repeat'." loading="lazy" style="max-width: 560px; width: 100%; margin: 0 auto;" />
           <p class="study-caption">Understand → Define → Ideate → Design, with the messy reality that every stage fed back into the one before it.</p>
         </div>
         <p>
@@ -109,14 +166,14 @@
         <h2>Set contract price: establish financial trust</h2>
 
         <p>
-          <strong>Problem.</strong> Allowing flexible, manual edits to
+          <strong>Problem:</strong> Allowing flexible, manual edits to
           contract price produces inconsistent and error-prone data.
           Proposals, legacy budgets, and other financial workflows don't
           reliably sync with the Job Costing Budget, producing mismatched
           data across the JCB and JPS, eroding builder trust.
         </p>
         <p>
-          <strong>Goal.</strong> Prevent accidental changes to approved
+          <strong>Goal:</strong> Prevent accidental changes to approved
           contract amounts once a job is underway.
         </p>
 
@@ -127,30 +184,9 @@
           <div><dt>Feature lead</dt><dd>Danny White</dd></div>
         </dl>
 
-        <h3 class="study-subhead">Meet the users</h3>
-        <div class="study-callout">
-          <div class="study-grid-2" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
-            <div>
-              <img src="./images/bella.png" alt="Illustration of Bella, a builder holding a tablet." style="width:110px; height:auto; display:block; margin:0 auto 12px;" />
-              <p class="study-kicker" style="text-align:center;">Bella, Builder / GC</p>
-              <p>Manages jobsite progress and subcontractors/suppliers, owns the job's financials, and works with the bookkeeper on schedule updates and receivables.</p>
-            </div>
-            <div>
-              <img src="./images/oscar.png" alt="Illustration of Oscar, an office manager holding a clipboard." style="width:110px; height:auto; display:block; margin:0 auto 12px;" />
-              <p class="study-kicker" style="text-align:center;">Oscar, Office Manager / Bookkeeper</p>
-              <p>Manages receivables. Typically responsible for creating invoices, adding relevant job data, sending them to clients, and overseeing the payment process.</p>
-            </div>
-            <div>
-              <img src="./images/chelsea.png" alt="Illustration of Chelsea, a homeowner client." style="width:110px; height:auto; display:block; margin:0 auto 12px;" />
-              <p class="study-kicker" style="text-align:center;">Chelsea, Client / Homeowner</p>
-              <p>Financing the job or paying out of pocket. Has signed a contract for a job scope, price, and agreed contract terms.</p>
-            </div>
-          </div>
-        </div>
-
         <h3 class="study-subhead">Current workflow</h3>
         <p>
-          <strong>Fixed price, milestone invoicing.</strong> In a fixed
+          <strong>Fixed price, milestone invoicing:</strong> In a fixed
           price contract, the client agrees to pay a set amount for the
           full scope of work, regardless of actual costs. Builders
           typically break the total cost into milestone payments tied to
@@ -189,7 +225,7 @@
 
         <h3 class="study-subhead">Openbook jobs</h3>
         <p>
-          <strong>Manual verification of costs and fragmented workflows.</strong>
+          <strong>Manual verification of costs and fragmented workflows:</strong>
           In an open book contract, the client pays for
           <strong>actual job costs</strong> (labor, materials, etc.)
           plus a builder's fee or markup. Builders invoice on a
@@ -241,6 +277,10 @@
         <div class="study-image">
           <img src="./images/send-to-budget.png" alt="Send to Budget action on the Estimate, marking the pivot moment when contract price is set." loading="lazy" />
         </div>
+        <div class="study-image">
+          <img src="./images/before-after-send-budget.png" alt="Before and after Send to Budget — showing the shift from an editable Estimate to a locked contract price." loading="lazy" />
+          <p class="study-caption">Before and after Send to Budget.</p>
+        </div>
 
         <h4 class="study-subhead" style="margin-top:24px;">Lock contract price</h4>
         <p>
@@ -252,6 +292,25 @@
         <div class="study-image">
           <img src="./images/lock-contract-price.png" alt="Locked contract price state after Send to Budget, with a path to create a change order or unlock the Estimate." loading="lazy" />
         </div>
+
+        <div class="study-callout decision">
+          <h4>Key decision</h4>
+          <p style="margin-bottom: 12px;"><strong>Lock the contract price at Send to Budget rather than versioning every edit.</strong></p>
+          <p style="margin-bottom: 0;">A versioned contract price would have preserved flexibility, but also preserved the ambiguity builders complained about: a number anyone could change without a clear audit trail. Locking forces scope changes through change orders, which already have an approval and tracking story. We kept an escape hatch (unlock the Estimate) for minor tweaks so the lock isn't punitive.</p>
+        </div>
+
+        <div class="study-callout">
+          <h4>Where this leads next</h4>
+          <p style="margin-bottom:0;">
+            Locking the contract price gave the system one canonical
+            number. But the surfaces that <em>displayed</em> that
+            number — the Job Price Summary and Job Costing Budget —
+            still pulled from legacy sources that didn't stay in
+            sync. Part 2 rebuilds the JPS to read from the newly
+            locked contract price and present it consistently across
+            modal, print, and client portal.
+          </p>
+        </div>
       </section>
 
       <section id="part-2" class="study-section">
@@ -259,7 +318,7 @@
         <h2>Improve financial visibility: Job price summary</h2>
 
         <p>
-          <strong>Problem.</strong> The Job Price Summary fails to
+          <strong>Problem:</strong> The Job Price Summary fails to
           present an accurate view of contract price and remaining
           client balance, especially for cost-plus jobs. It pulls
           fragmented legacy data, doesn't reflect the newly locked
@@ -268,28 +327,15 @@
           rely on it for billing or forecasting.
         </p>
 
-        <blockquote class="study-quote">
-          "The job price summary…doesn't align with a cost-plus
-          contract…there's an immediate disconnect…we're talking tens of
-          thousands of dollars."
-          <cite>— Sam Roy &amp; Josh Fulbright, Tongue &amp; Groove Property Services</cite>
-        </blockquote>
+        <div class="study-image">
+          <img src="./images/sam-tongue-groove.png" alt="Sam Roy &amp; Josh Fulbright, Tongue &amp; Groove Property Services: 'The job price summary…doesn't align with a cost-plus contract…there's an immediate disconnect…we're talking tens of thousands of dollars.'" loading="lazy" />
+        </div>
 
         <h3 class="study-subhead">What was broken, specifically</h3>
         <p>
           Annotating the legacy JPS against real job data, the issues
-          clustered into six patterns, visible even on a single screen:
+          clustered into six patterns:
         </p>
-
-        <div class="study-image">
-          <img src="./images/jps-legacy-modal.png" alt="Legacy Job Price Summary modal annotated with issues: contract price needs to be set, selections numbers aren't accurate, need client facing language, no longer a data point we would be using, inaccurate due to data changes." />
-          <p class="study-caption">Legacy JPS modal. Five of the six recurring issue patterns visible at once.</p>
-        </div>
-
-        <div class="study-image">
-          <img src="./images/jps-legacy-print.png" alt="Legacy Job Price Summary print page annotated: general UI layout updates needed, inaccurate data, data needs to be updated to match modal updates." />
-          <p class="study-caption">Legacy JPS print page. The print view had drifted from the modal, so builders sent PDFs that disagreed with the on-screen numbers.</p>
-        </div>
 
         <ul class="study-list">
           <li><strong>Contract price needs to be set:</strong> the page assumed a value that didn't exist in cost-plus flows.</li>
@@ -300,8 +346,20 @@
           <li><strong>UI layout updates needed to match modal updates:</strong> the page hadn't been refreshed alongside the rest of the financial workflow.</li>
         </ul>
 
+        <p>Five of the six show up at once on a single screen:</p>
+
+        <div class="study-image">
+          <img src="./images/JPS-intro-img.png" alt="Legacy Job Price Summary modal annotated with issues: contract price needs to be set, selections numbers aren't accurate, need client facing language, no longer a data point we would be using, inaccurate due to data changes." loading="lazy" />
+          <p class="study-caption">Legacy JPS modal. Five of the six recurring issue patterns visible at once.</p>
+        </div>
+
+        <div class="study-image">
+          <img src="./images/JPS-intro-img-2.png" alt="Legacy Job Price Summary print page annotated: general UI layout updates needed, inaccurate data, data needs to be updated to match modal updates." loading="lazy" />
+          <p class="study-caption">Legacy JPS print page. The print view had drifted from the modal, so builders sent PDFs that disagreed with the on-screen numbers.</p>
+        </div>
+
         <p>
-          <strong>Goal.</strong> Give builders an accurate and shareable
+          <strong>Goal:</strong> Give builders an accurate and shareable
           view of how much their client owes and what's left to pay.
         </p>
 
@@ -313,22 +371,20 @@
         </dl>
 
         <h3 class="study-subhead">Methods</h3>
-        <div class="study-callout">
-          <div class="study-grid-2">
-            <div>
-              <p class="study-kicker">Customer interviews</p>
-              <p>Understand how open-book and fixed-price builders expect to use and share job financials so we can redesign JPS/JCB to be accurate, shareable, and aligned with builders' real workflows.</p>
-            </div>
-            <div>
-              <p class="study-kicker">Workshop &amp; stakeholder syncs</p>
-              <p>Regular trio sync sessions with PM and engineering to validate feasibility, preserve architecture constraints, and align on opinionated workflow choices.</p>
-            </div>
-          </div>
+        <div class="study-image-pair">
+          <figure>
+            <img src="./images/methods-customer-interview.png" alt="Customer interview method visual." loading="lazy" />
+            <figcaption>Customer interviews — understand how open-book and fixed-price builders expect to use and share job financials so we can redesign JPS/JCB to be accurate, shareable, and aligned with builders' real workflows.</figcaption>
+          </figure>
+          <figure>
+            <img src="./images/methods-workshop.png" alt="Workshop and stakeholder sync method visual." loading="lazy" />
+            <figcaption>Workshop &amp; stakeholder syncs — regular trio sync sessions with PM and engineering to validate feasibility, preserve architecture constraints, and align on opinionated workflow choices.</figcaption>
+          </figure>
         </div>
 
         <h3 class="study-subhead">Fixed price interview</h3>
         <p>
-          <strong>Sample group.</strong> Pulled a list of builders that
+          <strong>Sample group:</strong> Pulled a list of builders that
           are frequently viewing the job price summary (viewed 15× in
           the past 30 days).
         </p>
@@ -339,44 +395,37 @@
         </ul>
 
         <h4 class="study-subhead" style="margin-top:24px;">Learning 1: Surface why contract price changed; separate contract COs from post-contract variance</h4>
-        <p>
-          Fixed-price builders set a base/contract price then add
-          upgrades as change orders; they need a clear breakdown showing
-          contract COs vs. later changes / estimator variance so
-          everyone understands how the total moved.
-        </p>
-        <blockquote class="study-quote">
-          "We put the base price in as the contract price when we start
-          a job, then we add all of those upgrades in as change orders."
-          <cite>— Katie B., River City</cite>
-        </blockquote>
+        <div class="study-grid-2" style="align-items: center;">
+          <p style="margin: 0;">
+            Fixed-price builders set a base/contract price then add
+            upgrades as change orders; they need a clear breakdown showing
+            contract COs vs. later changes / estimator variance so
+            everyone understands how the total moved.
+          </p>
+          <img src="./images/katie-b-quote.png" alt="Katie B., River City: 'We put the base price in as the contract price when we start a job, then we add all of those upgrades in as change orders.'" loading="lazy" style="width: 100%; display: block;" />
+        </div>
 
         <h4 class="study-subhead" style="margin-top:24px;">Learning 2: Desire to improve UX</h4>
-        <p>
-          The modal-popup-to-print flow is clunky; builders need a
-          primary, single-page JPS that is searchable (Ctrl+F) and can
-          include full titles/descriptions so they can find and verify
-          items quickly.
-        </p>
-        <blockquote class="study-quote">
-          "If I hit job price summary… I have to hit print and then
-          cancel… I can't do Control+F on that popup screen."
-          <cite>— Ephraim C., Rotelle Development Company</cite>
-        </blockquote>
+        <div class="study-grid-2" style="align-items: center;">
+          <p style="margin: 0;">
+            The modal-popup-to-print flow is clunky; builders need a
+            primary, single-page JPS that is searchable (Ctrl+F) and can
+            include full titles/descriptions so they can find and verify
+            items quickly.
+          </p>
+          <img src="./images/Ephraim-c-img.png" alt="Ephraim C., Rotelle Development Company: 'If I hit job price summary… I have to hit print and then cancel… I can't do Control+F on that popup screen.'" loading="lazy" style="width: 100%; display: block;" />
+        </div>
 
         <h4 class="study-subhead" style="margin-top:24px;">Learning 3: Give quick navigation, "approved by," and history</h4>
-        <p>
-          Builders want to click from a JPS row straight to the
-          originating selection/CO, see who approved it, and preserve
-          the original selection history when items are reset during
-          construction.
-        </p>
-        <blockquote class="study-quote">
-          "Anything that you can give them that is just a click to then
-          take them to the next level or take them to more information,
-          none of us are gonna complain."
-          <cite>— Sue C., HRS Construction</cite>
-        </blockquote>
+        <div class="study-grid-2" style="align-items: center;">
+          <p style="margin: 0;">
+            Builders want to click from a JPS row straight to the
+            originating selection/CO, see who approved it, and preserve
+            the original selection history when items are reset during
+            construction.
+          </p>
+          <img src="./images/sue-craft-img.png" alt="Sue C., HRS Construction: 'Anything that you can give them that is just a click to then take them to the next level or take them to more information, none of us are gonna complain.'" loading="lazy" style="width: 100%; display: block;" />
+        </div>
 
         <h3 class="study-subhead">Openbook interview</h3>
         <p><strong>What are we trying to learn?</strong></p>
@@ -395,13 +444,9 @@
           client-facing running total to equal the Revised Owner Price
           (projected/actuals + markup).
         </p>
-        <blockquote class="study-quote">
-          "What I'm looking at… is where line items [are] coming in
-          over budget, what's the reason for that? Do I need to make a
-          change order for that scope or was there an estimating error?…
-          As the project manager, this is the most important column."
-          <cite>— Kyle P., Summerhill Fine Homes</cite>
-        </blockquote>
+        <div class="study-image">
+          <img src="./images/kyle-p.png" alt="Kyle P., Summerhill Fine Homes: 'What I'm looking at… is where line items are coming in over budget, what's the reason for that? Do I need to make a change order for that scope or was there an estimating error?… As the project manager, this is the most important column.'" loading="lazy" />
+        </div>
         <blockquote class="study-quote">
           "There's a benefit for us to see the difference between a
           scope change or an allowance change and what it actually
@@ -417,19 +462,31 @@
           match client expectations. This is a major operational pain
           and a risk to product adoption.
         </p>
-        <blockquote class="study-quote">
-          "It is taking us hours and hours and hours to really reconcile
-          existing data and also just keep track of data to present it
-          to the client."
-          <cite>— Sam R. &amp; Josh F., Tongue &amp; Groove Property Services</cite>
-        </blockquote>
-        <blockquote class="study-quote">
-          "We just gave up on the export… and now we're just doing a
-          screenshot of the budget to send it with the invoice."
-          <cite>— Kyle P., Summerhill Fine Homes</cite>
-        </blockquote>
+        <div class="study-grid-2" style="align-items: start;">
+          <blockquote class="study-quote" style="margin: 0;">
+            "It is taking us hours and hours and hours to really reconcile
+            existing data and also just keep track of data to present it
+            to the client."
+            <cite>— Sam R. &amp; Josh F., Tongue &amp; Groove Property Services</cite>
+          </blockquote>
+          <blockquote class="study-quote" style="margin: 0;">
+            "We just gave up on the export… and now we're just doing a
+            screenshot of the budget to send it with the invoice."
+            <cite>— Kyle P., Summerhill Fine Homes</cite>
+          </blockquote>
+        </div>
 
         <h3 class="study-subhead">Solution</h3>
+        <p>
+          The redesign shipped across four iterations, each building
+          on the last:
+        </p>
+        <ul class="study-list">
+          <li><strong>Iteration 1</strong> — lock the financial model: original vs. revised client price, remaining balance, and clear line items.</li>
+          <li><strong>Iteration 2A &amp; 2B</strong> — extend the same model to selections/allowances and the print page so numbers agree across surfaces.</li>
+          <li><strong>Iteration 3</strong> — mirror the view in the client portal so builders and clients see the same JPS.</li>
+          <li><strong>Iteration 4</strong> — collapse the modal-then-print flow into one page, so the live view and the shared PDF are the same artifact.</li>
+        </ul>
 
         <h4 class="study-subhead" style="margin-top:24px;">Iteration 1: Contract price &amp; remaining balance</h4>
         <p>
@@ -440,8 +497,18 @@
         </p>
 
         <div class="study-image">
-          <img src="./images/jps-iteration-1-new.png" alt="New design of the Job Price Summary showing revised client price, remaining balance, approved selections, change orders, and payments received." />
-          <p class="study-caption">New JPS design. Revised client price, remaining balance, approved selections &amp; allowances, change orders, and payments received, with clear breakdowns.</p>
+          <img src="./images/solution-iteration1.png" alt="Solution overview for Iteration 1 of the Job Price Summary redesign." loading="lazy" />
+        </div>
+
+        <div class="study-image-pair">
+          <figure>
+            <img src="./images/jps-iteration-1-old.png" alt="Legacy Job Price Summary layout before redesign." loading="lazy" />
+            <figcaption>Before. Legacy JPS with mismatched data and unclear breakdown.</figcaption>
+          </figure>
+          <figure>
+            <img src="./images/jps-iteration-1-new.png" alt="New design of the Job Price Summary showing revised client price, remaining balance, approved selections, change orders, and payments received." loading="lazy" />
+            <figcaption>After. Revised client price, remaining balance, approved selections &amp; allowances, change orders, and payments received, with clear breakdowns.</figcaption>
+          </figure>
         </div>
 
         <ul class="study-list">
@@ -464,6 +531,9 @@
           <li><strong>Remaining balance:</strong> balance may increase if the revised client price changes.</li>
           <li><strong>Selection &amp; allowances:</strong> shows a breakdown to users of the allowance amount, what's remaining based on selection choices made. A good way for users to understand whether they have wiggle room to overspend with one selection and underspend on another.</li>
         </ul>
+        <div class="study-image">
+          <img src="./images/iteration-2.png" alt="Iteration 2A: Job Price Summary with selections and allowances breakdown." loading="lazy" />
+        </div>
 
         <h4 class="study-subhead" style="margin-top:24px;">Iteration 2B: Print page</h4>
         <p>
@@ -471,6 +541,9 @@
           print page, so the client sees the same numbers whether the
           builder is showing the screen or sending a PDF.
         </p>
+        <div class="study-image">
+          <img src="./images/Iteration%202B-%20Print%20page.png" alt="Iteration 2B: JPS print page matching the modal design." loading="lazy" />
+        </div>
 
         <h4 class="study-subhead" style="margin-top:24px;">Iteration 3: Client portal</h4>
         <p>
@@ -487,6 +560,9 @@
           Estimate to the Budget</em> and <em>after sending Estimate to
           the Budget</em>, with the correct numbers and framing for each.
         </p>
+        <div class="study-image">
+          <img src="./images/Iteration%203%20client%20portal.png" alt="Iteration 3: Client portal view of the Job Price Summary." loading="lazy" />
+        </div>
 
         <h4 class="study-subhead" style="margin-top:24px;">Iteration 4: What you see is what you get</h4>
         <p>
@@ -501,10 +577,8 @@
           <li><strong>Quick links:</strong> hyperlink titles allow builders and clients to view the specific details of the selection, allowance, change order, and payment.</li>
           <li><strong>Sorting options:</strong> the grid has dynamic sorting so builders can sort to match how they'd prefer to share the JPS.</li>
         </ul>
-
         <div class="study-image">
-          <img src="./images/openbook-jcb-screenshot1.png" alt="Openbook JCB screenshot showing detailed cost breakdown by line item with actual vs. budgeted variance." loading="lazy" />
-          <p class="study-caption">Openbook builders wanted the client-facing running total to equal the Revised Owner Price (projected/actuals + markup).</p>
+          <img src="./images/iteration-4.png" alt="Iteration 4: JPS print page as the primary client-facing view." loading="lazy" />
         </div>
 
         <div class="study-callout">
@@ -515,6 +589,19 @@
             <li>The intervention also enabled safe, incremental rollouts (export / read-only MVPs), lowering risk while proving value.</li>
           </ul>
         </div>
+
+        <div class="study-callout">
+          <h4>Where this leads next</h4>
+          <p style="margin-bottom:0;">
+            The JPS fixed the <em>client-facing</em> read of job
+            financials. But the <em>internal</em> read — the Job
+            Costing Budget that GCs use to judge whether a job is
+            healthy — had quietly drifted from the legacy budget
+            builders still trusted. Part 3 rebuilds the JCB's
+            projected cost and gross-profit story so builders can
+            migrate off the legacy budget for good.
+          </p>
+        </div>
       </section>
 
       <section id="part-3" class="study-section">
@@ -522,14 +609,14 @@
         <h2>Improve financial visibility: Job costing budget</h2>
 
         <p>
-          <strong>Problem.</strong> The JCB's projected cost and
+          <strong>Problem:</strong> The JCB's projected cost and
           job-level gross profit are inaccurate and opaque, so GCs can't
           reliably judge job financial health. As a result they continue
           to rely on the legacy budget, blocking our business goal to
           migrate users to the JCB and deprecate the legacy budget.
         </p>
         <p>
-          <strong>Goal.</strong> Restore confidence in the JCB by making
+          <strong>Goal:</strong> Restore confidence in the JCB by making
           projected cost and gross profit accurate, consistent, and
           transparent so GCs adopt the JCB as the canonical job
           financial view and we can retire the legacy budget.
@@ -551,6 +638,9 @@
           Complete</em>, <em>Revised Client Price</em>, and a headline
           callout like "1% LOWER PROFIT THAN ESTIMATED."
         </p>
+        <div class="study-image">
+          <img src="./images/Current%20job%20costing%20budget.png" alt="Current Job Costing Budget showing projected total cost, actuals, cost to complete, and revised client price." loading="lazy" />
+        </div>
 
         <h3 class="study-subhead">Legacy budget</h3>
         <p>
@@ -566,65 +656,20 @@
           <li><strong>Projected cost:</strong> the expected final cost used for planning and forecasting.</li>
           <li><strong>Gross profit:</strong> shows the builder whether the job will be profitable.</li>
         </ul>
+        <div class="study-image">
+          <img src="./images/legacy-budget.png" alt="Legacy budget view showing job running total, projected costs, and gross profit — the view builders still reach for." loading="lazy" />
+        </div>
 
         <h3 class="study-subhead">Initial user feedback</h3>
-
-        <div class="study-callout">
-          <h4>Prefers to use external reporting software</h4>
-          <blockquote class="study-quote">
-            "Because the reporting in Buildertrend sucks, to be blunt. So
-            we get better reporting on individual jobs by exporting the
-            job cost budget. Shouldn't have to do that but that's the
-            reason."
-            <cite>— Rising Tide Builders</cite>
-          </blockquote>
+        <div class="study-image">
+          <img src="./images/JCB-design-feedback.png" alt="Summary of JCB design feedback themes from builders." loading="lazy" />
         </div>
 
-        <div class="study-callout">
-          <h4>Prefer the legacy budget data</h4>
-          <blockquote class="study-quote">
-            "Would like to revert back to the budget calculating JRT,
-            total costs rather than projected. Not happy with the update.
-            The calculations are wrong on all jobs now and the way it
-            was prior worked for their processes."
-            <cite>— Seif E., Newforce</cite>
-          </blockquote>
-        </div>
-
-        <div class="study-callout">
-          <h4>Prefer the legacy budget</h4>
-          <p><em>Product feedback:</em> hates projected costs, likes it the old way.</p>
-          <p class="study-footnote">— Jordan W., GRS Pros</p>
-        </div>
-
-        <div class="study-callout">
-          <h4>Wants to see alternative insights</h4>
-          <blockquote class="study-quote">
-            "This calculation is misleading as it is accounting for
-            projected costs (which aren't real) as opposed to actual
-            costs. I'd rather see a live look at the budget."
-            <cite>— Allen B., D&amp;S Elite Construction</cite>
-          </blockquote>
-        </div>
-
-        <div class="study-callout">
-          <h4>Current insights aren't useful</h4>
-          <blockquote class="study-quote">
-            "Oh, those graphs that are currently at the top? Yeah. I
-            don't, I don't use those."
-            <cite>— Michelle H., Paceline Construction</cite>
-          </blockquote>
-        </div>
-
-        <div class="study-callout">
-          <h4>Openbook builder: profit is predictable</h4>
-          <blockquote class="study-quote">
-            "We build whatever it costs to build a house. It costs what
-            it costs. I don't take hits on overages… Those costs get
-            passed right along. So for me… profit numbers aren't that
-            critical."
-            <cite>— Jason (openbook builder)</cite>
-          </blockquote>
+        <div class="feedback-grid">
+          <img src="./images/Rising%20Tide%20Builders.png" alt="Rising Tide Builders: 'Because the reporting in Buildertrend sucks, to be blunt. So we get better reporting on individual jobs by exporting the job cost budget. Shouldn't have to do that but that's the reason.'" loading="lazy" />
+          <img src="./images/Seif%20E.%20Newforce.png" alt="Seif E., Newforce: 'Would like to revert back to the budget calculating JRT, total costs rather than projected. Not happy with the update. The calculations are wrong on all jobs now and the way it was prior worked for their processes.'" loading="lazy" />
+          <img src="./images/allen-b.png" alt="Allen B., D&amp;S Elite Construction: 'This calculation is misleading as it is accounting for projected costs (which aren't real) as opposed to actual costs. I'd rather see a live look at the budget.'" loading="lazy" />
+          <img src="./images/jason.png" alt="Jason (openbook builder): 'We build whatever it costs to build a house. It costs what it costs. I don't take hits on overages… Those costs get passed right along. So for me… profit numbers aren't that critical.'" loading="lazy" />
         </div>
 
         <h3 class="study-subhead">Learnings</h3>
@@ -672,8 +717,16 @@
         </p>
 
         <div class="study-image">
-          <img src="./images/openbook-jcb-screenshot2.png" alt="Openbook JCB experimenting with top-level insights and cost category breakdowns." loading="lazy" />
-          <p class="study-caption">Experimenting with top-level insight visuals. Surfacing actuals, projected, and variance in a way that both segments can read.</p>
+          <img src="./images/experiment-top-lvl-insights.png" alt="Experimenting with top-level insight visuals to show job health for fixed-price and open-book jobs." loading="lazy" />
+        </div>
+
+        <div class="study-image">
+          <img src="./images/Experimenting%20with%20different%20visuals%20to%20show%20profit%20insights-.png" alt="Different visuals to show profit insights across builder segments." loading="lazy" />
+        </div>
+
+        <div class="study-image">
+          <img src="./images/Fixed%20Price/Hover/Projected%20vs%20estimated%20profit%20margin.png" alt="Fixed-price hover interaction showing projected vs. estimated profit margin." loading="lazy" />
+          <p class="study-caption">Projected vs. estimated profit margin hover state for fixed-price jobs.</p>
         </div>
 
         <h3 class="study-subhead">What the design locks in</h3>
@@ -682,9 +735,25 @@
           <li><strong>Gross profit shown with its derivation:</strong> not just a number, but how it was built from contract price, costs, and approved COs.</li>
           <li><strong>Legacy-budget parity checks</strong> ship alongside the feature so GCs can verify their old view against the new one during the migration window.</li>
         </ul>
+        <div class="study-image">
+          <img src="./images/JCB-design-final.png" alt="Final JCB design showing the projected-cost formula, gross profit derivation, and parity with the legacy view." loading="lazy" />
+        </div>
+        <div class="study-image">
+          <img src="./images/JCB-color-contrast-tracker.png" alt="JCB color and contrast accessibility tracker used during design review." loading="lazy" />
+          <p class="study-caption">Color / contrast tracker used during design review to keep the JCB accessible.</p>
+        </div>
+
+        <div class="study-callout">
+          <h4>Result / impact</h4>
+          <ul class="study-list">
+            <li><strong>One projected-cost formula per job</strong> with inputs visible inline — no more hunting through definitions to understand the number.</li>
+            <li><strong>Configurable defaults by contract type</strong> — fixed-price builders see headline variance against contract; open-book builders see running totals with a confidence band. Same data, two reads.</li>
+            <li><strong>Legacy-budget parity checks shipped alongside</strong> so GCs could verify their old view against the new one during the migration window, clearing the path to retire the legacy budget.</li>
+          </ul>
+        </div>
       </section>
 
-      <section class="study-section">
+      <section id="reflection" class="study-section">
         <h2>Reflection</h2>
         <p>
           Better Way Financials wasn't one feature. It was three

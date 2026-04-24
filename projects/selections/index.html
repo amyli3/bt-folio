@@ -14,8 +14,12 @@
         <a href="#problem">Problem</a>
         <a href="#approach">Approach</a>
         <a href="#problems">Statements</a>
-        <a href="#invoicing">Invoicing</a>
-        <a href="#client">Client</a>
+        <a href="#findings">Findings</a>
+        <a href="#invoicing">Part 1</a>
+        <a href="#client">Part 2</a>
+        <a href="#handoff">What's shipping</a>
+        <a href="#next">What's next</a>
+        <a href="#reflection">Reflection</a>
       </div>
     </nav>
 
@@ -25,7 +29,7 @@
         <h1>Selections Reimagined</h1>
         <p class="study-lede">
           Selections are where design decisions become financial
-          commitments — every countertop, faucet, or flooring call
+          commitments. Every countertop, faucet, or flooring call
           becomes a line item that moves the budget, the invoice,
           and what the client believes they still have to spend.
           This case study covers the two sub-threads I'm leading:
@@ -48,7 +52,7 @@
           </div>
           <div>
             <dt>Status</dt>
-            <dd>Q2 2026 — in discovery &amp; design</dd>
+            <dd>Discovery complete · Slice 2 (selection invoicing wizard) in build · Q2 discovery on the client financial experience</dd>
           </div>
         </dl>
       </header>
@@ -79,7 +83,7 @@
         <p>
           There's appetite for something new. A recent sentiment
           survey found <strong>95% of builders said they're likely
-          to try a new selections experience</strong> — most within
+          to try a new selections experience</strong>, most within
           the first 30 days of release. The question isn't
           whether to rebuild. It's whether the rebuild resolves the
           specific trust failures that pushed builders out in the
@@ -87,8 +91,8 @@
         </p>
         <p>
           The Q2 Selections Reimagined effort is a ground-up
-          redesign with a pointed lens — Co-Construct builders
-          migrating into Buildertrend — because that segment
+          redesign with a pointed lens (Co-Construct builders
+          migrating into Buildertrend), because that segment
           depends on selections working end-to-end. Two threads
           I'm designing in parallel:
         </p>
@@ -104,10 +108,29 @@
             <strong>Client-facing selections experience</strong> —
             giving clients a clear view of what they've chosen,
             what's pending, what it costs, and what's still to
-            decide — on a timeline that matches how the job
+            decide, on a timeline that matches how the job
             actually runs.
           </li>
         </ul>
+
+        <h3 class="study-subhead" style="margin-top:32px;">The current workflow, mapped</h3>
+        <p>
+          Before redesigning, we mapped the legacy selections
+          workflow end-to-end so we could see exactly where friction
+          accumulated. The map below traces what a builder does
+          today from estimate through invoicing, with the broken
+          seams called out in place.
+        </p>
+        <div class="study-iframe-wrap study-iframe-wrap--inline">
+          <iframe
+            src="./images/current%20selections%20workflow.pdf#view=FitH"
+            title="Current legacy selections workflow"
+            loading="lazy"
+          ></iframe>
+        </div>
+        <p class="study-footnote">
+          Open PDF: <a href="./images/current%20selections%20workflow.pdf" target="_blank" rel="noopener">current selections workflow.pdf ↗</a>
+        </p>
       </section>
 
       <section id="approach" class="study-section">
@@ -130,8 +153,8 @@
         </div>
         <p>
           Those variables combine into different builder archetypes
-          — spec, custom, remodeler, cost-plus, design-build,
-          semi-custom — each of whom runs Selections differently.
+          (spec, custom, remodeler, cost-plus, design-build,
+          semi-custom), each of whom runs Selections differently.
           One rigid workflow can't serve them all. The design
           goal is <em>structured flexibility</em>: guardrails
           that protect the financial math without forcing any
@@ -161,7 +184,7 @@
           </li>
           <li>
             <strong>Three working prototypes</strong> tested in
-            interviews — a CreateFromBid flow (base44), a
+            interviews: a CreateFromBid flow (base44), a
             price-visibility prototype in Figma, and a selection
             invoicing prototype.
           </li>
@@ -177,7 +200,7 @@
         <h2>The problem statements</h2>
         <p>
           Out of the discovery work, I synthesized eight problem
-          statements — four high-level clusters tied to client
+          statements: four high-level clusters tied to client
           and builder needs, and four specific sub-problems
           underneath them. These are the frame we're designing
           against.
@@ -188,7 +211,7 @@
           <li>
             <strong>Financial visibility.</strong> Clients need
             continuous financial clarity throughout the selection
-            decision — before, during, and after — so they can
+            decision (before, during, and after) so they can
             participate as informed financial partners.
           </li>
           <li>
@@ -210,7 +233,7 @@
           <li>
             <strong>Notifications and discoverability.</strong>
             When a builder makes selections or allowances visible
-            to a client, the client has no way of knowing — BT
+            to a client, the client has no way of knowing. BT
             sends no notification. Discovery depends on the
             client remembering to log in, which can leave
             decisions sitting unactioned with no signal to either
@@ -244,7 +267,7 @@
             an invoice, BT's line-item structure is optimized for
             builder accounting, not client communication. Builders
             routinely hide the line items entirely and manually
-            write a description of the work — breaking the
+            write a description of the work, breaking the
             financial thread from approved selection to payment,
             and creating extra work on every invoice.
           </li>
@@ -259,12 +282,31 @@
           A few of the most specific findings:
         </p>
 
+        <h3 class="study-subhead">Real-world selection journey</h3>
+        <p>
+          To ground the patterns in actual jobs, I traced a
+          real-world selection journey from first conversation
+          through invoice. The map below shows where handoffs
+          happen, where decisions stall, and where the spreadsheet
+          workarounds live.
+        </p>
+        <div class="study-iframe-wrap study-iframe-wrap--inline">
+          <iframe
+            src="./images/real-world-selection-journey.pdf#view=FitH"
+            title="Real-world selection journey"
+            loading="lazy"
+          ></iframe>
+        </div>
+        <p class="study-footnote">
+          Open PDF: <a href="./images/real-world-selection-journey.pdf" target="_blank" rel="noopener">real-world-selection-journey.pdf ↗</a>
+        </p>
+
         <h3 class="study-subhead">Allowance + markup confusion (universal)</h3>
         <p>
           Markup inflates the visible allowance, so clients believe
           they have more to spend than they actually do. Kevin
           Madden (Double Eagle Builders) stopped using BT
-          allowances entirely — he manually adds two line items
+          allowances entirely. He manually adds two line items
           per selection (cost overage + builder fee overage) to
           show clients a real shopping budget.
         </p>
@@ -306,7 +348,7 @@
         <p>
           A client is asked to approve a selection without seeing
           how it changes their contract price. This was the
-          loudest signal on the client-experience side — the
+          loudest signal on the client-experience side: the
           thing clients most want, the thing legacy Selections
           most fails to deliver.
         </p>
@@ -333,7 +375,7 @@
         <h3 class="study-subhead">No urgency model</h3>
         <p>
           Overdue selections drop silently from the client's
-          "Available" queue to "Closed" — they become invisible
+          "Available" queue to "Closed," so they become invisible
           exactly when they're most important. Kevin Madden asked
           for the Co-Construct pattern: tiered yellow/red urgency
           that surfaces <em>before</em> items become schedule
@@ -342,12 +384,14 @@
       </section>
 
       <section id="invoicing" class="study-section">
-        <h2>Thread 1 — Invoicing new selections</h2>
+        <div class="study-eyebrow">Part 1 · Invoicing new selections</div>
+        <h2>When a selection changes scope, money has to move correctly</h2>
         <p>
-          When a selection changes scope, money needs to move
-          correctly. This is the sub-problem that touches
-          everything downstream: the invoice, the budget, the
-          change order, and what the client sees.
+          This is the sub-problem that touches everything
+          downstream: the invoice, the budget, the change order,
+          and what the client sees. Two threads run in parallel —
+          this one handles the <em>money</em>, Part 2 handles the
+          <em>client experience</em>.
         </p>
         <div class="study-image">
           <img src="./images/selections-workspace.png" alt="Selections workspace with an approved selection, an action menu showing 'Add to existing Invoice' and 'New Invoice' routing options, and allowance remaining rows" />
@@ -416,13 +460,26 @@
 
         <p>
           The design problem is surfacing all of these cases
-          through one interface a builder can read quickly —
+          through one interface a builder can read quickly,
           without making any single case feel like an edge path.
         </p>
+
+        <div class="study-callout">
+          <h4>Where this leads next</h4>
+          <p style="margin-bottom:0;">
+            Part 1 keeps the numbers honest on the builder's side.
+            Part 2 flips the same problem around and asks: what
+            does the <em>client</em> see when a selection changes
+            scope? If we get the money right but not the message,
+            clients still can't trust the total they're being
+            asked to approve.
+          </p>
+        </div>
       </section>
 
       <section id="client" class="study-section">
-        <h2>Thread 2 — The client experience</h2>
+        <div class="study-eyebrow">Part 2 · The client experience</div>
+        <h2>What clients need to see at any moment in the job</h2>
         <p>
           Clients want to know three things at any given moment:
           <em>what have I chosen?</em>, <em>what have I not yet
@@ -434,7 +491,7 @@
         <ul class="study-list">
           <li>
             <strong>Show upgrade deltas, not line-item markup.</strong>
-            Clients see the difference from the allowance — not
+            Clients see the difference from the allowance, not
             the builder's internal pricing math. A semi-custom
             builder I spoke to
             (<em>"we don't provide the base cost… we just show
@@ -443,7 +500,7 @@
           </li>
           <li>
             <strong>Timelines, not lists.</strong> Selections are
-            time-sensitive — flooring precedes install, cabinets
+            time-sensitive: flooring precedes install, cabinets
             precede framing. The client view organizes by what's
             urgent, not alphabetically.
           </li>
@@ -470,7 +527,7 @@
           <li>
             <strong>Builder-controlled gating on price updates.</strong>
             Blake Demlang's ask: don't auto-update the contract
-            price on client approval — some builders need manual
+            price on client approval, since some builders need manual
             gating because changes affect bank financing.
           </li>
         </ul>
@@ -480,12 +537,222 @@
           Blake Demlang (Demlang Builders) wants a dual-view: a
           visual showroom for browsing selections, separate from
           a financial summary. Pricing is present but not "in
-          their face" — clients are making aesthetic decisions
+          their face"; clients are making aesthetic decisions
           first and budget decisions second. The same builders
           also want the <strong>three-tier contract model</strong>
           (base → first options agreement → subsequent COs) that
           Buildertrend's current two-tier structure (original vs.
           revised) doesn't support.
+        </p>
+
+        <h3 class="study-subhead">Client view prototype</h3>
+        <p>
+          A working prototype of the client-facing selections view,
+          built to stress-test the principles above against
+          realistic data shapes. Scroll through the queue, preview
+          a pending selection, and watch the revised client price
+          update live.
+        </p>
+        <div class="study-iframe-controls">
+          <button
+            type="button"
+            class="study-iframe-expand"
+            onclick="(function(b){var w=document.getElementById('client-selections-proto');w.classList.toggle('study-iframe-wrap--expanded');b.textContent=w.classList.contains('study-iframe-wrap--expanded')?'Collapse prototype':'Expand prototype';})(this)"
+          >Expand prototype</button>
+          <a href="https://bt-invoice.vercel.app/#client-selections" target="_blank" rel="noopener">Open in new tab ↗</a>
+        </div>
+        <div class="study-iframe-wrap study-iframe-wrap--inline" id="client-selections-proto">
+          <iframe
+            src="https://bt-invoice.vercel.app/#client-selections"
+            title="Client view selections prototype"
+            loading="lazy"
+          ></iframe>
+        </div>
+
+        <h4 class="study-subhead" style="margin-top:24px;">Assumptions baked into this view</h4>
+        <ul class="study-list">
+          <li>
+            <strong>Timeline-first organization</strong> — selections
+            are grouped by urgency (overdue, due this week, upcoming,
+            decided), not alphabetically. Assumes clients scan by
+            "what's next to decide."
+          </li>
+          <li>
+            <strong>Upgrade deltas, not markup</strong> — clients see
+            the difference from the allowance instead of the builder's
+            internal pricing. Assumes the delta is what clients care
+            about: the shopping budget.
+          </li>
+          <li>
+            <strong>Running revised client price</strong> — every
+            approved selection updates a visible total. Assumes clients
+            want continuous visibility into where they stand, not a
+            once-at-invoice number.
+          </li>
+          <li>
+            <strong>Preview before approve</strong> — the price impact
+            of a pending selection is visible before the client hits
+            approve. Assumes the current "approve first, discover cost
+            later" flow is what's breaking trust.
+          </li>
+          <li>
+            <strong>Drafts stay hidden</strong> — unfinished selections
+            don't surface to the client until the builder explicitly
+            sends them. Assumes builders need a safe space to work
+            in-progress without leaking half-priced selections.
+          </li>
+          <li>
+            <strong>One urgency model</strong> — tiered overdue /
+            due-this-week states match the Co-Construct pattern that
+            existing Co+ builders are migrating from. Assumes this
+            translates across segments.
+          </li>
+        </ul>
+
+        <h4 class="study-subhead" style="margin-top:24px;">What still needs validation</h4>
+        <ul class="study-list">
+          <li>
+            <strong>Is upgrade-delta language clearer than line-item
+            pricing?</strong> Test with clients across fixed-price,
+            cost-plus, and semi-custom jobs. A semi-custom client
+            might read deltas well; a cost-plus client may expect to
+            see actuals.
+          </li>
+          <li>
+            <strong>Does timeline-based organization match client
+            mental models?</strong> Run a Maze card-sort or first-click
+            test. Clients may think in rooms or trades rather than
+            dates.
+          </li>
+          <li>
+            <strong>Urgency tier thresholds.</strong> How many days
+            before "upcoming" becomes "due this week"? Thresholds need
+            to match real scheduling lead times for long-tail items
+            like flooring and cabinets.
+          </li>
+          <li>
+            <strong>Builder gating preferences.</strong> Blake Demlang
+            flagged that some builders need manual approval on price
+            updates; test how many builders actually want this vs.
+            auto-update, and whether it becomes a settings-level choice.
+          </li>
+          <li>
+            <strong>Three-tier contract model.</strong> Test the
+            mental model against Buildertrend's two-tier structure:
+            where does a "first options agreement" live, and does it
+            need its own artifact, or can we simulate it with a
+            savepoint on the Estimate?
+          </li>
+          <li>
+            <strong>Co+ migration parity.</strong> Run side-by-side
+            with Co-Construct's client view with builders actively
+            moving platforms, so "parity vs. worse" doesn't become an
+            adoption blocker.
+          </li>
+        </ul>
+      </section>
+
+      <section id="handoff" class="study-section">
+        <h2>Where Ship of Theseus picks this up</h2>
+        <p>
+          The Paper Crane team led the broader Selections Reimagined
+          initiative and shipped the foundation through Q1 —
+          allowance overage invoicing released on 4/1, which closed
+          one of the biggest double-billing pain points in legacy
+          Selections. They scoped selection invoicing as a staged
+          release and handed the later slices to Ship of Theseus so
+          they could land inside the same frictionless invoicing
+          arc as progress invoices.
+        </p>
+
+        <h3 class="study-subhead">The slices we're taking</h3>
+        <ul class="study-list">
+          <li><strong>Slices 0–1</strong> <span style="color:var(--text-muted);">· Paper Crane, shipped</span> — fixed-price invoicing paths include pre-approved selections; allowance overages can be invoiced directly.</li>
+          <li><strong>Slice 2</strong> <span style="color:var(--text-muted);">· Ship of Theseus, in-flight</span> — a selection invoicing wizard that guides the remaining balance so builders don't have to math it themselves.</li>
+          <li><strong>Slice 3</strong> — invoice post-contract selections.</li>
+          <li><strong>Slice 4+</strong> — progress-invoice integration, job + selection-level pricing visibility, underages and credits, edge cases.</li>
+        </ul>
+
+        <h3 class="study-subhead">Selection invoicing wizard</h3>
+        <p>
+          The wizard is the first piece Ship of Theseus owns. It
+          lives as a modal on both standard and progress invoices,
+          surfacing invoiceable selections and allowances via a new
+          endpoint and guiding builders to the correct remaining
+          balance without manual reconciliation. Aligning invoicing
+          to the <em>Revised Client Price</em> means Buildertrend
+          can act as the system of record for deltas — selections
+          drive contract value; invoicing captures only what's left.
+        </p>
+        <div class="study-image">
+          <img src="./images/Invoice_%20add%20from%20selection/new-selection-wizard.png" alt="Selection invoicing wizard — Invoice for remaining selections modal." loading="lazy" />
+        </div>
+
+        <h3 class="study-subhead">Mapping the opportunity landscape</h3>
+        <p>
+          Before narrowing on the client financial experience for
+          Q2, we ran a cross-functional opportunity workshop with
+          PMs, designers, developers, and customer success. Dozens
+          of pain points landed on the board, which we clustered
+          into themes to see where friction concentrated:
+        </p>
+        <div class="study-grid-2" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:12px;">
+          <div class="study-callout" style="margin:0; padding:20px;">
+            <p class="study-kicker" style="margin-top:0;">Client decision-making</p>
+            <p style="margin:0; font-size:15px;">Pending states that confuse, no deadlines, no notifications, no price preview, selections leaking to clients before the builder is ready.</p>
+          </div>
+          <div class="study-callout" style="margin:0; padding:20px;">
+            <p class="study-kicker" style="margin-top:0;">Budget &amp; invoicing clarity</p>
+            <p style="margin:0; font-size:15px;">Hard to track how selections impact the budget, unused allowances at closeout, confusing invoicing for standalone options and overages, markup handling.</p>
+          </div>
+          <div class="study-callout" style="margin:0; padding:20px;">
+            <p class="study-kicker" style="margin-top:0;">Reuse &amp; efficiency</p>
+            <p style="margin:0; font-size:15px;">Can't copy selections within a job, can't pull from past jobs, can't import from Excel or product websites, can't reuse saved catalog items.</p>
+          </div>
+          <div class="study-callout" style="margin:0; padding:20px;">
+            <p class="study-kicker" style="margin-top:0;">Workflow integration</p>
+            <p style="margin:0; font-size:15px;">No clean link from selection to schedule, spec, PO, or change order. Duplicate data entry across surfaces.</p>
+          </div>
+          <div class="study-callout" style="margin:0; padding:20px;">
+            <p class="study-kicker" style="margin-top:0;">Visibility &amp; communication</p>
+            <p style="margin:0; font-size:15px;">No activity log, no comments, unclear what the client sees, no way to set permissions, no way to notify.</p>
+          </div>
+          <div class="study-callout" style="margin:0; padding:20px;">
+            <p class="study-kicker" style="margin-top:0;">Visual + mobile</p>
+            <p style="margin:0; font-size:15px;">Hard to evaluate options visually, legacy experience missing on mobile, hierarchy on the list page isn't obvious.</p>
+          </div>
+        </div>
+
+        <h3 class="study-subhead">Prioritization matrix</h3>
+        <p>
+          We ran the themes through an impact vs. effort matrix.
+          Our team's Q2 focus sits in the top-right <em>Big bets</em>
+          quadrant — the client financial experience in particular,
+          which lines up with the Co+ research and 60% open-book
+          exposure. Easy wins on the left feed the backlog for the
+          next sprint planning cycle.
+        </p>
+        <div class="study-image">
+          <img src="./images/priotization-matrix.png" alt="Impact vs. effort prioritization matrix with Easy wins, Big bets, Incremental, and Money pit quadrants." loading="lazy" />
+        </div>
+
+        <h3 class="study-subhead">Q2 discovery: the client financial experience</h3>
+        <p>
+          While the wizard builds, I've been running Q2 discovery
+          to frame the next wave of work. Fifteen Co+ builders so
+          far agree the client financial experience isn't itself
+          an adoption blocker, but three related pain points keep
+          surfacing:
+        </p>
+        <ul class="study-list">
+          <li>Clients can't see how a pending selection will change their contract price before they approve it.</li>
+          <li>On open-book jobs (60% of Co+ jobs), markup on selections gets rolled into the allowance amount, confusing clients about how much they actually have to spend.</li>
+          <li>Clients see "price adjustments" on the financial summary with no explanation of why the total changed.</li>
+        </ul>
+        <p>
+          These three sit at the intersection of selections and
+          financial transparency — which is exactly the seam the
+          client-view prototype is designed to test.
         </p>
       </section>
 
@@ -493,24 +760,22 @@
         <h2>What's next</h2>
         <ul class="study-list">
           <li>
-            <strong>Prototyping the invoicing flow</strong> —
-            taking the cases above into a working prototype and
-            testing it back with builders from the discovery round.
+            <strong>Ship the selection invoicing wizard</strong> —
+            land slice 2 on standard invoices first, then on
+            progress invoices so both workflows share one mental
+            model.
           </li>
           <li>
-            <strong>Client-view wireframes</strong> — turning the
-            principles into concrete layouts; validating with a
-            Maze survey against the CAB.
+            <strong>Client-view prototype validation</strong> —
+            test the principles above against the CAB with a Maze
+            survey, then iterate on what builders and clients
+            surface.
           </li>
           <li>
-            <strong>Allowance reconciliation at billing</strong> —
-            closing out overages and underages at invoice time so
-            jobs end clean.
-          </li>
-          <li>
-            <strong>Change-order + selection unification</strong> —
-            letting a selection sit on a change order without
-            double-charging.
+            <strong>Prototype concepts for the three Q2 pain points</strong> —
+            pending selection price preview, open-book markup
+            transparency, and an explanation layer for price
+            adjustments on the financial summary.
           </li>
           <li>
             <strong>Co+ migration validation</strong> — testing
@@ -544,6 +809,58 @@
             actually use the new flow and whether overage
             reconciliation happens automatically instead of through
             the manual workarounds legacy Selections forced.
+          </li>
+        </ul>
+      </section>
+
+      <section id="reflection" class="study-section">
+        <h2>Reflection</h2>
+        <p>
+          Selections is the widest feature I've worked on at
+          Buildertrend — not because it has the most screens, but
+          because every builder runs it differently. The five
+          situational variables (who decides, how much optionality,
+          pre- vs. post-contract, pricing model, level of
+          standardization) combine into archetypes that don't share
+          a single workflow. A rigid redesign would have traded one
+          set of workarounds for another.
+        </p>
+        <p>
+          The shape that held up was <em>structured flexibility</em>:
+          guardrails around the math that everyone has to share,
+          and configurability around how work actually gets done.
+          That's also what made the hand-off to Ship of Theseus
+          work — Paper Crane owned the math piece (allowance
+          overages, contract price reconciliation) and handed us
+          the workflow layers that sit on top.
+        </p>
+        <p>
+          A few things I'd do differently next time:
+        </p>
+        <ul class="study-list">
+          <li>
+            <strong>Start with the client experience earlier.</strong>
+            The builder-side cases were easier to enumerate, so
+            they led. But the client experience shapes whether
+            builders actually adopt the new flow — without it, we
+            were redesigning the back office without a reason for
+            the front door to change.
+          </li>
+          <li>
+            <strong>Cut the long tail faster.</strong> The
+            opportunity board held dozens of real pain points.
+            Running the prioritization matrix earlier would have
+            let us signal to stakeholders what was <em>out</em> of
+            scope before the list got long enough to feel like
+            every concern was on the table.
+          </li>
+          <li>
+            <strong>Protect prototype test time.</strong> The
+            client-view prototype was the single most useful
+            artifact for conversations with builders, but it got
+            built after problem framing, not alongside it. Next
+            time, I'd scaffold the prototype early and let it
+            shape discovery instead of the other way around.
           </li>
         </ul>
       </section>

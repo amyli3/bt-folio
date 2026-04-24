@@ -28,7 +28,7 @@
           longer, more structured jobs. When Buildertrend's workflow
           couldn't produce a clean AIA-style pay application, builders
           kept their real billing in Excel. This is the story of
-          bringing that work back into the platform — the research,
+          bringing that work back into the platform: the research,
           the design decisions, and the questions still open.
         </p>
         <dl class="study-meta">
@@ -60,7 +60,7 @@
           sheet and G703 continuation sheet, tied to a Schedule of
           Values, with retainage calculated, change orders
           reconciled, and stored materials accounted for. It isn't
-          decorative — it's what unlocks the next draw.
+          decorative; it's what unlocks the next draw.
         </p>
         <p>
           Buildertrend's existing progress invoice gave builders a
@@ -68,7 +68,7 @@
           So builders pulled the data back out. They rebuilt the pay
           application in Excel every month, reconciled it manually,
           and kept the "real" billing in a spreadsheet next to the
-          platform — paying for a tool they couldn't use for the work
+          platform, paying for a tool they couldn't use for the work
           it was meant for.
         </p>
         <div class="study-image">
@@ -79,7 +79,7 @@
           Losing that job is expensive twice over: once in churn, and
           again in the builders who evaluate Buildertrend, see the
           gap, and walk over to Procore. The goal of this project
-          was to close that gap — make the workflow complete enough,
+          was to close that gap: make the workflow complete enough,
           and trustworthy enough, that builders stop exporting out.
         </p>
       </section>
@@ -87,7 +87,7 @@
       <section id="approach" class="study-section">
         <h2>How we approached it</h2>
         <p>
-          Progress invoicing is wide — cover sheets, SOV layouts,
+          Progress invoicing is wide: cover sheets, SOV layouts,
           retainage, stored materials, change orders, open-book
           costs, selections, payments, client visibility. A
           naïve plan would be to spec the full AIA toolkit and
@@ -116,7 +116,7 @@
           <li>
             <strong>A structured card sort</strong> in Maze asking
             the CAB to rank nine progress-invoice features as
-            must-have vs. nice-to-have — so our roadmap was
+            must-have vs. nice-to-have, so our roadmap was
             ranked by builders, not by engineering convenience.
           </li>
           <li>
@@ -126,7 +126,7 @@
           </li>
           <li>
             <strong>Follow-up builder interviews</strong> to pressure-test
-            any assumption the surveys surfaced — especially the
+            any assumption the surveys surfaced, especially the
             ones we thought we already had answers to.
           </li>
         </ul>
@@ -135,14 +135,14 @@
       <section id="learned" class="study-section">
         <h2>What builders taught us</h2>
         <p>
-          The research reshaped what we thought the problem was —
+          The research reshaped what we thought the problem was,
           and, more than once, what we were about to build.
         </p>
 
         <h3 class="study-subhead">The early signal: Excel is the benchmark</h3>
         <p>
           The earliest interviews told us the design was on the
-          right track — not because builders liked it, but because
+          right track, not because builders liked it, but because
           they compared it to the workaround it was meant to
           replace.
         </p>
@@ -198,7 +198,7 @@
         <p>
           The surprise: retainage ranked above lien waivers,
           inverting our working assumption. Fewer builders need
-          retainage than lien waivers — but the ones who do are
+          retainage than lien waivers, but the ones who do are
           hard-blocked without it. It moved up the release order.
         </p>
 
@@ -224,7 +224,7 @@
           problem: adoption isn't only about feature parity. It's
           about whether a builder can see how a new piece fits
           the workflow they already know. The client-preview
-          work — and the onboarding still in front of us — lives
+          work (and the onboarding still in front of us) lives
           in that gap.
         </p>
       </section>
@@ -240,9 +240,9 @@
 
         <h3 class="study-subhead">Change orders as rows, not columns</h3>
         <p>
-          Validated twice — first by Kim's "blue bar" reaction in
-          interviews, then confirmed by a focused Maze survey:
-          six of nine CAB builders preferred grouped rows over
+          Validated twice: first by Kim's "blue bar" reaction in
+          interviews, then confirmed by a focused Maze survey.
+          Six of nine CAB builders preferred grouped rows over
           extra columns. Five of nine prioritized keeping their
           estimate-group layout over any change-order layout
           preference. Both findings pointed to the same call.
@@ -257,7 +257,7 @@
         <h3 class="study-subhead">Group by cost code <em>or</em> estimate group</h3>
         <p>
           Builders think about jobs two ways: the auditor's way
-          (cost code) and their own way (estimate group —
+          (cost code) and their own way (estimate group:
           framing, foundation, finishes). Both are correct for
           different audiences. The invoice supports both with a
           toggle that persists per-invoice in
@@ -300,7 +300,7 @@
             double-counting. For multi-item allowances, each
             overage distributes proportionally via
             <code>(A / T) × O</code> (item amount × overage ÷
-            total billed in the group) — so a single kitchen
+            total billed in the group), so a single kitchen
             overage spreads cleanly across the faucets,
             countertops, and backsplash that caused it.
           </li>
@@ -333,7 +333,7 @@
         <p>
           The releases so far have closed the widest gaps. The
           harder work from here is less about feature coverage
-          and more about fit — does the workflow still feel
+          and more about fit. Does the workflow still feel
           honest to a builder on day 45 of a job? Three threads
           are open:
         </p>
@@ -354,8 +354,8 @@
           We redirected the engineering capacity to what those
           same builders kept mentioning instead: giving them
           control over <em>what clients see</em> before an
-          invoice is released — which columns, which totals,
-          which line-item detail. That's the closing act of the
+          invoice is released (which columns, which totals,
+          which line-item detail). That's the closing act of the
           visibility thread and the next real adoption lever.
         </p>
 
@@ -364,7 +364,7 @@
           The card sort's biggest release flag. Not every builder
           needs it, but the ones who do can't ship a single pay
           application without it. We're exploring the data model
-          now — separate percentages for labor vs. materials,
+          now: separate percentages for labor vs. materials,
           auto-calculation against scheduled value, and a way to
           release retainage at the end of the job without
           re-keying the whole SOV.
@@ -373,7 +373,7 @@
         <h3 class="study-subhead">Selection invoicing on progress invoices</h3>
         <p>
           The same-vs-different-cost-code logic we designed has
-          an implementation to catch up with — the R1.7 release
+          an implementation to catch up with: the R1.7 release
           where the math in the design becomes real behavior
           for builders on live jobs. Validation will come in two
           waves: first a Maze run with the CAB on the flow,

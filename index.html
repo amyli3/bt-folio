@@ -15,6 +15,7 @@
       </div>
       <nav>
         <a href="#work">Case studies</a>
+        <a href="#side-projects">Side projects</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
         <a href="https://www.linkedin.com/in/amy-li-design/" target="_blank" rel="noopener">LinkedIn ↗</a>
@@ -22,7 +23,7 @@
     </header>
 
     <section class="hero">
-      <h1>Product designer crafting trust into complex workflows.</h1>
+      <h1>Product designer turning messy financial workflows into numbers builders can actually trust.</h1>
       <p class="subtitle">
         Currently at Buildertrend, designing construction financial tools
         for thousands of builders.
@@ -45,17 +46,12 @@
             />
           </div>
           <div class="project-meta">
-            <div class="project-year">2026 · Buildertrend</div>
+            <div class="project-year">2025 · Buildertrend</div>
             <h3>Better Way Financials</h3>
             <p class="project-summary">
               A 4-month cross-team effort to rebuild trust in Buildertrend's
-              job financial workflow — from contract pricing to job costing.
+              job financial workflow, from contract pricing to job costing.
             </p>
-            <div class="project-tags">
-              <span>Product Design</span>
-              <span>Financial UX</span>
-              <span>Research</span>
-            </div>
           </div>
         </a>
 
@@ -71,39 +67,10 @@
             <div class="project-year">2026 · Buildertrend</div>
             <h3>Selections Reimagined</h3>
             <p class="project-summary">
-              Discovery and design work on the two hardest parts of
-              Selections — invoicing new selections on progress
-              invoices, and the client-facing selections experience.
+              Redesigning the feature construction clients touch most — selections —
+              so the math stays honest, the invoice reconciles, and clients can
+              see what a decision costs before approving it.
             </p>
-            <div class="project-tags">
-              <span>Discovery</span>
-              <span>Financial UX</span>
-              <span>Client Experience</span>
-            </div>
-          </div>
-        </a>
-
-        <a class="project-card" href="./projects/progress-invoicing/">
-          <div class="project-thumb">
-            <img
-              src="./projects/progress-invoicing/images/thumbnail.png"
-              alt="Progress Invoicing prototype screenshot"
-              loading="lazy"
-            />
-          </div>
-          <div class="project-meta">
-            <div class="project-year">2026 · Buildertrend</div>
-            <h3>Progress Invoicing</h3>
-            <p class="project-summary">
-              AIA-compliant pay applications for commercial and
-              high-end residential builders — bringing billing
-              workflows into the platform instead of Excel.
-            </p>
-            <div class="project-tags">
-              <span>Prototyping</span>
-              <span>Financial UX</span>
-              <span>Discovery</span>
-            </div>
           </div>
         </a>
 
@@ -116,18 +83,43 @@
             />
           </div>
           <div class="project-meta">
-            <div class="project-year">2025 · Buildertrend</div>
+            <div class="project-year">2026 · Buildertrend</div>
             <h3>Frictionless Invoicing</h3>
             <p class="project-summary">
-              Discovery and design work to smooth the invoice workflow
-              across three personas — builder, bookkeeper, and client —
-              surfacing pain points and shaping a clearer path forward.
+              A 12-month, three-part rebuild of invoicing — draw schedules,
+              invoice date, and progress invoices — so builders can plan
+              billing, send it, and sync to accounting without leaving Buildertrend.
             </p>
-            <div class="project-tags">
-              <span>Discovery</span>
-              <span>Persona Research</span>
-              <span>Invoicing</span>
-            </div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section id="side-projects" class="work" style="margin-top: 96px;">
+      <div class="section-header">
+        <h2>Side projects</h2>
+        <span class="section-meta">Experiments &amp; prototypes</span>
+      </div>
+
+      <div class="project-grid">
+        <a class="project-card" href="https://bt-invoice.vercel.app/" target="_blank" rel="noopener">
+          <div class="project-thumb">
+            <img
+              src="./assets/side-projects/bt-invoice.png"
+              alt="Buildertrend invoice prototype screenshot"
+              loading="lazy"
+            />
+          </div>
+          <div class="project-meta">
+            <div class="project-year">2025 – 2026 · Prototype ↗</div>
+            <h3>Interactive invoice prototype</h3>
+            <p class="project-summary">
+              A clickable prototype of the invoicing workflow — standard
+              invoices, progress invoices, selections, change orders, and
+              the client portal — built to pressure-test design decisions
+              from the Frictionless Invoicing and Selections work against
+              real data shapes.
+            </p>
           </div>
         </a>
       </div>
@@ -144,23 +136,21 @@
         </div>
         <div class="about-text">
           <p>
-            I'm a product designer at Buildertrend, where I focus on
-            simplifying the financial and operational workflows builders
-            rely on to run their businesses.
+            I'm Amy, a product designer at Buildertrend. My work
+            focuses on the parts of the platform where builders send
+            invoices, track job financials, and walk clients through
+            selections.
           </p>
           <p>
-            My work spans research, interaction design, and systems
-            thinking — designing for trust in interfaces that handle the
-            weight of real decisions. I care about the details: the
-            clarity of a number, the confidence of a moment, the
-            difference between a tool people tolerate and one they
-            actually rely on.
+            Most of what I do comes out of talking to builders. GCs,
+            remodelers, custom home builders, office managers — the
+            kind of people who'll tell you in the first five minutes
+            why the software is broken. Their feedback shapes almost
+            every design decision I make.
           </p>
           <p>
-            I spend a lot of time talking to the people who live inside
-            our tools every day — GCs, remodelers, custom home
-            builders — and turning what I learn into cleaner, clearer,
-            more confident workflows.
+            Outside of work, you'll find me on a long walk, at the
+            gym, or squeezing in a fishing trip whenever I can.
           </p>
         </div>
       </div>
@@ -269,7 +259,7 @@
 
           if (res.ok) {
             form.reset();
-            statusEl.textContent = 'Thanks — your message is on its way.';
+            statusEl.textContent = 'Thanks, your message is on its way.';
             statusEl.classList.add('success');
           } else {
             statusEl.textContent = result.error || 'Something went wrong. Please try again.';
