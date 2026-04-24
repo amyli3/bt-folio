@@ -32,7 +32,7 @@
           <strong>Builders can't trust their job financials.</strong> The current workflow
           is <strong>fragmented and untrusted</strong>: legacy features, scattered
           tooling, and unopinionated workflows. Builders often feel that
-          they can't rely on the job costing budget or job price summary
+          they can't rely on the Job Costing Budget (JCB) or Job Price Summary (JPS)
           for truthful financials, so they resort to <strong>manual workarounds</strong>,
           <strong>miss early risk signals</strong>, and make reactive cash-flow and
           pricing decisions that <strong>harm margins and operational confidence</strong>.
@@ -48,7 +48,7 @@
           <dl class="tldr-grid">
             <div>
               <dt>Problem</dt>
-              <dd>Builders couldn't trust job financials. Contract price could be edited freely, and Job Price Summary and Job Costing Budget numbers drifted between surfaces.</dd>
+              <dd>Builders couldn't trust job financials. Contract price could be edited freely, and Job Price Summary (JPS) and Job Costing Budget (JCB) numbers drifted between surfaces.</dd>
             </div>
             <div>
               <dt>Approach</dt>
@@ -56,7 +56,7 @@
             </div>
             <div>
               <dt>Outcome</dt>
-              <dd>One source of truth for contract value, a change-order path for mid-job edits, and accurate JPS/JCB across fixed-price and open-book contracts.</dd>
+              <dd>One source of truth for contract value, and accurate JPS/JCB across fixed-price and open-book contracts.</dd>
             </div>
           </dl>
         </div>
@@ -88,8 +88,8 @@
           <h4 style="margin-top:0;">What shipped</h4>
           <ul class="study-list" style="margin-bottom:0;">
             <li><strong>Part 1 · Set contract price.</strong> Lock the contract price at Send to Budget, with a change-order path for mid-job edits.</li>
-            <li><strong>Part 2 · Job Price Summary.</strong> Revised Client Price, remaining balance, allowances and COs on one page — matched in modal, print, and client portal.</li>
-            <li><strong>Part 3 · Job Costing Budget.</strong> One projected-cost formula per job with its inputs visible, legacy-budget parity for the migration window.</li>
+            <li><strong>Part 2 · Job Price Summary (JPS).</strong> Revised Client Price, remaining balance, allowances and COs on one page — matched in modal, print, and client portal.</li>
+            <li><strong>Part 3 · Job Costing Budget (JCB).</strong> One projected-cost formula per job with its inputs visible, legacy-budget parity for the migration window.</li>
           </ul>
         </div>
       </header>
@@ -98,7 +98,6 @@
         <h2>Meet the users</h2>
         <p>
           Three users share the invoicing workflow across every job.
-          They show up in every Part that follows.
         </p>
         <div class="study-grid-2" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));">
           <div>
@@ -159,6 +158,13 @@
           to feedback again. A constant cycle of building, learning,
           and refining.
         </p>
+        <p>
+          Legacy data forced many of those loops. Several design
+          decisions, especially in the JPS, had to be reshaped once we
+          learned what the underlying data could and couldn't support.
+          What looked like a sleek update from the outside often
+          turned into a much larger overhaul underneath.
+        </p>
       </section>
 
       <section id="part-1" class="study-section">
@@ -215,9 +221,11 @@
         <h4 class="study-subhead" style="margin-top:24px;">Estimate header</h4>
         <p>
           The Estimate header offers an alternate path to set contract
-          price, but it isn't discoverable. Users who find the info
-          icon click "copy to contract price" but never commit to
-          "update contract price." The handoff is silently broken.
+          price, but it isn't discoverable, and the flow itself is
+          confusing. Users who find the info icon click "copy to
+          contract price," then hit an unexpected pop-up asking them
+          to "update contract price." It's unclear what that second
+          step does, so most back out. The handoff is silently broken.
         </p>
         <div class="study-image">
           <img src="./images/estimate-header.png" alt="Estimate header with info icon and 'copy to contract price' action that rarely gets committed." loading="lazy" />
@@ -535,6 +543,27 @@
           <img src="./images/iteration-2.png" alt="Iteration 2A: Job Price Summary with selections and allowances breakdown." loading="lazy" />
         </div>
 
+        <div class="study-callout">
+          <h4>The reality underneath Iteration 2A</h4>
+          <p>
+            Legacy selections carried years of data integrity issues,
+            so every JPS decision here got reshaped by a dev or data
+            constraint. What was meant to be a sleek update became a
+            massive overhaul: the data couldn't support what we needed
+            to show users, and legacy selections weren't built for the
+            "Send to Budget" workflow we have today.
+          </p>
+          <p style="margin-bottom:0;">
+            Showing a selection's or allowance's pre vs. post Send to
+            Budget price was nearly impossible given how the entities
+            were structured. That's why
+            <a href="../selections/">Selections Reimagined</a> exists:
+            the next case study tackles these data and workflow issues
+            directly, so future JPS decisions aren't bound by legacy
+            selections.
+          </p>
+        </div>
+
         <h4 class="study-subhead" style="margin-top:24px;">Iteration 2B: Print page</h4>
         <p>
           Changes made to the JPS modal need to be reflected in the
@@ -766,11 +795,45 @@
           by surface making sure each one reads from it correctly.
         </p>
         <p>
+          Part 2 in particular was shaped more by legacy data than by
+          design. Selections and allowances weren't built for the
+          "Send to Budget" workflow we have today, and every JPS
+          decision got reshaped by what the underlying data could
+          actually support. A sleek update became a massive overhaul
+          not because the idea was complex, but because the data
+          couldn't tell users the before/after story we needed it to
+          tell. That's the thread picked up in
+          <a href="../selections/">Selections Reimagined</a>, where
+          the workflow and data model get rebuilt from the ground up.
+        </p>
+        <p>
           If I did it again I'd invest earlier in the "what does this
           number mean?" inline documentation. A lot of the trust issues
           weren't about wrong numbers. They were about numbers whose
           definition had quietly changed between releases.
         </p>
+      </section>
+
+      <section id="success-metric-map" class="study-section">
+        <h2>How this maps to the success metric</h2>
+        <p>
+          The three signals we agreed to watch were Proposal usage,
+          Estimate usage, and JCB usage. Each Part supports a
+          different one, sometimes indirectly.
+        </p>
+        <ul class="study-list">
+          <li><strong>Part 1 · Lock contract price.</strong> Makes the Estimate a trustworthy return visit. When the contract price stops drifting, builders have a reason to come back to the Estimate page instead of rebuilding numbers elsewhere.</li>
+          <li><strong>Part 2 · JPS redesign.</strong> Keeps builders inside the happy path. A JPS that matches the modal, print, and client portal removes the reason to export to a spreadsheet, which protects Estimate and JCB usage downstream.</li>
+          <li><strong>Part 3 · JCB rebuild.</strong> Directly supports the JCB usage signal. If builders don't trust the JCB, they won't open it 5× in 60 days. One projected-cost formula with visible inputs is what makes that signal reachable.</li>
+        </ul>
+        <div class="study-callout" style="margin-top:24px;">
+          <h4>Goal met</h4>
+          <p style="margin-bottom:0;">
+            We hit the target: at least 1,000 builders adopted the
+            better-way financial happy-path workflow within the 60-day
+            window, across all three signals.
+          </p>
+        </div>
       </section>
 
     </article>
