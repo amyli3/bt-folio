@@ -1,0 +1,669 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Path to Invoicing — Amy Li</title>
+    <meta name="description" content="Case study: re-winning lapsed invoicing builders at Buildertrend by fixing an unclear path and too many steps, measured against a live Q3 goal." />
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body class="case-study-page">
+    <nav class="top-nav">
+      <a href="../../" class="back-link">← Back to work</a>
+      <div class="section-links">
+        <a href="#problem">Problem</a>
+        <a href="#research">Research</a>
+        <a href="#design">Design</a>
+        <a href="#prototype">Prototype</a>
+        <a href="#validating">Validating</a>
+        <a href="#exploring">Exploring</a>
+      </div>
+    </nav>
+
+    <article class="study">
+      <header class="study-hero">
+        <div class="study-eyebrow">Buildertrend · Ship of Theseus · Q3 2026</div>
+        <h1>Path to Invoicing</h1>
+        <p class="study-lede">
+          A quarter spent re-winning builders who tried invoicing in
+          Buildertrend and left. Not a feature gap story: the invoice
+          itself mostly works. The path to it doesn't. This is the
+          research behind that reframe, the design responses to it,
+          and a live look at whether it's actually working.
+        </p>
+        <dl class="study-meta">
+          <div>
+            <dt>Role</dt>
+            <dd>Design, research, prototyping, data analysis</dd>
+          </div>
+          <div>
+            <dt>Team</dt>
+            <dd class="team-list">
+              <span>Kendall Sutton (PM)</span>
+              <span>Tracy Le, Trevor Dennie, Cade Robison (Engineering)</span>
+              <span>Amy Li (Design)</span>
+            </dd>
+          </div>
+          <div>
+            <dt>Status</dt>
+            <dd>In progress · Quarter goal tracking live</dd>
+          </div>
+        </dl>
+      </header>
+
+      <section id="problem" class="study-section">
+        <h2>Why this matters</h2>
+        <p>
+          Buildertrend's Q3 2026 goal: re-win 100 builders who had
+          used invoicing before, then stopped, to create 2+ invoices
+          again. Not net-new adoption. A return.
+        </p>
+        <p>
+          The stakes behind that goal are bigger than one quarter.
+          Builders who complete the full financial workflow
+          (estimate, budget, bills, and invoices) churn at
+          <strong>2%</strong>. Builders who don't complete it churn
+          at <strong>17.2%</strong>, a nearly 9x difference on the
+          same population. Invoicing is the last step in that
+          chain, so it's also the step most likely to be missing.
+        </p>
+        <div class="study-image">
+          <img src="./images/core-financial-goals-figjam.png" alt="Discovery board showing the financial critical path goal, with builders who complete all four financial workflows churning at 2 percent versus 17.2 percent for builders who don't" />
+          <p class="study-caption">The org-level goal this quarter's work rolls up to: get more builders through the full financial critical path.</p>
+        </div>
+        <p>
+          The working theory going in was the usual one: invoicing
+          in Buildertrend is clunky and needs a smoother workflow.
+          Leadership asked us to validate that before building
+          against it, rather than assume it. So the quarter split
+          into two tracks that turned out to reinforce each other:
+          find out why builders actually leave, and in parallel, fix
+          the two things we already suspected were true.
+        </p>
+        <div class="study-image">
+          <img src="./images/adoption-blockers-figjam.png" alt="Discovery board showing the invoicing critical path cohorts table and three blockers builders named for not adopting BT invoicing: QBO anxiety and confusion, an unclear path to invoicing, and inefficient click-heavy workflows" />
+          <p class="study-caption">Where the quarter's two design tracks came from: a discovery board mapping why builders don't adopt BT invoicing, plus the cohort sizes behind it.</p>
+        </div>
+        <p>
+          The board put real numbers on both suspicions. Creating
+          and sending an invoice with line items takes
+          <strong>15 to 30 clicks</strong> depending on adjustments,
+          and the send modal's slowest 10% of loads take
+          <strong>8 to 10 seconds</strong>. On the other side,
+          builders have <strong>6 different entry points</strong>
+          to create an invoice, and most only find the right one
+          with help from support. A third theme showed up
+          alongside these two: QBO sync anxiety. Builders who
+          connect their accounting before their first invoice lapse
+          at roughly a sixth the rate of builders who never connect
+          at all, <strong>8.1% versus 46.2%</strong>. That's a real
+          and separate problem, and it's out of scope for this
+          case study.
+        </p>
+      </section>
+
+      <section id="research" class="study-section">
+        <h2>What builders taught us</h2>
+        <p>
+          Our first round of discovery had been framed around
+          "what's wrong with BT invoicing." For round two, we
+          dropped that framing and asked nine builders to walk us
+          through how they invoice today, start to finish, in
+          whatever tool they actually use. The point was to see
+          whether the real blocker was even in the invoicing UI at
+          all.
+        </p>
+
+        <h3 class="study-subhead">The invoice doesn't look like what the client already signed</h3>
+        <p>
+          The single largest theme, six of nine builders. Clients
+          physically put the estimate and the invoice side by side
+          and reconcile them line by line. If the invoice regroups
+          by cost code instead of the estimate's own hierarchy, it
+          fails at the one job it has to do.
+        </p>
+        <blockquote class="study-quote">
+          "What's the point of Primary Groups and Subgroups if you
+          can't invoice with them? The client should see the same
+          groups they approved on the estimate, not your cost-code
+          breakdown."
+          <cite>— Priya Gosar, Camber Construction</cite>
+        </blockquote>
+        <blockquote class="study-quote">
+          "I literally can put the two sheets of paper beside each
+          other because the category literally lines up."
+          <cite>— Andrew Maccormack, Leading Edge Group</cite>
+        </blockquote>
+
+        <h3 class="study-subhead">A meaningful share had already been solved, they just didn't know it</h3>
+        <p>
+          Four of nine described a blocker Buildertrend already
+          resolves. Priya's entire complaint disappeared in the
+          call itself, once she saw AIA-style progress invoices
+          group by estimate. She'd never found the feature. Andrew
+          didn't know progress invoices, or the invoice
+          format-and-preview settings, existed at all. This reframed
+          "learning curve" from a difficulty problem into a
+          discoverability problem: cheaper to test, cheaper to fix.
+        </p>
+
+        <h3 class="study-subhead">Builders come back after a support call, not a feature launch</h3>
+        <p>
+          We checked what actually separates the builders who came
+          back from the ones who didn't. It wasn't onsite consulting:
+          only two builders in the entire cohort ever had one, and
+          neither was among the most recent wins. It was inbound
+          support calls. Builders who called support about invoicing
+          came back at more than double the rate of those who
+          didn't, and the group with the fastest recent wins had
+          called in more than twice, averaging <strong>22.7
+          minutes</strong> on the phone. The pattern in the
+          transcripts is the same almost every time: someone new to
+          the account calls asking how to invoice, gets walked
+          through it and through linking cost codes to QuickBooks,
+          then sends their first invoice two to four weeks later. A
+          human explaining the path is doing the job we want the
+          product to do on its own. That's direct evidence for the
+          unclear-path problem, not just a hypothesis: the people who
+          get clarity, from a person instead of the UI, come back.
+        </p>
+
+        <h3 class="study-subhead">Releasing an invoice isn't optional. It's what keeps a builder on the platform</h3>
+        <p>
+          Builders who create an invoice but never release it to
+          the client don't just fail to see value. They leave. Of
+          builders who created invoices but never released any of
+          them, <strong>75% lapsed entirely</strong>. Builders whose
+          clients can't even open the invoice, because no email is
+          on file or nothing is shared, lapse at
+          <strong>13%</strong> versus <strong>1%</strong> for
+          builders who share normally. Getting an invoice out the
+          door isn't a nice-to-have step in the funnel. It's the
+          step that keeps the builder using Buildertrend at all.
+        </p>
+
+        <h3 class="study-subhead">The abandonment number everyone quoted was wrong</h3>
+        <p>
+          A commonly-cited stat said 26% of invoices never get
+          released, read as builders giving up partway through. We
+          went back to the funnel with a full year of runway to
+          release (so "abandoned" actually means abandoned) and
+          found the real number is <strong>5.5%</strong>. The gap is
+          almost entirely draw-schedule placeholders: builders
+          bulk-create a run of future invoices ("Draw 1," "Draw 2,"
+          "Deposit," "Final Payment") when a job starts, and roughly
+          half are never meant to be released yet, because the
+          milestone hasn't happened or the schedule was aspirational
+          when it was built. Batch invoices created at $0 confirm
+          it: of 14,478, only 44 ever released. That's scaffolding,
+          not abandonment, and conflating the two overstates a
+          problem that mostly isn't there.
+        </p>
+        <p>
+          The real abandonment that remains concentrates in one
+          place: <strong>72%</strong> of jobs with an abandoned
+          invoice never released a single invoice on that job at
+          all. It's not "tried, gave up partway through," it's a job
+          that isn't ready to bill yet.
+        </p>
+
+        <h3 class="study-subhead">Releasing isn't the finish line either</h3>
+        <p>
+          Even invoices that do get released often never reach the
+          client through Buildertrend's own send flow, but breaking
+          that number apart shows it's three different builder
+          behaviors, not one dead end. A third of released invoices
+          get paid via a manually recorded payment, the builder bills
+          the client entirely outside Buildertrend (paper, text, in
+          person) and only touches the platform afterward to log
+          that money arrived. A quarter sync straight to QuickBooks
+          or Xero, a deliberate division of labor where Buildertrend
+          builds the invoice against job costs and the accounting
+          platform does the actual send and collection. Less than
+          half a percent are genuinely stuck with no further action
+          at all. So "released but not sent" reads like a workflow
+          failure, but for most of that group it's evidence
+          Buildertrend's send feature is competing with a channel the
+          builder already trusts, not filling an empty gap. That
+          channel competition is the accounting-sync problem flagged
+          earlier in this case study as real, and out of scope.
+        </p>
+
+        <h3 class="study-subhead">The setup gap that predicts everything else</h3>
+        <p>
+          Cutting the Q3 cohort by what a builder had already set
+          up going in: <strong>55% had a reusable invoicing
+          setup</strong> (a payment schedule, an invoice template,
+          or both) before their first invoice this quarter, split
+          39% template-only, 9% payment-schedule-only, 7% both. The
+          builders without either kind of head start were the ones
+          starting from a blank page every time, which is exactly
+          the "too many steps" complaint, just measured instead of
+          described.
+        </p>
+
+        <div class="q2i-chart-block">
+          <h4>What builders had set up before their first invoice this quarter</h4>
+          <svg viewBox="0 0 640 190" class="q2i-setup-bar" role="img" aria-label="Bar chart: 45 percent of builders had neither a template nor a payment schedule set up, 39 percent had a template only, 9 percent had a payment schedule only, and 7 percent had both">
+            <text x="0" y="14" font-size="13" fill="var(--text)">Neither</text>
+            <rect x="140" y="2" width="405" height="24" fill="var(--border)" rx="4"></rect>
+            <text x="555" y="19" font-size="13" fill="var(--text)" font-weight="600">45%</text>
+
+            <text x="0" y="54" font-size="13" fill="var(--text)">Template only</text>
+            <rect x="140" y="42" width="351" height="24" fill="var(--accent)" opacity="0.35" rx="4"></rect>
+            <text x="501" y="59" font-size="13" fill="var(--text)" font-weight="600">39%</text>
+
+            <text x="0" y="94" font-size="13" fill="var(--text)">Schedule only</text>
+            <rect x="140" y="82" width="81" height="24" fill="var(--accent)" opacity="0.65" rx="4"></rect>
+            <text x="231" y="99" font-size="13" fill="var(--text)" font-weight="600">9%</text>
+
+            <text x="0" y="134" font-size="13" fill="var(--text)">Both</text>
+            <rect x="140" y="122" width="63" height="24" fill="var(--accent)" rx="4"></rect>
+            <text x="213" y="139" font-size="13" fill="var(--text)" font-weight="600">7%</text>
+          </svg>
+          <p class="q2i-chart-note">Both a template and a schedule: 7%, the smallest slice, and the group most of this quarter's design work is trying to grow.</p>
+        </div>
+      </section>
+
+      <section id="design" class="study-section">
+        <h2>How we designed for it</h2>
+        <p>
+          Two problems, addressed as two separate design tracks
+          inside the same reimagined invoicing prototype: the path
+          to invoicing is unclear, and once you're on it, it takes
+          too many steps.
+        </p>
+
+        <h3 class="study-subhead">Unclear path: guiding the click, not just labeling it</h3>
+        <p>
+          The old "+ Invoice" button assumed the builder already
+          knew which of several documents they wanted. We rebuilt
+          it as a guided decision: clicking + Invoice asks how the
+          job is actually invoiced, then lets the document type
+          follow from that answer instead of asking the builder to
+          name the document up front. The job can save that answer
+          as its default, so the question doesn't repeat on a job
+          that only ever bills one way.
+        </p>
+        <div class="q2i-chart-block">
+          <h4>Six ways in, collapsed into one guided question</h4>
+          <svg viewBox="0 0 640 220" class="q2i-flow" role="img" aria-label="Before: six separate entry points each leading to a different invoice screen with no shared starting point. After: one plus Invoice button asks how the job is invoiced, then opens the right document.">
+            <text x="0" y="16" font-size="12" fill="var(--text-muted)" font-weight="600">BEFORE</text>
+            <g font-size="11" fill="var(--text)">
+              <rect x="0" y="28" width="140" height="30" rx="4" fill="none" stroke="var(--border)"></rect>
+              <text x="70" y="47" text-anchor="middle">Job dashboard</text>
+              <rect x="166" y="28" width="140" height="30" rx="4" fill="none" stroke="var(--border)"></rect>
+              <text x="236" y="47" text-anchor="middle">Estimate page</text>
+              <rect x="332" y="28" width="140" height="30" rx="4" fill="none" stroke="var(--border)"></rect>
+              <text x="402" y="47" text-anchor="middle">Job Cost Budget</text>
+              <rect x="498" y="28" width="140" height="30" rx="4" fill="none" stroke="var(--border)"></rect>
+              <text x="568" y="47" text-anchor="middle">Selections grid</text>
+              <rect x="0" y="70" width="140" height="30" rx="4" fill="none" stroke="var(--border)"></rect>
+              <text x="70" y="89" text-anchor="middle">Change orders</text>
+              <rect x="166" y="70" width="140" height="30" rx="4" fill="none" stroke="var(--border)"></rect>
+              <text x="236" y="89" text-anchor="middle">Bills page</text>
+            </g>
+            <text x="332" y="89" font-size="11" fill="var(--text-muted)">→ six different starting points, no shared path</text>
+            <line x1="0" y1="118" x2="640" y2="118" stroke="var(--border)" stroke-width="1"></line>
+            <text x="0" y="142" font-size="12" fill="var(--text-muted)" font-weight="600">AFTER</text>
+            <g font-size="12">
+              <rect x="0" y="156" width="150" height="40" rx="6" fill="var(--accent)"></rect>
+              <text x="75" y="180" text-anchor="middle" fill="#fff" font-weight="600">+ Invoice</text>
+              <path d="M158 176 L188 176" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#arrow)"></path>
+              <rect x="196" y="156" width="220" height="40" rx="6" fill="none" stroke="var(--accent)" stroke-width="1.5"></rect>
+              <text x="306" y="180" text-anchor="middle" fill="var(--text)">How is this job invoiced?</text>
+              <path d="M424 176 L454 176" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#arrow)"></path>
+              <rect x="462" y="156" width="178" height="40" rx="6" fill="none" stroke="var(--border)"></rect>
+              <text x="551" y="180" text-anchor="middle" fill="var(--text)">Right document opens</text>
+            </g>
+            <defs>
+              <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                <path d="M0,0 L6,3 L0,6 Z" fill="var(--text-muted)"></path>
+              </marker>
+            </defs>
+          </svg>
+          <p class="q2i-chart-note">Six real entry points builders described, redrawn as one guided decision. Cadence first, document type follows.</p>
+        </div>
+        <div class="study-image">
+          <img src="./images/invoice-type-picker.png" alt="The guided plus Invoice modal, asking how the job is invoiced with Standard invoice and Progress invoice options, an always-invoice-this-way checkbox, and an import from template link" onerror="this.closest('.study-image').style.display='none'" />
+          <p class="study-caption">The shipped guided picker: cadence first, with a way to skip the question entirely on jobs that only ever bill one way.</p>
+        </div>
+        <p>
+          Payment schedules got the same treatment from a different
+          angle. They used to be locked to job setup, before the
+          first invoice existed, which meant a builder who started
+          without one had no path back to it. We moved payment
+          schedule creation onto its own always-available entry
+          point on the Invoices page, so a builder mid-job, already
+          sending bills to budget, can still adopt a schedule
+          instead of hand-building draws one at a time. That fix is
+          in progress on the shipped product now, not just the
+          prototype.
+        </p>
+        <p>
+          The usage data backs up why this matters. Builders on both
+          contract types already hand-roll batches of 3 or more draw
+          invoices per job today, titled "Draw 1," "Draw 2,"
+          "Deposit," "Final Payment," the exact behavior a payment
+          schedule is meant to replace. Checked against the field
+          that actually ties an invoice to the dedicated Payment
+          Schedule feature: <strong>71.1%</strong> of these batches
+          have no link to it at all. Builders are clicking "+
+          Invoice" repeatedly to build the same draw sequence instead
+          of using the feature built for it, and both approaches
+          release at about the same rate. That's a clear signal the
+          underlying need is real, and that the existing feature
+          wasn't reaching most of the behavior it was built for.
+        </p>
+
+        <h3 class="study-subhead">Too many steps: one action instead of several</h3>
+        <p>
+          Creating a payment schedule used to be Save, then a
+          separate Create action to actually generate the draws.
+          That asked the builder to distinguish "keep this schedule"
+          from "use this schedule," a distinction with no real
+          value to them. It's now one action: saving a schedule
+          generates the full set of draft invoices for it in the
+          same step, and the modal says so before the button is
+          pressed.
+        </p>
+        <div class="q2i-chart-block">
+          <h4>One less decision between setup and a job's worth of draws</h4>
+          <svg viewBox="0 0 640 190" class="q2i-flow" role="img" aria-label="Before: builder builds the payment schedule, clicks Save, then must separately click Create to generate draw invoices, a step whose purpose is unclear. After: saving the schedule generates every draw invoice in the same action.">
+            <text x="0" y="16" font-size="12" fill="var(--text-muted)" font-weight="600">BEFORE</text>
+            <g font-size="12">
+              <rect x="0" y="28" width="160" height="40" rx="6" fill="none" stroke="var(--border)"></rect>
+              <text x="80" y="52" text-anchor="middle" fill="var(--text)">Build schedule</text>
+              <path d="M168 48 L198 48" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#arrow2)"></path>
+              <rect x="206" y="28" width="120" height="40" rx="6" fill="none" stroke="var(--border)"></rect>
+              <text x="266" y="52" text-anchor="middle" fill="var(--text)">Save</text>
+              <path d="M334 48 L364 48" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#arrow2)"></path>
+              <rect x="372" y="28" width="120" height="40" rx="6" fill="none" stroke="#c94f4f" stroke-width="1.5" stroke-dasharray="4 3"></rect>
+              <text x="432" y="52" text-anchor="middle" fill="#c94f4f">Create</text>
+              <path d="M500 48 L530 48" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#arrow2)"></path>
+              <text x="540" y="52" font-size="11" fill="var(--text-muted)">Draws</text>
+            </g>
+            <text x="0" y="86" font-size="11" fill="var(--text-muted)">A second click with no clear purpose to the builder</text>
+            <line x1="0" y1="106" x2="640" y2="106" stroke="var(--border)" stroke-width="1"></line>
+            <text x="0" y="132" font-size="12" fill="var(--text-muted)" font-weight="600">AFTER</text>
+            <g font-size="12">
+              <rect x="0" y="144" width="160" height="40" rx="6" fill="none" stroke="var(--border)"></rect>
+              <text x="80" y="168" text-anchor="middle" fill="var(--text)">Build schedule</text>
+              <path d="M168 164 L198 164" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#arrow2)"></path>
+              <rect x="206" y="144" width="150" height="40" rx="6" fill="var(--accent)"></rect>
+              <text x="281" y="168" text-anchor="middle" fill="#fff" font-weight="600">Save</text>
+              <path d="M364 164 L394 164" stroke="var(--text-muted)" stroke-width="1.5" marker-end="url(#arrow2)"></path>
+              <text x="404" y="168" font-size="12" fill="var(--text)">Every draw is created</text>
+            </g>
+            <defs>
+              <marker id="arrow2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+                <path d="M0,0 L6,3 L0,6 Z" fill="var(--text-muted)"></path>
+              </marker>
+            </defs>
+          </svg>
+          <p class="q2i-chart-note">Saving a schedule now generates the full set of draft invoices in the same step, and the modal says so before the button is pressed.</p>
+        </div>
+
+        <h3 class="study-subhead">The open-book slice: Invoice Autofill</h3>
+        <p>
+          Open-book invoicing has its own version of "too many
+          steps": builders manually re-select bills and time-clock
+          entries that Buildertrend already has sitting uninvoiced
+          on the job. We sized the problem first. Across open-book
+          jobs, only <strong>27.4%</strong> of bill line items ever
+          reach a client invoice.
+        </p>
+        <p>
+          Before building anything, we traced a full year of
+          invoices builders actually sent back to where each line
+          came from, to answer one question: what do builders
+          themselves treat as billable? The answer split cleanly by
+          contract type. Open-book invoices are <strong>65.3%</strong>
+          costs (bills, time, other job costs) and only
+          <strong>9.7%</strong> contract. Fixed-price invoices are
+          the mirror image: <strong>67.5%</strong> contract and only
+          <strong>8.1%</strong> costs. On a fixed-price job, a
+          cost-based suggestion would be wrong roughly 97% of the
+          time, since those builders bill the contract and track
+          costs internally for margin. That's the evidence behind
+          keeping autofill open-book only rather than building one
+          suggestion for every job.
+        </p>
+        <p>
+          The same data ruled out two rules that seemed obviously
+          correct going in. We didn't wait for a bill to be marked
+          paid: only 1 in 5 paid bills were actually paid before the
+          invoice went out, since the normal order is bill the owner
+          first, pay the sub after. A "paid only" filter would have
+          quietly held back roughly a quarter-million billable lines
+          a year. We also didn't add a recency cutoff. Costs older
+          than six months get invoiced slightly <em>more</em> often
+          than recent ones (86% vs. 81%), so a "recent costs only"
+          rule would have dropped real revenue instead of protecting
+          against stale data.
+        </p>
+        <p>
+          What decides which costs autofill pre-checks is the
+          builder's own history: a cost code they've billed on that
+          job before gets billed again <strong>88%</strong> of the
+          time, one they've never touched, <strong>0.8%</strong>.
+          History only sets what starts checked. Every eligible cost
+          still shows up, at roughly 82% precision, catching about
+          two-thirds of what a builder would have billed anyway. A
+          wrong guess costs one click to undo; a hidden line is
+          revenue the builder never sees. That asymmetry is why we
+          sliced the fix this thin: a banner that offers to fill a
+          draft invoice from a job's uninvoiced costs, with nothing
+          about the underlying workflow reshaped. The analysis also
+          caught a live bug along the way: <strong>3,381 jobs</strong>
+          today tell the builder they have costs to invoice, then
+          show an empty list when they look, because two parts of
+          the existing code disagree on which bills count.
+        </p>
+        <p>
+          There's a churn number that makes this more than a
+          convenience fix. Splitting builders by how their line items
+          get onto the invoice, sourced from a bill or estimate,
+          hand-typed with nothing behind it, or flat fee, the group
+          that types every line by hand churns at
+          <strong>19.24%</strong>, the worst of any segment measured,
+          against roughly 15.6% for the other two. Flat fee, the
+          shortcut we'd have guessed was the risky one, churns
+          identically to sourced line items. The builders actually at
+          risk aren't taking a shortcut. They're in the line-item
+          view doing the work Autofill is meant to remove.
+        </p>
+        <div class="study-image">
+          <img src="./images/invoice-autofill-banner.png" alt="The Auto fill banner on an invoice, offering to pull in unbilled costs the builder usually bills on this job" onerror="this.closest('.study-image').style.display='none'" />
+          <p class="study-caption">The banner itself: an offer, not a takeover. The builder still reviews and sends.</p>
+        </div>
+        <div class="study-image">
+          <img src="./images/invoice-autofill-applied.png" alt="An invoice after Auto fill has run, with five line items added from bills, time clock, and QuickBooks expenses, an Undo option, and a prompt to review before sending" onerror="this.closest('.study-image').style.display='none'" />
+          <p class="study-caption">After Auto fill runs: every line still traces back to its source (a bill, a time clock entry, a QuickBooks expense), and Undo is one click away.</p>
+        </div>
+        <p>
+          We recruited and data-qualified a pilot roster from
+          builders already sitting in the 74–90% coverage band,
+          builders close enough to full coverage that autofill has
+          real remaining work to do, not so close that there's
+          nothing left for it to catch.
+        </p>
+      </section>
+
+      <section id="prototype" class="study-section">
+        <h2>Prototype</h2>
+        <p>
+          The prototype below opens on the guided "+ Invoice" flow.
+          Pick a cadence to see the document follow it, or open a
+          job's Invoices grid and try Auto fill on an open-book job
+          to see it pull in unbilled costs.
+        </p>
+        <div class="study-iframe-wrap">
+          <iframe
+            src="https://bt-invoice.vercel.app/?page=owner-invoices"
+            title="Path to Invoicing prototype: guided plus Invoice flow"
+            loading="lazy"
+          ></iframe>
+        </div>
+        <p class="study-footnote">
+          Open prototype in new tab: <a href="https://bt-invoice.vercel.app/?page=owner-invoices" target="_blank" rel="noopener">bt-invoice.vercel.app/?page=owner-invoices ↗</a>
+        </p>
+      </section>
+
+      <section id="validating" class="study-section">
+        <h2>How we're validating it</h2>
+        <p>
+          This is an outcome metric, tracked live against the actual
+          quarter goal, not a research-only pitch. The chart below
+          is rebuilt from Databricks each time this page updates,
+          not a screenshot, so the numbers stay honest as the
+          quarter moves.
+        </p>
+
+        <div class="q2i-metric-row">
+          <div class="q2i-metric-card">
+            <div class="q2i-metric-value">70<span class="q2i-metric-of">/100</span></div>
+            <div class="q2i-metric-label">Lapsed builders re-won to 2+ invoices</div>
+          </div>
+          <div class="q2i-metric-card">
+            <div class="q2i-metric-value">744</div>
+            <div class="q2i-metric-label">Builders in the frozen lapsed cohort</div>
+          </div>
+          <div class="q2i-metric-card">
+            <div class="q2i-metric-value">16%</div>
+            <div class="q2i-metric-label">Of the lapsed cohort created even one invoice back</div>
+          </div>
+        </div>
+
+        <div class="q2i-chart-block">
+          <h4>Conversion funnel, lapsed cohort (n = 744)</h4>
+          <svg viewBox="0 0 640 160" class="q2i-funnel" role="img" aria-label="Funnel chart: 744 lapsed builders, 119 created one or more invoices, 70 reached the goal of two or more invoices">
+            <g>
+              <rect x="0" y="20" width="640" height="36" fill="var(--accent)" opacity="0.15" rx="4"></rect>
+              <rect x="0" y="20" width="640" height="36" fill="none" stroke="var(--accent)" stroke-width="1" rx="4"></rect>
+              <text x="12" y="43" font-size="14" fill="var(--text)">Lapsed cohort</text>
+              <text x="628" y="43" font-size="14" fill="var(--text)" text-anchor="end" font-weight="600">744</text>
+            </g>
+            <g>
+              <rect x="0" y="66" width="102.3" height="36" fill="var(--accent)" opacity="0.35" rx="4"></rect>
+              <rect x="0" y="66" width="102.3" height="36" fill="none" stroke="var(--accent)" stroke-width="1" rx="4"></rect>
+              <text x="112" y="89" font-size="14" fill="var(--text)">Created 1+ invoice</text>
+              <text x="628" y="89" font-size="14" fill="var(--text)" text-anchor="end" font-weight="600">119</text>
+            </g>
+            <g>
+              <rect x="0" y="112" width="60.2" height="36" fill="var(--accent)" opacity="0.65" rx="4"></rect>
+              <rect x="0" y="112" width="60.2" height="36" fill="none" stroke="var(--accent)" stroke-width="1" rx="4"></rect>
+              <text x="70" y="135" font-size="14" fill="var(--text)">Created 2+ invoices (goal)</text>
+              <text x="628" y="135" font-size="14" fill="var(--text)" text-anchor="end" font-weight="600">70</text>
+            </g>
+          </svg>
+          <p class="q2i-chart-note">Databricks dashboard "SoT Q3 Goal Tracker," frozen cohort <code>q3_invoicing_cohort_frozen</code>, pulled live.</p>
+        </div>
+
+        <div class="q2i-chart-block">
+          <h4>Builders crossing the 2-invoice line, by week</h4>
+          <svg viewBox="0 0 640 200" class="q2i-trend" role="img" aria-label="Weekly count of lapsed builders newly reaching two or more invoices, July 1 through September 21, showing a steady, uneven trickle rather than a single launch spike">
+            <line x1="0" y1="176" x2="640" y2="176" stroke="var(--border)" stroke-width="1"></line>
+            <polyline
+              fill="none"
+              stroke="var(--accent)"
+              stroke-width="2"
+              points="0,146 47,161 95,146 142,161 190,146 237,131 285,146 332,161 380,161 427,146 475,161 522,131 570,146 617,116"
+            ></polyline>
+            <text x="0" y="196" font-size="11" fill="var(--text-muted)">Jul 1</text>
+            <text x="300" y="196" font-size="11" fill="var(--text-muted)" text-anchor="middle">Aug 1</text>
+            <text x="617" y="196" font-size="11" fill="var(--text-muted)" text-anchor="end">Sep 21</text>
+          </svg>
+          <p class="q2i-chart-note">Weekly totals from the daily-progress query, smoothed for legibility. A steady trickle, not a single launch spike, which tracks the release cadence of the underlying design work.</p>
+        </div>
+
+        <div class="q2i-table-wrap">
+          <h4>Success rate by project category</h4>
+          <table class="q2i-table">
+            <thead>
+              <tr><th>Segment</th><th>Category</th><th>Cohort</th><th>Reached 2+</th><th>Rate</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Never-invoiced</td><td>Remodeler</td><td>72</td><td>19</td><td>26.4%</td></tr>
+              <tr><td>Never-invoiced</td><td>Residential</td><td>300</td><td>49</td><td>16.3%</td></tr>
+              <tr><td>Lapsed</td><td>Residential</td><td>406</td><td>42</td><td>10.3%</td></tr>
+              <tr><td>Lapsed</td><td>Commercial GC</td><td>112</td><td>11</td><td>9.8%</td></tr>
+              <tr><td>Lapsed</td><td>Remodeler</td><td>132</td><td>12</td><td>9.1%</td></tr>
+              <tr><td>Lapsed</td><td>Specialty/Trade</td><td>71</td><td>2</td><td>2.8%</td></tr>
+            </tbody>
+          </table>
+          <p class="q2i-chart-note">Specialty/trade builders are converting at roughly a third the rate of remodelers on the same cohort. Worth its own follow-up before assuming one fix reaches every segment equally.</p>
+        </div>
+
+        <p>
+          What this metric can and can't say: it tracks the whole
+          re-win effort, not any single design change on its own.
+          The payment-schedule and autofill work are still rolling
+          out through the quarter, so we can point to a builder
+          seeing fewer steps and later hitting 2+ invoices, but we
+          can't yet prove one caused the other. Treat this number
+          as the outcome the whole initiative is accountable to, not
+          as proof any single fix here is the reason it's moving.
+        </p>
+      </section>
+
+      <section id="exploring" class="study-section">
+        <h2>What we're exploring, and why</h2>
+
+        <h3 class="study-subhead">Invoice Autofill, past the pilot roster</h3>
+        <p>
+          The feature is built and the pilot recruits are
+          data-qualified, but the flag is still dev-only, on for
+          zero production builders as of this writing. The next
+          step is mechanical, not design: move it to a real pilot
+          rollout and watch whether coverage on those jobs actually
+          climbs past 90%.
+        </p>
+
+        <h3 class="study-subhead">Specialty and trade builders</h3>
+        <p>
+          The segment table above is the newest finding in this
+          study, and it's a question, not an answer yet. Every
+          other category is converting at 9% or better; specialty
+          and trade sits at 2.8%. Worth a dedicated interview round
+          before assuming the same unclear-path, too-many-steps
+          framing applies evenly across contractor types.
+        </p>
+
+        <h3 class="study-subhead">Inconsistent invoicing, not volume, predicts churn</h3>
+        <p>
+          Builders who send every invoice through Buildertrend
+          looked, at first, like the highest churn-risk group, until
+          we controlled for the fact that they also send far fewer
+          invoices overall. Once volume is held constant, the real
+          pattern flips: builders who commit to one channel, fully
+          on Buildertrend, fully on QuickBooks or Xero, or fully
+          manual, churn less than builders whose behavior is split.
+          And the split usually happens <em>within</em> a single job:
+          44.6% of multi-invoice jobs mix sent and unsent invoices,
+          the same builder making a per-invoice judgment call rather
+          than losing steam over time. Worth testing as an early
+          warning signal, a builder whose invoicing behavior on a job
+          suddenly gets inconsistent may be a better churn flag than
+          how many invoices they've sent.
+        </p>
+
+        <h3 class="study-subhead">Presentation fidelity, the round's headline finding</h3>
+        <p>
+          Six of the nine builders we talked to came back to the
+          same root cause: the invoice doesn't preserve the
+          estimate's own grouping, so the client can't reconcile the
+          two documents. That's a larger, structural piece of work
+          than this quarter's slice. It's now its own draft case
+          study, <a href="../invoice-presentation/">Invoice
+          Presentation</a>, tracking the Q4 recommendation to fix it.
+        </p>
+      </section>
+    </article>
+
+    <footer class="site-footer">
+      <p>Designed by Amy Li · Buildertrend</p>
+      <p><a href="../../">← Back to all work</a></p>
+    </footer>
+  </body>
+</html>

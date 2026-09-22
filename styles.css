@@ -175,6 +175,20 @@ a {
   margin-bottom: 8px;
 }
 
+.draft-pill {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  text-transform: uppercase;
+  vertical-align: 1px;
+}
+
 .project-meta h3 {
   font-size: 22px;
   font-weight: 600;
@@ -1175,5 +1189,112 @@ details.study-callout[open] > summary::before {
   }
   .study-section h2 {
     font-size: 22px;
+  }
+}
+
+/* ---------- Data blocks: metric cards, funnel/trend charts, tables ---------- */
+.q2i-metric-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin: 32px 0 40px;
+}
+
+.q2i-metric-card {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px 20px;
+}
+
+.q2i-metric-value {
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  line-height: 1;
+}
+
+.q2i-metric-of {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.q2i-metric-label {
+  margin-top: 10px;
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.q2i-chart-block {
+  margin: 40px 0;
+}
+
+.q2i-chart-block h4 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.q2i-funnel,
+.q2i-trend,
+.q2i-setup-bar,
+.q2i-flow {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.q2i-chart-note {
+  margin-top: 12px;
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.q2i-table-wrap {
+  margin: 40px 0;
+}
+
+.q2i-table-wrap h4 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.q2i-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.q2i-table th,
+.q2i-table td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.q2i-table th {
+  font-weight: 600;
+  color: var(--text-muted);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.q2i-table td:nth-child(n+3),
+.q2i-table th:nth-child(n+3) {
+  text-align: right;
+}
+
+@media (max-width: 640px) {
+  .q2i-table {
+    font-size: 13px;
+  }
+  .q2i-table th,
+  .q2i-table td {
+    padding: 8px;
   }
 }

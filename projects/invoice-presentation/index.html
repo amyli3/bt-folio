@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Invoice Presentation — Amy Li</title>
+    <meta name="description" content="Draft case study: why builders say the Buildertrend invoice isn't good enough to send, and the Q4 2026 plan to fix it." />
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body class="case-study-page">
+    <nav class="top-nav">
+      <a href="../../" class="back-link">← Back to work</a>
+      <div class="section-links">
+        <a href="#problem">Problem</a>
+        <a href="#evidence">Evidence</a>
+        <a href="#solutions">Solutions</a>
+        <a href="#prototype">Current state</a>
+        <a href="#scope">Scope</a>
+      </div>
+    </nav>
+
+    <article class="study">
+      <header class="study-hero">
+        <div class="study-eyebrow">Buildertrend · Ship of Theseus · Q4 2026 · Draft</div>
+        <h1>Invoice Presentation</h1>
+        <p class="study-lede">
+          Builders keep telling us the invoice Buildertrend generates
+          isn't good enough to send, so they rebuild it somewhere
+          else every month. This page is a draft: the case for
+          fixing it in Q4, built from research already on file. I'm
+          starting it now, before the evidence scatters across
+          tickets and calls, and will build it out as the work
+          actually ships.
+        </p>
+        <dl class="study-meta">
+          <div>
+            <dt>Role</dt>
+            <dd>Design, research synthesis</dd>
+          </div>
+          <div>
+            <dt>Team</dt>
+            <dd class="team-list">
+              <span>Kendall Sutton (PM)</span>
+              <span>Amy Li (Design)</span>
+            </dd>
+          </div>
+          <div>
+            <dt>Status</dt>
+            <dd>Draft · Recommended for Q4 2026, not yet built</dd>
+          </div>
+        </dl>
+      </header>
+
+      <section id="problem" class="study-section">
+        <h2>Why this matters</h2>
+        <p>
+          This isn't a new complaint. It's the same one that surfaces
+          throughout <a href="../second-invoice/">Path to
+          Invoicing</a>: Priya Gosar and Andrew Maccormack both said the
+          invoice doesn't look like the estimate the client already
+          signed. What's new is that Kendall pulled the thread further
+          and found builders who are embarrassed enough by the current
+          invoice to actively avoid sending it, even ones who are
+          otherwise happy, engaged users of Buildertrend.
+        </p>
+        <blockquote class="study-quote">
+          "The way that the invoice itself looks, looks like crap…
+          we didn't feel like it was a good representation of us as
+          a builder to turn around and hand that over to our
+          client."
+          <cite>— AJ Epding, Hancock Construction, left BT invoicing 18 months ago</cite>
+        </blockquote>
+        <blockquote class="study-quote">
+          "In an open book, you have to show your clients where you
+          spent their money. And it's just… it's embarrassing."
+          <cite>— Michelle Smith, Hanson Land & Sea</cite>
+        </blockquote>
+        <p>
+          Builders don't always stop invoicing over this. More often
+          they keep using Buildertrend internally and quietly
+          route around it: create the invoice here, then rebuild the
+          client-facing document somewhere else, every single
+          billing cycle.
+        </p>
+      </section>
+
+      <section id="evidence" class="study-section">
+        <h2>What builders are actually doing instead</h2>
+        <p>
+          Five builders, each handling it differently, each paying
+          the same tax in manual rework:
+        </p>
+        <div class="q2i-table-wrap">
+          <table class="q2i-table">
+            <thead>
+              <tr><th>Builder</th><th>Status</th><th>What they do instead</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Andrew Maccormack</td><td>Invoicing, flagged at risk</td><td>Rebuilds every invoice in Excel so it matches the estimate his client approved</td></tr>
+              <tr><td>Debbie Penick</td><td>Invoicing monthly</td><td>Pulls the bills into Excel, does the math by hand, retypes the result into the invoice</td></tr>
+              <tr><td>Demetri Milles</td><td>Left invoicing</td><td>Writes proposals in Buildertrend, retypes them into QuickBooks line by line</td></tr>
+              <tr><td>Michelle Smith</td><td>Invoicing</td><td>Sends a QuickBooks PDF instead of Buildertrend's</td></tr>
+              <tr><td>Liz, Pure Construction Group</td><td>Invoicing</td><td>Attaches the owner's Word document to every Buildertrend invoice she creates</td></tr>
+            </tbody>
+          </table>
+          <p class="q2i-chart-note">From Kendall Sutton's Q4 Invoice presentation opportunity writeup.</p>
+        </div>
+        <p>
+          Debbie's version of the workaround shows why simply
+          combining line items hasn't solved it:
+        </p>
+        <blockquote class="study-quote">
+          "If we were to pull all of our material bills, our trade
+          bills, all of that stuff in, it becomes a 50 page document
+          to the client. We can't have that. So we basically pull
+          the bills out into Excel, we do our own math, and then we
+          plug it in manually."
+          <cite>— Debbie Penick</cite>
+        </blockquote>
+        <p>
+          Demetri's version is the clearest statement of the actual
+          ask, and it's one we'd already heard independently from
+          Priya Gosar and Andrew:
+        </p>
+        <blockquote class="study-quote">
+          "I wanted to show the one price for the whole group. I
+          don't want to show the builder cost; I just wanted to show
+          the client price, along with the description and the
+          title for the group."
+          <cite>— Demetri Milles, Red Isle</cite>
+        </blockquote>
+        <p>
+          Demetri stopped invoicing in Buildertrend specifically over
+          this. He called the group-level view "a huge improvement"
+          when it was described to him and has already agreed to
+          pilot it.
+        </p>
+
+        <h3 class="study-subhead">The detail question cuts both ways</h3>
+        <p>
+          The complaint isn't simply "not enough detail" or "too much
+          detail." Builders want opposite things depending on how
+          they bill:
+        </p>
+        <blockquote class="study-quote">
+          "I would like to be able to list all the bills under each
+          cost code."
+          <cite>— Michelle Smith, Hanson Land & Sea</cite>
+        </blockquote>
+        <blockquote class="study-quote">
+          "Open book invoices where we want to show one line for all
+          materials and one line for labor."
+          <cite>— Karalis Construction</cite>
+        </blockquote>
+        <p>
+          Other independent asks from three or more builders across
+          calls, in-app feedback, and NPS: show the vendor name and
+          bill number behind every line, or collapse markup to one
+          line at the bottom instead of spreading it across every
+          item. There's no single right layout here. The requirement
+          is builder-controlled disclosure, not a better default.
+        </p>
+
+        <h3 class="study-subhead">Two more accounts saying the same thing, independently</h3>
+        <p>
+          Kendall's interviews aren't the only place this shows up.
+          Gainsight activity notes from September 2026 carry two more
+          named cases, one on each contract type:
+        </p>
+        <blockquote class="study-quote">
+          "Customer is experiencing confusion around invoice totals,
+          cost code separation, markup calculations, and how labor
+          versus material costs are displayed to both internal users
+          and clients."
+          <cite>— Onboarding notes, Fuschetto Development (fixed price, active, named invoicing as their last adoption blocker)</cite>
+        </blockquote>
+        <blockquote class="study-quote">
+          "They value the professional format of progress bills
+          favored by their high-end residential clients but find the
+          current system confusing, particularly how older invoices
+          are linked to new progress bills and the lack of clear
+          visibility on which costs are included."
+          <cite>— QBR notes, Krikorian Construction (open book, active, repeat feedback not yet addressed)</cite>
+        </blockquote>
+        <p>
+          1,351 builder accounts raised some version of this in
+          Gainsight activity notes. One churned account, Big Sky
+          Finishes, named it as the deciding factor outright in their
+          exit survey: "we don't like how our QB invoices and
+          estimates look when they are pulled into Buildertrend…
+          we were wanting to see our QB estimates and invoices
+          exactly how they are in QB."
+        </p>
+
+        <h3 class="study-subhead">Independent confirmation: it's control, not looks</h3>
+        <p>
+          A separate classification of 21,639 verbatims across NPS,
+          EnjoyHQ, in-app feedback, and support calls split
+          "presentation" complaints into two components in every
+          source: not being able to control what's shown (fields,
+          grouping, what the client sees) versus the invoice simply
+          looking unprofessional. The ratio holds everywhere: <strong>7
+          to 10 times</strong> more complaints about control than
+          about appearance, and appearance never clears 2.7% in any
+          source. Restyling the invoice would move almost none of
+          this complaint. Giving builders control over what's on it
+          would move most of it, which is exactly what the four Q4
+          solutions below are built to do.
+        </p>
+
+        <h3 class="study-subhead">The number that makes this worth fixing now</h3>
+        <p>
+          Separately from Kendall's interviews, we already knew how
+          this shows up in the data: only <strong>39.7%</strong> of
+          released invoices are ever opened by the client. Fifty
+          builders with three or more released invoices have never
+          had a single one opened. Released is not the same as
+          received, and a document a builder is embarrassed to send
+          is one reason a client never opens it.
+        </p>
+      </section>
+
+      <section id="solutions" class="study-section">
+        <h2>What's on the table for Q4</h2>
+        <p>
+          Some formatting control already exists: line-item detail
+          on or off, show and hide columns, combine standard invoice
+          lines by cost code, and header/subtotal grouping on
+          progress invoices. Four gaps remain:
+        </p>
+        <ul class="study-list">
+          <li>
+            <strong>Let a standard invoice group by the estimate's
+            structure.</strong> The ask from Andrew, Debbie, and
+            Demetri. Progress invoices already do this; standard
+            invoices don't.
+          </li>
+          <li>
+            <strong>Let open-book builders group by cost source.</strong>
+            Asked for by Michelle and Karalis Construction, the
+            open-book mirror of the same underlying need.
+          </li>
+          <li>
+            <strong>Add an option to show fee in the invoice
+            subtotal.</strong> Already standard in comparable products,
+            and a recurring ask from open-book builders specifically.
+          </li>
+          <li>
+            <strong>Keep descriptions when lines are combined.</strong>
+            Combining is the closest thing we have today to what
+            builders want, and it fails on exactly this point. Debbie
+            tested it live on a call: "we can't put notes in it… we
+            like to be specific with our clients about what it is
+            they're paying for."
+          </li>
+        </ul>
+        <p>
+          Comparable products already treat this as table stakes.
+          JobTread, Procore, QuickBooks, and Buildxact all let a
+          builder control how a client-facing invoice looks, and so
+          does CoConstruct, which means builders migrating in from
+          CoConstruct are losing formatting control they already had.
+        </p>
+      </section>
+
+      <section id="prototype" class="study-section">
+        <h2>Current state</h2>
+        <p>
+          Nothing from this recommendation has been built yet, so
+          there's no prototype for the Q4 solutions. What's linked
+          below is today's shipped client invoice preview, the
+          surface any grouping or fee-subtotal work would extend.
+          "Customize display" is the closest existing control to
+          what builders are asking for, and it stops well short of
+          it.
+        </p>
+        <div class="study-image">
+          <img src="./images/current-state.png" alt="The current client invoice preview, showing Group line items by estimate, cost code, or all line items, and a Columns shown picker with Items, Tax, Unit cost, Quantity, Client price, and Markup amount" onerror="this.closest('.study-image').style.display='none'" />
+          <p class="study-caption">Today's "Display to client" panel: grouping and column toggles exist, but nothing here lets a builder show a fee subtotal or keep descriptions when lines are combined.</p>
+        </div>
+        <div class="study-iframe-wrap">
+          <iframe
+            src="https://bt-invoice.vercel.app/?page=client-preview-invoice"
+            title="Current client invoice preview"
+            loading="lazy"
+          ></iframe>
+        </div>
+        <p class="study-footnote">
+          Open prototype in new tab: <a href="https://bt-invoice.vercel.app/?page=client-preview-invoice" target="_blank" rel="noopener">bt-invoice.vercel.app/?page=client-preview-invoice ↗</a>
+        </p>
+      </section>
+
+      <section id="scope" class="study-section">
+        <h2>What this is, and isn't, claiming</h2>
+        <p>
+          This is scoped as a retention play, not an acquisition one.
+          The builders it targets already invoice in Buildertrend, or
+          recently stopped specifically over this. Kendall's own
+          framing, which I want to keep intact rather than round up:
+        </p>
+        <blockquote class="study-quote">
+          "For most builders who stopped invoicing, this isn't the
+          main reason, but it's one of the reasons."
+          <cite>— Kendall Sutton</cite>
+        </blockquote>
+        <p>
+          AJ Epding put accounting sync first, ahead of presentation.
+          Cathie Merry's blocker is her owner, who won't log into
+          software at all. Noah Garza rejected the presentation
+          framing outright when it was raised with him. Demetri is
+          the clean exception, not the typical case. The honest
+          claim is: this retains builders already invoicing and stops
+          the parallel-document habit for people like Debbie and
+          Liz. It is not expected to convert a meaningful number of
+          lapsed or never-invoiced builders on its own, that's the
+          job of <a href="../second-invoice/">the unclear-path and
+          too-many-steps work</a> already underway this quarter.
+        </p>
+        <p>
+          A separate 21,639-verbatim analysis puts a real number
+          behind Kendall's caveat instead of leaving it as a hunch.
+          Comparing builders who left Buildertrend against builders
+          who stayed, invoice customization complaints, the
+          presentation-adjacent theme, run <strong>11.2 points
+          lower</strong> among people on their way out than among
+          people who stayed. Every day-to-day friction theme shows
+          the same pattern. The only themes that run higher among
+          leavers are structural: accounting sync (+18.7 points),
+          contract-model fit, and already invoicing somewhere else.
+          That's the quantified version of "this is a satisfaction
+          fix, not a retention one," and it's exactly why this work
+          is scoped the way it is: worth doing for the builders
+          still here, not the lever that stops someone from leaving.
+        </p>
+        <p>
+          Two real dependencies to watch before this gets built: the
+          accounting side is tied to an in-flight invoice migration
+          to a new accounting service, and any change to invoice
+          creation carries real risk without an agreed end state to
+          build toward. Both are called out directly in the
+          recommendation doc rather than glossed over.
+        </p>
+      </section>
+    </article>
+
+    <footer class="site-footer">
+      <p>Designed by Amy Li · Buildertrend</p>
+      <p><a href="../../">← Back to all work</a></p>
+    </footer>
+  </body>
+</html>
