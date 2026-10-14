@@ -15,6 +15,7 @@
         <a href="#approach">Approach</a>
         <a href="#problems">Statements</a>
         <a href="#findings">Findings</a>
+        <a href="#evidence">More evidence</a>
         <a href="#invoicing">Part 1</a>
         <a href="#client">Part 2</a>
         <a href="#handoff">What's shipping</a>
@@ -121,16 +122,12 @@
           today from estimate through invoicing, with the broken
           seams called out in place.
         </p>
-        <div class="study-iframe-wrap study-iframe-wrap--inline">
-          <iframe
-            src="./images/current%20selections%20workflow.pdf#view=FitH"
-            title="Current legacy selections workflow"
-            loading="lazy"
-          ></iframe>
+        <div class="study-image-wide">
+          <a href="./images/current-selections-workflow.png" target="_blank" rel="noopener">
+            <img src="./images/current-selections-workflow.png" alt="Current legacy selections workflow, from defining the original client price through selection coordination, approvals, invoicing and updating pricing." loading="lazy" />
+          </a>
+          <p class="study-caption">The current selections workflow, from estimate through invoicing. Click to open at full size.</p>
         </div>
-        <p class="study-footnote">
-          Open PDF: <a href="./images/current%20selections%20workflow.pdf" target="_blank" rel="noopener">current selections workflow.pdf ↗</a>
-        </p>
       </section>
 
       <section id="approach" class="study-section">
@@ -290,16 +287,12 @@
           happen, where decisions stall, and where the spreadsheet
           workarounds live.
         </p>
-        <div class="study-iframe-wrap study-iframe-wrap--inline">
-          <iframe
-            src="./images/real-world-selection-journey.pdf#view=FitH"
-            title="Real-world selection journey"
-            loading="lazy"
-          ></iframe>
+        <div class="study-image-wide">
+          <a href="./images/real-world-selection-journey.png" target="_blank" rel="noopener">
+            <img src="./images/real-world-selection-journey.png" alt="Real-world selection journey from first conversation through invoice, showing handoffs and where spreadsheet workarounds live." loading="lazy" />
+          </a>
+          <p class="study-caption">A real-world selection journey, from first conversation to invoice. Click to open at full size.</p>
         </div>
-        <p class="study-footnote">
-          Open PDF: <a href="./images/real-world-selection-journey.pdf" target="_blank" rel="noopener">real-world-selection-journey.pdf ↗</a>
-        </p>
 
         <h3 class="study-subhead">Allowance + markup confusion (universal)</h3>
         <p>
@@ -381,6 +374,28 @@
           that surfaces <em>before</em> items become schedule
           problems.
         </p>
+      </section>
+
+      <section id="evidence" class="study-section">
+        <h2>More evidence since the first findings</h2>
+        <p>
+          After Q2, I took part in a five-day design sprint on the
+          client selections experience, run with the Paper Crane team.
+          I brought the research from the Q2 interviews, shared what
+          I'd learned about how builders and clients use selections,
+          and prototyped alongside the team. The sprint also drew on a
+          broader review of builder feedback: 910 quotes from 204
+          feedback records, December 2025 to October 2026. That review
+          didn't change the problem statements. It confirmed them at
+          scale.
+        </p>
+        <h3 class="study-subhead">The same problems, at scale</h3>
+        <ul class="study-list">
+          <li><strong>Decisions that stick (64 accounts).</strong> Visible sign-off and approved choices that flow into one change order and the contract price, the same thread as the approval and audit trail statement.</li>
+          <li><strong>Keep clients moving (43 accounts).</strong> Due dates, reminders and a "waiting on you" view, which is the guided decisions and urgency finding.</li>
+          <li><strong>The client experience happens outside Buildertrend (39 accounts).</strong> Canva, spreadsheets and PDFs, with Selections as just the ledger.</li>
+          <li><strong>Control when clients see it (25 accounts, 10 call it a blocker).</strong> Draft, preview, then release, which is the drafts-leak-to-clients finding.</li>
+        </ul>
       </section>
 
       <section id="invoicing" class="study-section">
@@ -549,9 +564,9 @@
         <p>
           A working prototype of the client-facing selections view,
           built to stress-test the principles above against
-          realistic data shapes. Scroll through the queue, preview
-          a pending selection, and watch the revised client price
-          update live.
+          realistic data shapes. Browse by room, filter by overdue,
+          due soon or favorites, compare the options under each
+          allowance, and choose one.
         </p>
         <div class="study-iframe-controls">
           <button
@@ -559,11 +574,11 @@
             class="study-iframe-expand"
             onclick="(function(b){var w=document.getElementById('client-selections-proto');w.classList.toggle('study-iframe-wrap--expanded');b.textContent=w.classList.contains('study-iframe-wrap--expanded')?'Collapse prototype':'Expand prototype';})(this)"
           >Expand prototype</button>
-          <a href="https://bt-invoice.vercel.app/#client-selections" target="_blank" rel="noopener">Open in new tab ↗</a>
+          <a href="https://bt-invoice.vercel.app/#client-selections-workshop" target="_blank" rel="noopener">Open in new tab ↗</a>
         </div>
         <div class="study-iframe-wrap study-iframe-wrap--inline" id="client-selections-proto">
           <iframe
-            src="https://bt-invoice.vercel.app/#client-selections"
+            src="https://bt-invoice.vercel.app/#client-selections-workshop"
             title="Client view selections prototype"
             loading="lazy"
           ></iframe>

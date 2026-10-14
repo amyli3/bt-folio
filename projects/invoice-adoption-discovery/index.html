@@ -1,0 +1,969 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Invoice Adoption Discovery — Amy Li</title>
+    <meta name="description" content="Case study: Q3 2026 discovery at Buildertrend on why builders still invoice outside the product and what would move them back." />
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body class="case-study-page">
+    <nav class="top-nav">
+      <a href="../../" class="back-link">← Back to work</a>
+      <div class="section-links">
+        <a href="#problem">Problem</a>
+        <a href="#round1">Round 1</a>
+        <a href="#round2">Round 2</a>
+        <a href="#ost">OST</a>
+        <a href="#problems">Answers</a>
+        <a href="#market">Market</a>
+        <a href="#ideal">Ideal flow</a>
+        <a href="#autofill">Autofill</a>
+        <a href="#decisions">Decisions</a>
+        <a href="#reflection">Reflection</a>
+      </div>
+    </nav>
+
+    <article class="study">
+      <header class="study-hero">
+        <div class="study-eyebrow">Buildertrend · Ship of Theseus · Q3 2026</div>
+        <h1>Invoice Adoption Discovery</h1>
+        <p class="study-lede">
+          Progress invoices went GA in December, but plenty of builders
+          still invoice somewhere else. This discovery asks why they
+          stay in QuickBooks or Excel, where those tools break, and
+          what it would take to move them back. Each round changed what
+          we asked next.
+        </p>
+        <dl class="study-meta">
+          <div>
+            <dt>Role</dt>
+            <dd>UX research, customer interviews, synthesis, design strategy</dd>
+          </div>
+          <div>
+            <dt>Team</dt>
+            <dd class="team-list">
+              <span>Kendall Sutton (PM)</span>
+              <span>Amy Li (Design)</span>
+            </dd>
+          </div>
+          <div>
+            <dt>Status</dt>
+            <dd>Round 1 and Round 2 complete · Synthesis informing the next invoicing work</dd>
+          </div>
+        </dl>
+      </header>
+
+      <section id="summary" class="study-section">
+        <h2>The short version</h2>
+        <p>
+          Builders don't leave Buildertrend invoicing because one
+          feature is missing. They leave because the invoice doesn't
+          look like their estimate, they don't trust what syncs to
+          their books, and nothing shows them the path from budget to
+          invoice. The research moved through five steps, and each one
+          set up the next:
+        </p>
+        <ol class="study-list">
+          <li><strong>Round 1</strong> asked why builders stopped and produced six topics.</li>
+          <li><strong>The reframe</strong> turned the question into "what would move you back?" and Round 2 collapsed the topics into three themes.</li>
+          <li><strong>An opportunity solution tree</strong> mapped every quote and idea to those themes and narrowed them to two problems: an unclear path and too many steps.</li>
+          <li><strong>Mapping the flow</strong> today and sketching the ideal one turned each problem into a first answer: the payment schedule after send to budget, and autofill.</li>
+          <li><strong>Market research and the first autofill feedback</strong> showed what both answers still need: presentation control and a way to see what was pulled in.</li>
+        </ol>
+      </section>
+
+      <section id="problem" class="study-section">
+        <h2>Why this matters</h2>
+        <p>
+          Builders want confidence that their invoice is correct and
+          will look professional to their clients. When Buildertrend
+          can't give them that, the invoice moves to Excel or
+          QuickBooks, and the job's data stops flowing through the
+          rest of the product.
+        </p>
+        <p>
+          That matters beyond one screen. An invoice sent outside
+          Buildertrend is a job whose estimate, bills and labor never
+          meet the client's request for payment. It is also a builder
+          who is one step closer to running the whole job somewhere
+          else.
+        </p>
+        <p>
+          Three people touch every invoice: the builder or office
+          manager who builds it, the bookkeeper who checks what's
+          billable, and the client (sometimes an owner's rep) who
+          compares it to what they agreed to pay. Most of what follows
+          is about the first two making it right and the third being
+          able to trust it.
+        </p>
+      </section>
+
+      <section id="approach" class="study-section">
+        <h2>How we approached it</h2>
+        <p>
+          I ran two rounds and changed the question between them.
+          The second round only made sense because of what the first
+          one could not tell us.
+        </p>
+        <div class="study-callout">
+          <h4>Two rounds, two questions</h4>
+          <ul class="study-list">
+            <li>
+              <strong>Round 1: why did you stop?</strong> 13 builders
+              who had stopped invoicing in Buildertrend, plus five more
+              conversations with internal customer success and
+              accounting contacts. What gaps did you hit, and what do
+              you use instead?
+            </li>
+            <li>
+              <strong>Round 2: would you move back?</strong> Nine
+              builders, six fixed price and three open book. How do you
+              invoice today, what does that tool do well, where does it
+              break, and would you move if we closed the gap?
+            </li>
+          </ul>
+        </div>
+        <p class="study-footnote">
+          Small samples. Read the themes as patterns, not rates.
+        </p>
+      </section>
+
+      <section id="round1" class="study-section">
+        <h2>Round 1: why builders stopped</h2>
+        <p>
+          The first round was framed around Buildertrend's gaps.
+          It surfaced six topics, ranked by how often and how strongly
+          builders raised them.
+        </p>
+
+        <h3 class="study-subhead">1. Another system is already in place</h3>
+        <ul class="study-list">
+          <li>QuickBooks is the book of truth. Years of data live there, and builders trust it over Buildertrend.</li>
+          <li>Builders fear corrupting their QuickBooks history, and fear Buildertrend locking an invoice after sync.</li>
+          <li>Builders on Business Central or Salesforce have no integration path.</li>
+          <li>Buildertrend is seen as project management, not a financial system.</li>
+        </ul>
+
+        <h3 class="study-subhead">2. Invoice presentation</h3>
+        <ul class="study-list">
+          <li>The client invoice doesn't look like the approved estimate: AIA format, estimate columns, grouping, estimate order.</li>
+          <li>Descriptions don't carry through, so lines that share a cost code can't be told apart.</li>
+          <li>Builders want price ranges, and Buildertrend has no range concept.</li>
+          <li>Progress invoices already cover part of this, but builders didn't know.</li>
+        </ul>
+        <blockquote class="study-quote">
+          "No range makes no sense. So we're still doing it via Excel."
+          <cite>Torin R.</cite>
+        </blockquote>
+
+        <h3 class="study-subhead">3. Time to learn</h3>
+        <ul class="study-list">
+          <li>The blocker is the effort to adopt, not missing features. Small teams lack the people to learn new workflows.</li>
+          <li>Training videos are split by task and don't show bid to invoice end to end.</li>
+          <li>Builders aren't sure they're using it correctly, so they stay with what they know.</li>
+        </ul>
+        <blockquote class="study-quote">
+          "It's the effort it takes to retroactively apply it to our current processes."
+          <cite>Noah G.</cite>
+        </blockquote>
+        <blockquote class="study-quote">
+          "The biggest downfall is not Buildertrend shortcomings, it's the knowledge of how to utilize the tools."
+          <cite>Amanda W.</cite>
+        </blockquote>
+
+        <h3 class="study-subhead">4. Habit and comfort</h3>
+        <ul class="study-list">
+          <li>Builders already invoice informally or in QuickBooks, and moving that into Buildertrend's structure is the real cost.</li>
+          <li>Buildertrend is not as intuitive as we think.</li>
+        </ul>
+
+        <h3 class="study-subhead">5. Reporting</h3>
+        <ul class="study-list">
+          <li>Builders want budget snapshots.</li>
+          <li>A WIP report customizable by date would remove the need for QuickBooks job costing reports.</li>
+          <li>Buildertrend reporting is what justifies leaving QuickBooks Desktop, and it also keeps builders in Buildertrend.</li>
+        </ul>
+        <blockquote class="study-quote">
+          "If this were tied in with all of everything else, then I would immediately be pushing for using it."
+          <cite>Rex M.</cite>
+        </blockquote>
+
+        <h3 class="study-subhead">6. Timing</h3>
+        <ul class="study-list">
+          <li>Some builders aren't ready to open Buildertrend to clients yet.</li>
+          <li>Others are slowing down during a move to a new business model, though all their work is still processed in Buildertrend.</li>
+        </ul>
+
+        <div class="study-callout">
+          <h4>What Round 1 left open</h4>
+          <p style="margin-bottom:0;">
+            The list was long and it mixed very different kinds of
+            problem: a missing feature, a feature builders didn't know
+            existed, an integration, a habit. Only some of them were
+            about the invoice screen. Three of the six (time to learn,
+            habit, another system in place) had nothing to do with a
+            gap we could close in the UI. That raised the question the
+            next round was built to answer: which of these actually
+            keep a builder out, and would closing one bring them back?
+          </p>
+        </div>
+      </section>
+
+      <section id="reframe" class="study-section">
+        <h2>The reframe: from feature gaps to adoption</h2>
+        <p>
+          Round 1 started from the hypothesis that Buildertrend
+          invoicing is clunky and needs a smoother workflow. The
+          results didn't confirm or refute that. They showed that
+          builders were comparing Buildertrend to something that
+          already worked for them. Leadership asked for the next round
+          to test the hypothesis directly instead of assuming it.
+        </p>
+        <h3 class="study-subhead">What changed in the research</h3>
+        <ul class="study-list">
+          <li><strong>The starting point.</strong> Builders walk us through how they invoice today in whatever tool they actually use: QuickBooks, Sage, Salesforce, NetSuite, Business Central or Excel.</li>
+          <li><strong>The question.</strong> What do you like about it, where do you hit snags, and if Buildertrend closed that gap, would you actually move?</li>
+          <li><strong>The recruiting.</strong> We deliberately included both contract types, six fixed price and three open book, because Round 1 hadn't separated them.</li>
+          <li><strong>What we recorded.</strong> For each builder: how they invoice today, their pricing model, and the single blocker that matters most.</li>
+        </ul>
+        <p>
+          One blocker per builder was the discipline that mattered.
+          Round 1 let every complaint count equally. Round 2 forced
+          a ranking.
+        </p>
+      </section>
+
+      <section id="round2" class="study-section">
+        <h2>Round 2: what would move them</h2>
+        <p>
+          Nine builders, each asked for their one blocker. Three
+          themes ranked highest. Contract type below is each builder's
+          stated pricing model: three open book and six fixed price.
+          "Mix" means both types raised the theme.
+        </p>
+
+        <h3 class="study-subhead">Theme A: The invoice doesn't match the estimate</h3>
+        <div class="study-callout">
+          <h4>The invoice doesn't look like the approved estimate</h4>
+          <p>
+            Clients lay the invoice next to the proposal to check it
+            against what they agreed to pay and what the request for
+            payment is. Builders want the estimate's groups instead of
+            cost categories, less line detail, percent invoiced shown,
+            and control over presentation. The answer is
+            builder-controlled disclosure, not one fixed format.
+          </p>
+          <p style="margin-bottom:0;"><strong>Contract type:</strong> Mix</p>
+        </div>
+        <div class="study-callout">
+          <h4>The estimate is re-entered into accounting by hand</h4>
+          <p>
+            Builders retype the signed estimate into QuickBooks or
+            Excel, or rebuild the AIA format and schedule of values by
+            hand. Buildertrend shows too much line-item detail to the
+            client, and the builder wants control over how it is
+            presented.
+          </p>
+          <p style="margin-bottom:0;"><strong>Contract type:</strong> Fixed price</p>
+        </div>
+        <p class="study-footnote">
+          Heard from Demetri M. (too much line-item detail), Priya G.
+          (estimate groups, AIA format on most jobs), Andrew M. (percent
+          invoiced missing from the client invoice) and Skylar C. (re-keys
+          the entire estimate).
+        </p>
+
+        <h3 class="study-subhead">Theme B: Buildertrend can't do the accounting job, so QuickBooks stays the system of record</h3>
+        <div class="study-callout">
+          <h4>Reporting and the chart of accounts keep them in QuickBooks</h4>
+          <ul class="study-list">
+            <li>Unbilled charges: tracking which bills haven't been invoiced.</li>
+            <li>P&amp;L: markup needs to show as profit or income.</li>
+            <li>Estimates versus actuals.</li>
+            <li>AP by vendor and a billing forecast live in QuickBooks or Excel, showing how much the builder owes each sub or supplier.</li>
+            <li>Some builders don't trust sync and worry it will corrupt their QuickBooks data.</li>
+            <li>Missing bills features: expenses (a receipt for an already-paid item) and credit card credits (refunds).</li>
+          </ul>
+          <p style="margin-bottom:0;"><strong>Contract type:</strong> Mix</p>
+        </div>
+        <div class="study-callout">
+          <h4>Upstream setup was never finished</h4>
+          <p>
+            The setup invoicing depends on was never completed, so the
+            blocker comes before the invoice. Cost code setup is the
+            clearest example.
+          </p>
+          <p style="margin-bottom:0;"><strong>Contract type:</strong> Mix</p>
+        </div>
+        <div class="study-callout">
+          <h4>Vendor retainage doesn't exist</h4>
+          <p style="margin-bottom:0;">
+            Builders can't hold back a percentage on vendor bills.
+            <strong>Contract type:</strong> Mix
+          </p>
+        </div>
+        <div class="study-callout">
+          <h4>Anything that syncs becomes immutable</h4>
+          <p>
+            Builders can't edit an invoice after sync. They are usually
+            fixing a mistake, for example a cost code edit.
+          </p>
+          <p style="margin-bottom:0;"><strong>Contract type:</strong> Fixed price</p>
+        </div>
+        <div class="study-callout">
+          <h4>The job model can't produce their invoice</h4>
+          <p>
+            Open-book vendor and bill detail doesn't persist onto the
+            invoice, so a 100-line vendor bill collapses to a bill
+            title. Cross-job invoicing and a single closing settlement
+            don't fit the job model.
+          </p>
+          <p style="margin-bottom:0;"><strong>Contract type:</strong> Mix</p>
+        </div>
+        <p class="study-footnote">
+          Heard from AJ E. (sync trust, AP and credit card segregation,
+          reporting depth), Damaris R. (can't edit a synced invoice
+          without rebuilding it), Stephanie S. (vendor retainage,
+          cross-job invoicing) and Cathie M. (needs profit hidden in
+          Buildertrend, so billing happens elsewhere by design).
+        </p>
+
+        <h3 class="study-subhead">Theme C: Buildertrend doesn't guide the builder to the next billing step</h3>
+        <div class="study-callout">
+          <h4>Feature discoverability</h4>
+          <p>
+            Some builders didn't know progress invoices or payment
+            schedules existed, or that percent-complete billing and
+            billing from bills were already supported.
+          </p>
+          <p style="margin-bottom:0;"><strong>Contract type:</strong> Mix</p>
+        </div>
+        <div class="study-callout">
+          <h4>Buildertrend doesn't know when it's time to invoice</h4>
+          <p>
+            Billing runs on milestones, draws or monthly percent
+            complete, and Buildertrend doesn't prompt it. One invoice
+            can need several billing triggers. For open-book builders,
+            we have all the data and could know when they should be
+            invoicing.
+          </p>
+          <p style="margin-bottom:0;"><strong>Contract type:</strong> Fixed price</p>
+        </div>
+        <div class="study-callout">
+          <h4>The person we talked to doesn't own the decision</h4>
+          <p>
+            Some builders invoice outside Buildertrend because of a
+            long-standing business decision. The owner is stuck in
+            their habit.
+          </p>
+          <p style="margin-bottom:0;"><strong>Contract type:</strong> Fixed price</p>
+        </div>
+        <p class="study-footnote">
+          Heard from Skylar C. (awareness), Alex D. (one invoice needing
+          multiple billing triggers, plus presentation control, and no
+          authority to make the switch) and Stephanie S. (billing
+          from bills).
+        </p>
+
+        <details class="study-callout">
+          <summary>Who we heard from: one blocker per builder</summary>
+          <p style="margin-top:16px;">Each builder named one blocker. The pattern across them is
+          that no two blockers were the same feature.</p>
+          <ul class="study-list">
+          <li><strong>Demetri M.</strong> · invoices in QuickBooks, re-keyed from the signed proposal · fixed price, milestone · blocker: too much line-item detail shown to the client.</li>
+          <li><strong>AJ E.</strong> · QuickBooks plus bill.com · cost plus, open book · blocker: accounting robustness, meaning sync trust, AP and credit card segregation, and reporting depth.</li>
+          <li><strong>Damaris R.</strong> · Buildertrend, then QuickBooks · fixed price, draws · blocker: can't edit a synced invoice without deleting and rebuilding it.</li>
+          <li><strong>Priya G.</strong> · QuickBooks, with the AIA format rebuilt by hand · fixed price, draws · blocker: invoices show cost categories, not the estimate's groups.</li>
+          <li><strong>Skylar C.</strong> · QuickBooks Desktop, estimate re-keyed, schedule of values in Excel · fixed price lump sum, monthly percent complete · blocker: awareness, plus estimate sync and vendor retainage.</li>
+          <li><strong>Andrew M.</strong> · Buildertrend, then rebuilt in Excel to add percent complete · hybrid quoted plus cost plus, monthly percent complete · blocker: percent invoiced missing from the client-facing invoice.</li>
+          <li><strong>Alex D.</strong> · QuickBooks, off weekly PDF printouts from Excel · milestone billing, 50/50 under $100k and 10-15-15-60 over · blocker: one invoice needs multiple billing triggers, plus presentation control.</li>
+          <li><strong>Cathie M.</strong> · QuickBooks · no monthly billing, WIP settles once at closing · blocker: the owner requires that profit is never visible in Buildertrend.</li>
+          <li><strong>Stephanie S.</strong> · bills exported to Excel, monthly invoice hand-built and attached to a QuickBooks invoice · cost plus · blocker: retainage on vendor bills, plus cross-job invoicing.</li>
+        </ul>
+        </details>
+      </section>
+
+      <section id="thread" class="study-section">
+        <h2>How one round led to the next</h2>
+        <p>
+          The Round 2 themes aren't new topics. Each one is a Round 1
+          topic that got sharper once builders had to pick a single
+          blocker.
+        </p>
+        <div class="study-callout">
+          <h4>Round 1 topic to Round 2 theme</h4>
+          <ul class="study-list">
+            <li><strong>Invoice presentation</strong> became <strong>Theme A</strong>. It stayed the most concrete and fixable, and the sharpening was that it's about control over disclosure, not one better format.</li>
+            <li><strong>Another system in place</strong> and <strong>Reporting</strong> became <strong>Theme B</strong>. "QuickBooks is the book of truth" turned into specifics: reporting depth, sync trust, immutability after sync and gaps like vendor retainage.</li>
+            <li><strong>Time to learn</strong> and <strong>Habit and comfort</strong> became <strong>Theme C</strong>. "No time to learn" became something designable: Buildertrend doesn't prompt the next billing step, and features that exist go undiscovered.</li>
+            <li><strong>Timing</strong> didn't survive. It was real for individual builders but not something we could design against.</li>
+          </ul>
+        </div>
+        <p>
+          Contract type added one more layer. Re-entering the estimate
+          by hand, being unable to edit after sync, and the missing
+          billing prompt came only from fixed-price builders, who have
+          a pre-agreed estimate and milestone to match. Open-book
+          builders raised bill detail and cost verification instead.
+          With nine builders, that's a pattern to test, not a rate.
+        </p>
+      </section>
+
+      <section id="ost" class="study-section">
+        <h2>From themes to an opportunity solution tree</h2>
+        <p>
+          The Round 2 themes told us what was wrong. They didn't tell
+          us what to build first. To get from one to the other I
+          mapped everything onto an opportunity solution tree, so every
+          idea had to trace back to something a builder actually said.
+        </p>
+        <div class="study-callout">
+          <h4>How to read the tree</h4>
+          <ul class="study-list">
+            <li><strong>Outcome:</strong> re-win 100 lapsed invoicing builders to create two or more invoices.</li>
+            <li><strong>Opportunity:</strong> "I can't invoice my client through Buildertrend without friction or distrust."</li>
+            <li><strong>Branches:</strong> seven sub-opportunities, each with its own builder quotes underneath.</li>
+            <li><strong>Leaves:</strong> the solutions and open questions the team raised for each quote, and a marker for whether we'd address it, needed to think harder about it, or would not.</li>
+          </ul>
+        </div>
+        <div class="study-image-wide">
+          <a href="./images/ost.png" target="_blank" rel="noopener">
+            <img src="./images/ost.png" alt="Opportunity solution tree. Outcome: re-win 100 lapsed invoicing builders. Seven branches of builder problems with quotes and solution ideas beneath." loading="lazy" />
+          </a>
+          <p class="study-caption">The full opportunity solution tree. Click to open at full size.</p>
+        </div>
+
+        <h3 class="study-subhead">The seven branches</h3>
+        <p>Open any branch to see the builder quotes and the ideas the team raised under it.</p>
+
+        <details class="study-callout">
+          <summary>1. Trust what syncs to my books</summary>
+          <div style="margin-top:16px;">
+          <p>"I can't trust that what BT pushes to my books is correct."</p>
+          <ul class="study-list">
+            <li>"I don't understand how Buildertrend maps to QuickBooks." Idea: help builders understand the integration without a full setup, compare and contrast cost codes from both systems, and add a quick in-app guide to show time to value.</li>
+            <li>"My invoice syncs to QuickBooks too early." We needed to validate when builders expect to sync. Sending currently does too many things at once: it makes the invoice visible, requests payment and sends to accounting.</li>
+            <li>"I don't understand the direction of the sync" and "I'm running into too many sync failures." Idea: identify the errors builders typically hit and write better language for getting out of them.</li>
+            <li>"Mistakes require deleting the invoice in QuickBooks." Idea: allow minor tweaks and resync, with a note that we'd have to work through whatever comes up to get to a true live sync.</li>
+            <li>"I want to use BT invoices, but my accounting system isn't integrated." Idea: a public API. The team flagged unknown effort and some history of hesitation to build one.</li>
+            <li>"It didn't sync to the correct account." Idea: detect when the builder is logged into a different QuickBooks account than the one Buildertrend is set to.</li>
+          </ul>
+          </div>
+        </details>
+
+        <details class="study-callout">
+          <summary>2. Unclear path to invoice</summary>
+          <div style="margin-top:16px;">
+          <p>"I do this once a month and can't re-find the path." Owners: Maxx and Cade.</p>
+          <ul class="study-list">
+            <li>"I have to jump between multiple screens to create an invoice." Idea: all invoiceable line items in one table, the different ways to create an invoice surfaced up front, and suggested items pulled in.</li>
+            <li>"I'm not always sure what kind of invoice I need." Ideas: ask at send to budget whether the builder wants a draw schedule or a payment schedule, hinge the invoice type on the proposal, allow a payment schedule after send to budget, auto-generate draft invoices, and make the invoice button dynamic.</li>
+            <li>"I want an end-to-end workflow walkthrough." The team asked whether builders are unaware of the tutorials or whether the tutorials are scattered and out of date.</li>
+            <li>"I can't tell which starting point leads to the invoice I need." Ideas: invoice directly from the budget for cost plus, view the invoice beside the budget, and pre-select a builder's most used type.</li>
+          </ul>
+          </div>
+        </details>
+
+        <details class="study-callout">
+          <summary>3. Too many steps to send an invoice</summary>
+          <div style="margin-top:16px;">
+          <p>"Getting to a sent invoice takes too many steps." Owners: Tracy and Trevor.</p>
+          <ul class="study-list">
+            <li>"Entering percent complete across line items is tedious." Bulk editing was looked at during a smash week and found complex but doable.</li>
+            <li>"I have to regroup the line items Buildertrend auto-adds before every send." Ideas: show the estimate description grouped by estimate group in the same order as the estimate, let builders sort line items, and stop consolidating cost code rows.</li>
+            <li>"I'd like to pay or review my invoice without saving."</li>
+            <li>"It's difficult to make sure non-billable costs aren't included." Idea: mark cost codes as non-invoiceable so the setting carries to line items.</li>
+            <li>"I have to add from many different cost areas." Idea: open the add-from options on one page.</li>
+            <li>Ideas to package or automate building the invoice, and a monthly job costing budget snapshot.</li>
+          </ul>
+          </div>
+        </details>
+
+        <details class="study-callout">
+          <summary>4. Invoice presentation control</summary>
+          <div style="margin-top:16px;">
+          <p>"What the client sees isn't right and I can't control it." Owners: Maxx and Tracy, started in Q4.</p>
+          <ul class="study-list">
+            <li>"I want the invoice to look like my estimate or proposal." Ideas: group line items by estimate group, and persist how the estimate was presented.</li>
+            <li>"I want to group by cost code and surface the estimate description." Ideas: surface and edit the estimate description, show it in the add-line-item modal, and collapse line items into divisions for the client view.</li>
+            <li>"I don't want my internal cost codes visible to the client." Ideas: hide cost code numbers, cleaner print layout, and column changes on the builder side that sync to the client preview.</li>
+            <li>"I want to bill a specific client and add multiple billing contacts." Idea: a billing entity field separate from the client name.</li>
+            <li>"When I create an invoice at month end I want attachments pulled in a specific order."</li>
+          </ul>
+          </div>
+        </details>
+
+        <details class="study-callout">
+          <summary>5. Go-to-market and education</summary>
+          <div style="margin-top:16px;">
+          <p>"I didn't know that this feature exists, or I'm hesitant to learn it with the time that I have."</p>
+          <ul class="study-list">
+            <li>"I create draws outside of Buildertrend because I didn't know it offers it." The same for AIA-style invoices. Idea: improve workflow discoverability for invoices.</li>
+            <li>"I don't have the time to learn how to use this." Ideas: make switching back look worth the time, reach out to users once their fix has shipped, record happy-path videos, and highlight perceived time savings such as not rebuilding every line item in accounting.</li>
+            <li>A gap noted along the way: no QuickBooks classes support for commercial versus private work.</li>
+          </ul>
+          </div>
+        </details>
+
+        <details class="study-callout">
+          <summary>6. Document trust and data loss</summary>
+          <div style="margin-top:16px;">
+          <p>"I can't trust the document survives operations."</p>
+          <ul class="study-list">
+            <li>"If the invoice is edited or deleted after I reconcile, it throws off my books." The team couldn't tell what builders were trying to do when that happened.</li>
+            <li>"I can correct small mistakes after my invoice has been sent to accounting." Idea: lock financial fields instead of locking everything, or resolve it with a true two-way sync.</li>
+          </ul>
+          </div>
+        </details>
+
+        <details class="study-callout">
+          <summary>7. Credit and underage leakage</summary>
+          <div style="margin-top:16px;">
+          <p>"Credits and underages leak onto the client invoice."</p>
+          <ul class="study-list">
+            <li>"Credits and underages shouldn't show up on what the client sees." The team pushed back: builders need some way to tell a client they are being charged more or less.</li>
+          </ul>
+          </div>
+        </details>
+        <p class="study-footnote">
+          Branches 6 and 7 are greyed out on the board. Branches 2, 3
+          and 5 are the ones highlighted as work we'd take on. Open
+          questions and counter-arguments stay on the tree on purpose.
+        </p>
+      </section>
+
+      <section id="problems" class="study-section">
+        <h2>Two problems, and the answers we picked</h2>
+        <p>
+          The highlighted branches collapse into two problems: an
+          unclear path to the invoice, and too many steps once you're
+          there. For each one we named what was behind it and the
+          first answer to try.
+        </p>
+
+        <h3 class="study-subhead">Problem 1: an unclear path</h3>
+        <ul class="study-list">
+          <li><strong>Builders don't know what already exists.</strong> Progress invoices and the payment schedule are there, but builders never found them and left without retrying. Many hand-build their own draw 1, draw 2, draw 3 invoices.</li>
+          <li><strong>Nothing guides them from budget to invoice.</strong> Training is split by task and doesn't show bid to invoice end to end, and Buildertrend never prompts when a draw is due.</li>
+          <li><strong>Habit and comfort.</strong> Moving invoicing into Buildertrend's structure is the real cost, so builders stay with what they know.</li>
+        </ul>
+        <div class="study-callout">
+          <h4>Our answer: enable the payment schedule after send to budget</h4>
+          <p style="margin-bottom:0;">
+            Builders create it right after they send the estimate to
+            budget, so the path from budget to invoice is visible
+            instead of hand-built. It also sets us up for the ideal
+            invoice workflow below.
+          </p>
+        </div>
+
+        <h3 class="study-subhead">Problem 2: too many steps</h3>
+        <ul class="study-list">
+          <li><strong>The invoice gets rebuilt by hand.</strong> It doesn't match the approved estimate, so builders retype it in Excel or QuickBooks. About half of invoices are typed with no link to an estimate, change order or bill.</li>
+          <li><strong>QuickBooks stays the system of record.</strong> The work is repeated there, and reporting like budget snapshots, WIP and monthly exports keeps builders in QuickBooks.</li>
+        </ul>
+        <div class="study-callout">
+          <h4>Our answer: autofill open-book invoices</h4>
+          <p style="margin-bottom:0;">
+            Invoices fill from the bills and costs already in
+            Buildertrend, so the builder reviews and sends instead of
+            retyping.
+          </p>
+        </div>
+        <p>
+          Each answer is a first step, not the whole fix. Choosing
+          them is what made the next two pieces of work possible:
+          mapping how invoicing works today, and sketching where it
+          should go.
+        </p>
+      </section>
+
+      <section id="hypothesis" class="study-section">
+        <h2>What we expected to happen</h2>
+        <p>
+          Before the payment schedule answer reached builders, I wrote
+          down what we expected and what we thought would go wrong.
+          Naming the likely failure up front is what pointed the next
+          pieces of work at presentation.
+        </p>
+        <div class="study-callout">
+          <h4>The plan</h4>
+          <p style="margin-bottom:0;">
+            The payment schedule is now available right after send to
+            budget. We expect payment schedule clicks to rise because
+            builders will find it naturally, without being told it
+            exists.
+          </p>
+        </div>
+        <div class="study-callout">
+          <h4>The hypothesis</h4>
+          <p style="margin-bottom:0;">
+            We'd like to see more usage, but we believe invoice
+            presentation will ultimately be the downfall. Today we pull
+            every estimate line item into the invoice. Builders need a
+            way to group it by estimate groups or by the proposal, so
+            they aren't sending out invoices with hundreds of line
+            items.
+          </p>
+        </div>
+        <p>
+          That hypothesis connects three things we'd already seen:
+          the "estimate groups, not cost categories" ask in Round 2,
+          the "regroup the line items before every send" quote on the
+          tree, and the fixed-price builders who type line items by
+          hand because the pulled-in version doesn't present well.
+          The discovery of the feature and the presentation of the
+          invoice are two halves of the same adoption problem.
+        </p>
+      </section>
+
+      <section id="current" class="study-section">
+        <h2>The current workflow</h2>
+        <p>
+          Before designing the answers I mapped how a builder gets from
+          an estimate to a paid invoice today, for fixed-price jobs and
+          open-book jobs, with every decision point and the questions
+          each one raises.
+        </p>
+        <div class="study-image-wide">
+          <a href="./images/invoice-workflow-mapping.png" target="_blank" rel="noopener">
+            <img src="./images/invoice-workflow-mapping.png" alt="Current invoice workflow map. Fixed price on top, open book below. Paths from create estimate and send to budget through choose invoice type, building out the invoice, adding costs from entities, review and markup, and save or send." loading="lazy" />
+          </a>
+          <p class="study-caption">The current invoice workflow, fixed price on top and open book below. Click to open at full size.</p>
+        </div>
+        <h3 class="study-subhead">What the map shows</h3>
+        <ul class="study-list">
+          <li><strong>Four ways in.</strong> After send to budget a builder can start a standard invoice, a progress invoice or a payment schedule. A draft invoice isn't visible to the client until it's sent.</li>
+          <li><strong>Fixed price builders type line items.</strong> They are manually typing in line items instead of pulling from the estimate, because of presentation. One builder with a payment schedule specifically chose not to use that feature for this reason.</li>
+          <li><strong>The add-from step is a hub.</strong> Estimates, change orders and selections all feed it. For open book, bills, time clock and QuickBooks costs join them. We asked whether all of those options need to live in one modal.</li>
+          <li><strong>Push or pull.</strong> Change orders and selections can be added to an invoice from their own page ("add to invoice"), but we didn't know how many builders push versus pull.</li>
+          <li><strong>Flat fee isn't the churn risk.</strong> Flat-fee invoices churn at about the same rate as sourced line items, around 15.6% versus 15.8%. The ones that churn most, at 19.2%, are invoices typed line by line with no source. That is a presentation problem: open-book builders want to show labor and materials a certain way.</li>
+          <li><strong>Upstream workflows can stop invoicing entirely.</strong> For example, bills and credit card credits not working as intended upstream.</li>
+        </ul>
+        <p class="study-footnote">
+          Customer quotes on the map: "What is different between the
+          progress invoice and the usual invoice? Is it something
+          different or almost the same?" and "I'm in a job and I have
+          invoices up here... so Buildertrend just launched a progress
+          invoice feature?"
+        </p>
+      </section>
+
+      <section id="market" class="study-section">
+        <h2>Market research: how other tools do it</h2>
+        <p>
+          Alongside the interviews I reviewed how other products create,
+          preview and send an invoice. Some are construction tools that
+          builders mention by name. Others are general invoicing and
+          payments products with strong flows worth borrowing from. For
+          each one I walked the flow, captured screens, and noted what
+          it does well and where it falls short.
+        </p>
+        <p class="study-footnote">
+          Products reviewed: JobTread, QuickBooks, Buildxact,
+          CoConstruct, Wave, bill.com, Ramp and Expensify.
+        </p>
+
+        <h3 class="study-subhead">Construction tools</h3>
+
+        <details class="study-callout">
+          <summary>JobTread</summary>
+          <div style="margin-top:16px;">
+          <ul class="study-list">
+            <li>Line items are grouped by phase. Builders can select phases to invoice and show group level only, or show progress amounts.</li>
+            <li>Builders show or hide items directly on the document, and can show fees. Open book invoices bills and time.</li>
+            <li>After pulling line items, the builder reviews the PDF view, edits and customizes it, previews the customer view, then sends.</li>
+            <li>A budget dashboard tracks invoiced amounts, and a documents list tracks invoices, bills and purchase orders together.</li>
+            <li>When creating a payment request the builder chooses the document type: deposit, bill or invoice.</li>
+          </ul>
+          <p style="margin-bottom:0;"><strong>Our read:</strong> intuitive for understanding job financials and for creating, customizing and sending an invoice. Concerns: the eye icon for hiding items is easy to miss, and that level of granularity may overwhelm builders, so a middle ground may be better. By comparison, Buildertrend builders can only select at the line item level.</p>
+          </div>
+        </details>
+
+        <details class="study-callout">
+          <summary>Buildxact</summary>
+          <div style="margin-top:16px;">
+          <ul class="study-list">
+            <li>The user selects a contract type and creates invoices by project stage, as a percentage of the contract amount. For example, 10% of the contract for the base stage.</li>
+            <li>Change orders can be added to an invoice.</li>
+            <li>Builders can edit the email template, preview the email, and save email presets so they don't retype the message.</li>
+            <li>A summary shows contract price, change order total, pending invoices, total invoiced so far and money received so far.</li>
+          </ul>
+          <p style="margin-bottom:0;"><strong>Our read:</strong> flows seamlessly from creating the invoice to sending it.</p>
+          </div>
+        </details>
+
+        <details class="study-callout">
+          <summary>CoConstruct</summary>
+          <div style="margin-top:16px;">
+          <ul class="study-list">
+            <li>Create a new invoice, or invoice from estimates or change orders, and choose who the invoice is shared with.</li>
+            <li>After creating, the invoice page becomes a PDF that's still editable. Payment history is attached at the bottom.</li>
+            <li>Builders can preview the invoice and view job finances.</li>
+          </ul>
+          <p style="margin-bottom:0;"><strong>Our read:</strong> simple and easy to understand, with a light interface. The downside is little customization of what the client receives.</p>
+          </div>
+        </details>
+
+        <h3 class="study-subhead">General invoicing and payments tools</h3>
+
+        <details class="study-callout">
+          <summary>QuickBooks</summary>
+          <div style="margin-top:16px;">
+          <ul class="study-list">
+            <li>Requesting payment is kept simple: you invoice someone, and that's it.</li>
+            <li>Builders create and customize the invoice on the same page, so what they see is what the customer sees. Style templates are set up from that one screen.</li>
+            <li>A "take a tour" walkthrough, tabs for different customer views, recurring invoices, and an organic way to sign up for online payments inside the invoice.</li>
+          </ul>
+          <p style="margin-bottom:0;"><strong>Our read:</strong> clear information hierarchy, with who you're sending to and the balance due at the top. The sticky bottom bar keeps the main actions reachable. Customization is mostly layout, not line item contents.</p>
+          </div>
+        </details>
+
+        <details class="study-callout">
+          <summary>Wave</summary>
+          <div style="margin-top:16px;">
+          <ul class="study-list">
+            <li>A "Launch Pad" gives a guided experience that is always available but never required.</li>
+            <li>Save and continue works as a draft state. A split button lets users save and send, or save and continue customizing.</li>
+            <li>The invoice PDF preview shows amount due and payment amount, in desktop and mobile customer views.</li>
+            <li>Builders can schedule a send, schedule recurring invoices, record payments manually and add customers on the fly.</li>
+            <li>An invoice can be edited even after it's paid. If the price increases, it's marked partially paid.</li>
+          </ul>
+          <p style="margin-bottom:0;"><strong>Our read:</strong> lots of good interactions to reference. The split button is something Buildertrend could use directly.</p>
+          </div>
+        </details>
+
+        <details class="study-callout">
+          <summary>bill.com</summary>
+          <div style="margin-top:16px;">
+          <ul class="study-list">
+            <li>Everything a user needs for a task lives in one flow. Customers and vendors can be added without leaving it.</li>
+            <li>Full previews of what the customer will receive, with changes allowed in the preview, so the user gets it right the first time.</li>
+            <li>An invoice timeline shows where the user is in the process and what's left.</li>
+          </ul>
+          <p style="margin-bottom:0;"><strong>Our read:</strong> a great model for keeping a user on track without navigation.</p>
+          </div>
+        </details>
+
+        <details class="study-callout">
+          <summary>Ramp</summary>
+          <div style="margin-top:16px;">
+          <ul class="study-list">
+            <li>A thorough walkthrough before account creation, with a checklist and the option to sign up after each section.</li>
+            <li>Invoices are scanned automatically, with a split screen showing the invoice beside the information pulled from it, so the user can confirm what they're paying.</li>
+          </ul>
+          <p style="margin-bottom:0;"><strong>Our read:</strong> breaking information into clear steps keeps the user focused. The split-screen verification is directly relevant to autofill, where builders told us they can't tell what was pulled in.</p>
+          </div>
+        </details>
+
+        <details class="study-callout">
+          <summary>Expensify</summary>
+          <div style="margin-top:16px;">
+          <ul class="study-list">
+            <li>A simple flow: create an invoice, click to add any expenses, then send for payment.</li>
+            <li>An option includes receipt images in a PDF attached to the invoice.</li>
+          </ul>
+          <p style="margin-bottom:0;"><strong>Our read:</strong> a light way to attach cost backup to an invoice.</p>
+          </div>
+        </details>
+
+        <h3 class="study-subhead">Patterns worth taking</h3>
+        <ul class="study-list">
+          <li><strong>Customize and preview in one place.</strong> QuickBooks, bill.com, Wave and JobTread all let the user shape the invoice while seeing what the client sees.</li>
+          <li><strong>Control at the group level.</strong> JobTread's group-level view and show or hide on the document go straight at the "too much detail" blocker from Round 2.</li>
+          <li><strong>Save and continue.</strong> Wave's split button separates sending from continuing to customize.</li>
+          <li><strong>Verify what was pulled in.</strong> Ramp's split screen shows the source beside the extracted data.</li>
+          <li><strong>Guided onboarding that isn't a gate.</strong> QuickBooks' tour, Wave's Launch Pad and Ramp's walkthrough all educate without blocking.</li>
+          <li><strong>Payments where the invoice is.</strong> QuickBooks and Wave let builders sign up for online payments from inside the invoice instead of in settings.</li>
+        </ul>
+        <div class="study-callout">
+          <h4>Open questions from the research</h4>
+          <p style="margin-bottom:0;">
+            Is there any evidence that builders skip Buildertrend
+            invoices because they want clients to pay through QuickBooks
+            Online? The research hints at it but we haven't tested it.
+            And how fine should presentation control get before it
+            overwhelms the builder?
+          </p>
+        </div>
+      </section>
+
+      <section id="ideal" class="study-section">
+        <h2>The ideal workflow</h2>
+        <p>
+          With the current flow mapped, I sketched where it should go.
+          The board labels this a start toward the desired direction,
+          and it is still changing.
+        </p>
+        <div class="study-image-wide">
+          <a href="./images/ideal-workflow.png" target="_blank" rel="noopener">
+            <img src="./images/ideal-workflow.png" alt="Ideal invoice workflow for fixed price and open book. Paths from create estimate and send to budget through choose invoice type, autofill with completed scope, add from, customize preview, and save or send." loading="lazy" />
+          </a>
+          <p class="study-caption">The ideal invoice workflow, work in progress. Click to open at full size.</p>
+        </div>
+        <h3 class="study-subhead">The two questions it's built around</h3>
+        <ul class="study-list">
+          <li>How might we make the path to invoicing clearer?</li>
+          <li>How might we reduce the steps to invoicing?</li>
+        </ul>
+        <h3 class="study-subhead">What changes from today</h3>
+        <ul class="study-list">
+          <li><strong>The path starts earlier.</strong> The payment schedule is created at or after send to budget, and builders can link an estimate group to a schedule item. Marking a schedule item complete can autofill the invoice with completed scope.</li>
+          <li><strong>Choosing the type is guided.</strong> The invoice page asks what type of invoice, instead of presenting a menu to decode.</li>
+          <li><strong>One place to build and customize.</strong> We want builders to see the invoice they build and customize it in one place: add from, review and adjust markup, customize the preview, then save or send.</li>
+          <li><strong>Open book gets its own inputs.</strong> Autofill or add from, with costs (bills, time clock, QuickBooks costs) alongside estimates, change orders and selections.</li>
+          <li><strong>Progress invoices stay AIA-style.</strong> The continuation sheet autofills from the schedule of values, builders enter percent or dollars complete this period, and optional contractor and architect certification routes approval.</li>
+        </ul>
+        <h3 class="study-subhead">Questions still open on the map</h3>
+        <ul class="study-list">
+          <li>Should builders be able to push line items, or do they always go to the invoice to pull? How many do each?</li>
+          <li>Do all the add-from options need to be in one modal?</li>
+          <li>How much of fixed-price invoicing can we automate, and at what point can we auto-generate invoices for the builder?</li>
+          <li>Why are builders entering flat-fee invoices at all, and what would removing it affect?</li>
+          <li>Should open-book builders be able to pull in estimate costs, and create a payment schedule for progress invoices?</li>
+          <li>Can the autofill banner be reused on progress invoices?</li>
+          <li>The accounts payable work on another team connects here.</li>
+        </ul>
+      </section>
+
+      <section id="autofill" class="study-section">
+        <h2>Autofill: what builders said</h2>
+        <p>
+          Autofill for open-book invoices was the first answer to
+          Problem 2 to reach builders. We went in to learn five things.
+        </p>
+        <div class="study-callout">
+          <h4>What we hoped to learn</h4>
+          <ul class="study-list">
+            <li><strong>Usefulness.</strong> Has autofill made creating invoices easier or faster?</li>
+            <li><strong>Accuracy.</strong> Is it pulling in the costs as expected, adding anything unwanted or leaving anything out?</li>
+            <li><strong>Reviewing.</strong> Is it easy to review what autofill added and check the invoice before sending?</li>
+            <li><strong>Control.</strong> Do builders want more control over what it pulls, such as a date range or types of costs?</li>
+            <li><strong>Improvements.</strong> What would make it more useful?</li>
+          </ul>
+        </div>
+        <h3 class="study-subhead">What we learned</h3>
+        <ul class="study-list">
+          <li><strong>Reconciling is still hard.</strong> Once costs are on the invoice, it's difficult to reconcile what's being invoiced, so autofill didn't make invoicing much easier or faster.</li>
+          <li><strong>There's no way to withhold costs.</strong> Builders can't exclude specific costs from ever being invoiced, so autofill isn't pulling the most accurate items.</li>
+          <li><strong>Presentation is a chicken-and-egg problem.</strong> Open-book invoice presentation doesn't meet expectations yet, so builders don't see why they'd use autofill.</li>
+          <li><strong>Trust is the cost.</strong> Builders don't fully trust autofill because it doesn't pull all the correct items. They double-check the invoice and spend time hunting for what hasn't been added.</li>
+        </ul>
+        <h3 class="study-subhead">What it means</h3>
+        <ul class="study-list">
+          <li>Builders need to exclude certain line items and set constraints.</li>
+          <li>They need better naming conventions and presentation.</li>
+          <li>They need a better way to reconcile costs, with what's been pulled in and what hasn't easy to see.</li>
+          <li>They need visibility into why certain line items aren't pulled in.</li>
+          <li>Better invoice presentation is a precondition. Without it builders won't want autofill, and we'd have to be smart enough to exclude certain costs.</li>
+          <li>Follow up with interviews to learn more about their process.</li>
+        </ul>
+        <div class="study-callout">
+          <h4>Where this loops back</h4>
+          <p style="margin-bottom:0;">
+            The autofill findings point straight back at branches of the
+            tree: presentation control, non-invoiceable cost codes, and
+            trust in what ends up on the invoice. The answer to
+            Problem 2 can't ship ahead of the presentation work it
+            depends on.
+          </p>
+        </div>
+      </section>
+
+      <section id="decisions" class="study-section">
+        <h2>What it changes</h2>
+        <p>
+          Each decision follows from the step before it. The order is
+          the argument.
+        </p>
+        <ol class="study-list">
+          <li>
+            <strong>Presentation control comes first.</strong> It was
+            the most concrete topic in Round 1, the first theme in
+            Round 2, the hypothesis for what would break the payment
+            schedule launch, and what the market research pointed to:
+            the tools builders trust let them shape the invoice and see
+            the client's view in one place. Builder-controlled
+            disclosure and client preview lead the roadmap.
+          </li>
+          <li>
+            <strong>Make the path visible.</strong> Builders who
+            "didn't know it existed" appeared in both rounds, and
+            "unclear path" was the first branch on the tree. The first
+            answer is the payment schedule right after send to budget,
+            which also seeds the ideal workflow.
+          </li>
+          <li>
+            <strong>Autofill waits on presentation and control.</strong>
+            Filling an invoice from bills answers rebuilding it by
+            hand, but builders won't trust it until they can see what
+            it pulled in, exclude what they never bill, and present the
+            result the way they present the estimate.
+          </li>
+          <li>
+            <strong>Fix the edit-after-sync rule.</strong> A synced
+            invoice that can only be deleted and rebuilt teaches
+            builders to stay in QuickBooks, regardless of invoice type.
+          </li>
+          <li>
+            <strong>Reach the person who decides.</strong> Some builders
+            never reach the invoice screen because setup was never
+            finished, and some can't act because the owner already
+            chose. The research and the design both have to start
+            earlier and reach further than the invoice.
+          </li>
+        </ol>
+        <div class="study-callout">
+          <h4>Related work</h4>
+          <p style="margin-bottom:0;">
+            The invoice work that led here is in
+            <a href="../frictionless-invoicing/">Frictionless Invoicing</a>.
+            The selections side of the same billing story is in
+            <a href="../selections/">Selections Reimagined</a>.
+          </p>
+        </div>
+      </section>
+
+      <section id="next" class="study-section">
+        <h2>What's next</h2>
+        <ul class="study-list">
+          <li><strong>Prototype builder-controlled disclosure</strong> on the client invoice and test it with the builders who raised Theme A.</li>
+          <li><strong>Learn from the payment schedule launch.</strong> Check whether discovery rises as expected and whether presentation is where it stalls.</li>
+          <li><strong>Follow up on autofill</strong> with interviews about how builders reconcile, exclude and present costs.</li>
+          <li><strong>Scope edit-after-sync</strong>: when a synced invoice can safely be recalled, and what has to be true in accounting first.</li>
+          <li><strong>Keep the adoption question running</strong> with builders who invoice outside Buildertrend, including the owner where it isn't the same person.</li>
+        </ul>
+      </section>
+
+      <section id="reflection" class="study-section">
+        <h2>Reflection</h2>
+        <ul class="study-list">
+          <li>
+            <strong>Ask the adoption question earlier.</strong>
+            Round 1 listed feature gaps. Round 2, reframed around why
+            builders stay in their current tool and what would move
+            them, gave a clearer picture of what is actually blocking
+            adoption. Next time I'd start there.
+          </li>
+          <li>
+            <strong>Talk to the person who owns the decision.</strong>
+            Several builders could describe their blocker clearly and
+            still couldn't act on it. Next time I'd recruit the owner
+            alongside the person who builds the invoice.
+          </li>
+          <li>
+            <strong>Make people pick one.</strong> Round 1 let every
+            complaint count. Asking each builder for a single blocker
+            in Round 2 is what produced a ranking we could use.
+          </li>
+        </ul>
+      </section>
+    </article>
+
+    <footer class="site-footer">
+      <p>Designed by Amy Li · Buildertrend</p>
+      <p><a href="../../">← Back to all work</a></p>
+    </footer>
+  </body>
+</html>
